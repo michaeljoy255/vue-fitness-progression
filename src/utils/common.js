@@ -29,6 +29,6 @@ export const isObject = (obj) => {
   return obj !== null && typeof obj === 'object'
 }
 
-export const isExerciseContainer(container) {
+export const isExerciseContainer = (container) => {
   return container instanceof ExerciseContainer
 }
