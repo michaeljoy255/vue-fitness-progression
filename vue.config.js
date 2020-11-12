@@ -1,4 +1,4 @@
 module.exports = {
   transpileDependencies: ['vuetify'],
-  publicPath: '/vue-fitness-progression/',
+  publicPath: '', // Required for deploy script to gh-pages
 }
