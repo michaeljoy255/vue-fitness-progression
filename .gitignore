@@ -1,4 +1,9 @@
+# OS files
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Build and Dev files
 node_modules
 /dist
 
