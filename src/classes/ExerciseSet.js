@@ -1,17 +1,13 @@
-import _Id from './_Id.js'
-
 /**
- * 
+ *
  */
-export default class ExerciseSet extends _Id {
+export default class ExerciseSet {
   constructor({
-    id = null,
     weight = null,
     reps = null,
     duration = null,
     distance = null,
   } = {}) {
-    super({ id })
     this._weight = weight
     this._reps = reps
     this._duration = duration
