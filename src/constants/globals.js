@@ -34,7 +34,6 @@ export const INPUT_TYPE = Object.freeze({
   distance: 'Distance',
 })
 
-/*
 export const ICON = Object.freeze({
   none: '',
   weight: 'fitness_center',
@@ -43,4 +42,35 @@ export const ICON = Object.freeze({
   distance: 'place',
   sets: 'list',
 })
-*/
+
+function concatStringToObjectProperties(object, string) {
+  const alteredEntries = Object.entries(object).map((entry) => {
+    entry[1] = entry[1] + string
+    return entry
+  })
+
+  return Object.fromEntries(alteredEntries)
+}
+
+export const LAYOUT = Object.freeze(
+  concatStringToObjectProperties(
+    {
+      default: 'Default',
+      workout: 'Workout',
+    },
+    'Layout'
+  )
+)
+
+export const VIEW = Object.freeze(
+  concatStringToObjectProperties(
+    {
+      home: 'Home',
+    },
+    'View'
+  )
+)
+
+export const COMPONENT = Object.freeze({
+  app: 'App',
+})

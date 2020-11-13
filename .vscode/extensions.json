@@ -1,7 +1,4 @@
 {
-  // Some settings from vue-enterprise-boilerplate:
-  // https://github.com/chrisvfritz/vue-enterprise-boilerplate
-
   // See http://go.microsoft.com/fwlink/?LinkId=827846
   // for the documentation about the extensions.json format
   "recommendations": [
