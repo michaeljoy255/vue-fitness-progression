@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { VIEW } from '../constants/globals'
+import { LAYOUT, VIEW } from '../constants/globals'
 
 Vue.use(VueRouter)
 
@@ -17,6 +17,7 @@ const routes = [
   {
     path: '/active-workout/:id',
     name: VIEW.activeWorkout,
+    meta: { layout: LAYOUT.workout },
     component: () => import('../views/ActiveWorkout.vue'),
   },
   {

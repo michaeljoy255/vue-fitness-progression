@@ -43,37 +43,29 @@ export const ICON = Object.freeze({
   sets: 'list',
 })
 
-function concatStringToObjectProperties(object, string) {
-  const alteredEntries = Object.entries(object).map((entry) => {
-    entry[1] = entry[1] + string
-    return entry
-  })
+const layout = 'Layout'
 
-  return Object.fromEntries(alteredEntries)
-}
+export const LAYOUT = Object.freeze({
+  default: 'Default' + layout,
+  workout: 'Workout' + layout,
+})
 
-export const LAYOUT = Object.freeze(
-  concatStringToObjectProperties(
-    {
-      default: 'Default',
-      workout: 'Workout',
-    },
-    'Layout'
-  )
-)
+const view = 'View'
 
-export const VIEW = Object.freeze(
-  concatStringToObjectProperties(
-    {
-      test: 'Test',
-      notFound: 'NotFound',
-      dashboard: 'Dashboard',
-      activeWorkout: 'ActiveWorkout',
-    },
-    'View'
-  )
-)
+export const VIEW = Object.freeze({
+  test: 'Test' + view,
+  notFound: 'NotFound' + view,
+  dashboard: 'Dashboard' + view,
+  activeWorkout: 'ActiveWorkout' + view,
+})
 
 export const COMPONENT = Object.freeze({
   app: 'App',
+  defaultAppBar: 'DefaultAppBar',
+  workoutAppBar: 'WorkoutAppBar',
+  dashboardRecommendations: 'DashboardRecommendations',
+  dashboardWorkouts: 'DashboardWorkouts',
+  defaultsCard: 'DefaultsCard',
+  workoutCard: 'WorkoutCard',
+  resumeCard: 'ResumeCard',
 })

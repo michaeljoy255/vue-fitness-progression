@@ -6,11 +6,8 @@
 - Views
   - Build out core View designs (based on old app)
 - Components
-  - DefaultHeader
-  - ActiveWorkoutHeader
-  - Date and timer components?
-- Updates
-  - DefaultLayout with DefaultHeader
+  - Finalize DefaultAppBar and WorkoutAppBar
+  - Date and timer components / functions?
 
 ## Customize configuration
 

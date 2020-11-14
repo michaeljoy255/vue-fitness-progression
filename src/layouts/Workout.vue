@@ -1,19 +1,19 @@
 <script>
 import { LAYOUT } from '../constants/globals.js'
-import DefaultAppBar from '../components/DefaultAppBar.vue'
+import WorkoutAppBar from '../components/WorkoutAppBar.vue'
 
 export default {
-  name: LAYOUT.default,
+  name: LAYOUT.workout,
 
   components: {
-    DefaultAppBar,
+    WorkoutAppBar,
   },
 }
 </script>
 
 <template>
   <div>
-    <DefaultAppBar />
+    <WorkoutAppBar />
     <v-main>
       <slot />
     </v-main>
