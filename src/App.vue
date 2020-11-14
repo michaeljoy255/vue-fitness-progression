@@ -1,11 +1,3 @@
-<template>
-  <v-app>
-    <component :is="layout">
-      <router-view />
-    </component>
-  </v-app>
-</template>
-
 <script>
 import { COMPONENT, LAYOUT } from './constants/globals'
 
@@ -19,3 +11,11 @@ export default {
   },
 }
 </script>
+
+<template>
+  <v-app>
+    <component :is="layout">
+      <router-view />
+    </component>
+  </v-app>
+</template>

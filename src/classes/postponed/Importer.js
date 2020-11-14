@@ -1,10 +1,8 @@
 /**
- * 
+ *
  */
 export default class Importer {
-  constructor({
-    fitnessData = null,
-  } = {}) {
+  constructor({ fitnessData = null } = {}) {
     this._fitnessData = fitnessData
   }
 }

@@ -2,7 +2,7 @@ import _Record from './_Record.js'
 // import ExerciseSets
 
 /**
- * 
+ *
  */
 export default class ExerciseRecord extends _Record {
   constructor({
@@ -30,6 +30,6 @@ export default class ExerciseRecord extends _Record {
   }
 
   set exerciseId(exerciseId) {
-    this._exerciseId =exerciseId
+    this._exerciseId = exerciseId
   }
 }

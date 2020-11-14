@@ -1,7 +1,7 @@
 import _Record from './_Record.js'
 
 /**
- * 
+ *
  */
 export default class MeasurementRecord extends _Record {
   constructor({

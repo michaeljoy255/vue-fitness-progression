@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 export default class _IdContainer {
   constructor({ items = [] } = {}) {

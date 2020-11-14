@@ -31,7 +31,9 @@ export default class DefaultsGenerator {
   }
 
   _initExerciseContainer() {
-    return Object.values(DEFAULT_EXERCISE).map((exercise) => this._initExercise(exercise))
+    return Object.values(DEFAULT_EXERCISE).map((exercise) =>
+      this._initExercise(exercise)
+    )
   }
 
   _initExercise(exercise) {
@@ -47,10 +49,13 @@ export default class DefaultsGenerator {
   }
 
   _initExerciseInputs(inputs) {
-    return inputs.map((input) => new ExerciseInput({
-      inputType: input.inputType,
-      hint: input.hint
-    }))
+    return inputs.map(
+      (input) =>
+        new ExerciseInput({
+          inputType: input.inputType,
+          hint: input.hint,
+        })
+    )
   }
 
   _initWorkoutContainer() {
@@ -86,9 +91,18 @@ export default class DefaultsGenerator {
   _initChest1() {
     return [
       this._getExerciseByNameAndEquipment('Warm-up', DEFAULT_EQUIPMENT.none),
-      this._getExerciseByNameAndEquipment('Bench Press', DEFAULT_EQUIPMENT.barbell),
-      this._getExerciseByNameAndEquipment('Incline Bench Press', DEFAULT_EQUIPMENT.barbell),
-      this._getExerciseByNameAndEquipment('Decline Bench Press', DEFAULT_EQUIPMENT.barbell),
+      this._getExerciseByNameAndEquipment(
+        'Bench Press',
+        DEFAULT_EQUIPMENT.barbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Incline Bench Press',
+        DEFAULT_EQUIPMENT.barbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Decline Bench Press',
+        DEFAULT_EQUIPMENT.barbell
+      ),
       this._getExerciseByNameAndEquipment('Cool-down', DEFAULT_EQUIPMENT.none),
       this._getExerciseByNameAndEquipment('Stretching', DEFAULT_EQUIPMENT.none),
     ]
@@ -97,9 +111,18 @@ export default class DefaultsGenerator {
   _initBack1() {
     return [
       this._getExerciseByNameAndEquipment('Warm-up', DEFAULT_EQUIPMENT.none),
-      this._getExerciseByNameAndEquipment('Bent Over Rows', DEFAULT_EQUIPMENT.barbell),
-      this._getExerciseByNameAndEquipment('Stiff Leg Deadlift', DEFAULT_EQUIPMENT.barbell),
-      this._getExerciseByNameAndEquipment('Bent Over Back Flyes', DEFAULT_EQUIPMENT.dumbbell),
+      this._getExerciseByNameAndEquipment(
+        'Bent Over Rows',
+        DEFAULT_EQUIPMENT.barbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Stiff Leg Deadlift',
+        DEFAULT_EQUIPMENT.barbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Bent Over Back Flyes',
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
       this._getExerciseByNameAndEquipment('Cool-down', DEFAULT_EQUIPMENT.none),
       this._getExerciseByNameAndEquipment('Stretching', DEFAULT_EQUIPMENT.none),
     ]
@@ -108,8 +131,14 @@ export default class DefaultsGenerator {
   _initLegs1() {
     return [
       this._getExerciseByNameAndEquipment('Warm-up', DEFAULT_EQUIPMENT.none),
-      this._getExerciseByNameAndEquipment('Leg Curls', DEFAULT_EQUIPMENT.weightMachine),
-      this._getExerciseByNameAndEquipment('Leg Extensions', DEFAULT_EQUIPMENT.weightMachine),
+      this._getExerciseByNameAndEquipment(
+        'Leg Curls',
+        DEFAULT_EQUIPMENT.weightMachine
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Leg Extensions',
+        DEFAULT_EQUIPMENT.weightMachine
+      ),
       this._getExerciseByNameAndEquipment('Squats', DEFAULT_EQUIPMENT.barbell),
       this._getExerciseByNameAndEquipment('Cool-down', DEFAULT_EQUIPMENT.none),
       this._getExerciseByNameAndEquipment('Stretching', DEFAULT_EQUIPMENT.none),
@@ -119,11 +148,26 @@ export default class DefaultsGenerator {
   _initArmsAndShoulders1() {
     return [
       this._getExerciseByNameAndEquipment('Warm-up', DEFAULT_EQUIPMENT.none),
-      this._getExerciseByNameAndEquipment('Underhand Bicep Curls', DEFAULT_EQUIPMENT.dumbbell),
-      this._getExerciseByNameAndEquipment('Tricep Pulldowns', DEFAULT_EQUIPMENT.cableMachine),
-      this._getExerciseByNameAndEquipment('Front Arm Raises', DEFAULT_EQUIPMENT.dumbbell),
-      this._getExerciseByNameAndEquipment('Side Arm Raises', DEFAULT_EQUIPMENT.dumbbell),
-      this._getExerciseByNameAndEquipment('Diagonal Arm Raises', DEFAULT_EQUIPMENT.dumbbell),
+      this._getExerciseByNameAndEquipment(
+        'Underhand Bicep Curls',
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Tricep Pulldowns',
+        DEFAULT_EQUIPMENT.cableMachine
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Front Arm Raises',
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Side Arm Raises',
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Diagonal Arm Raises',
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
       this._getExerciseByNameAndEquipment('Shrugs', DEFAULT_EQUIPMENT.barbell),
       this._getExerciseByNameAndEquipment('Cool-down', DEFAULT_EQUIPMENT.none),
       this._getExerciseByNameAndEquipment('Stretching', DEFAULT_EQUIPMENT.none),
@@ -133,11 +177,26 @@ export default class DefaultsGenerator {
   _initCore1() {
     return [
       this._getExerciseByNameAndEquipment('Warm-up', DEFAULT_EQUIPMENT.none),
-      this._getExerciseByNameAndEquipment('Abdominal Crunch', DEFAULT_EQUIPMENT.cableMachine),
-      this._getExerciseByNameAndEquipment('Russian Twist', DEFAULT_EQUIPMENT.dumbbell),
-      this._getExerciseByNameAndEquipment('Alternating Torso Twist', DEFAULT_EQUIPMENT.cableMachine),
-      this._getExerciseByNameAndEquipment('Oblique Side Bends', DEFAULT_EQUIPMENT.dumbbell),
-      this._getExerciseByNameAndEquipment('Farmer\'s Walk', DEFAULT_EQUIPMENT.dumbbell),
+      this._getExerciseByNameAndEquipment(
+        'Abdominal Crunch',
+        DEFAULT_EQUIPMENT.cableMachine
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Russian Twist',
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Alternating Torso Twist',
+        DEFAULT_EQUIPMENT.cableMachine
+      ),
+      this._getExerciseByNameAndEquipment(
+        'Oblique Side Bends',
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
+      this._getExerciseByNameAndEquipment(
+        "Farmer's Walk",
+        DEFAULT_EQUIPMENT.dumbbell
+      ),
       this._getExerciseByNameAndEquipment('Cool-down', DEFAULT_EQUIPMENT.none),
       this._getExerciseByNameAndEquipment('Stretching', DEFAULT_EQUIPMENT.none),
     ]
@@ -145,7 +204,7 @@ export default class DefaultsGenerator {
 
   _getExerciseByNameAndEquipment(name, equipment) {
     const exercises = new ExerciseContainer({
-      items: this._exercises.findByName(name)
+      items: this._exercises.findByName(name),
     })
     exercises.items = exercises.findByEquipment(equipment)
     return exercises.items[0] // Only return the first element
@@ -158,10 +217,14 @@ export default class DefaultsGenerator {
       workouts: this._workouts,
     }
 
-    fs.writeFile('fitness-defaults-export.json', JSON.stringify(jsonFileData), (err) => {
-      if (err) {
-        throw err;
+    fs.writeFile(
+      'fitness-defaults-export.json',
+      JSON.stringify(jsonFileData),
+      (err) => {
+        if (err) {
+          throw err
+        }
       }
-    })
+    )
   }
 }

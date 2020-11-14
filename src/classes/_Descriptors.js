@@ -1,7 +1,7 @@
 import _Id from './_Id.js'
 
 /**
- * 
+ *
  */
 export default class _Descriptors extends _Id {
   constructor({

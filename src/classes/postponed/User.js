@@ -1,7 +1,7 @@
 import _Id from '../_Id.js'
 
 /**
- * 
+ *
  */
 export default class User extends _Id {
   constructor({
@@ -39,7 +39,7 @@ export default class User extends _Id {
   set height(height) {
     this._height = height
   }
-  
+
   export() {
     return {}
   }

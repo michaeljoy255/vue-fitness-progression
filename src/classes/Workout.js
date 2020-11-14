@@ -2,7 +2,7 @@ import _Descriptors from './_Descriptors.js'
 import ExerciseContainer from './ExerciseContainer.js'
 
 /**
- * 
+ *
  */
 export default class Workout extends _Descriptors {
   constructor({

@@ -65,7 +65,10 @@ export const LAYOUT = Object.freeze(
 export const VIEW = Object.freeze(
   concatStringToObjectProperties(
     {
-      home: 'Home',
+      test: 'Test',
+      notFound: 'NotFound',
+      dashboard: 'Dashboard',
+      activeWorkout: 'ActiveWorkout',
     },
     'View'
   )

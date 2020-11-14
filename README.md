@@ -2,7 +2,7 @@
 
 ## Todos / Tasks
 
-- Initial and placeholder tests
+- Initial and placeholder tests for classes and more
 - Views
   - /dashboard
   - /active-workout/:id

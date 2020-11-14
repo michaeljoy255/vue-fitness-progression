@@ -7,14 +7,31 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: VIEW.home,
-    component: () => import('../views/Home.vue'),
+    redirect: '/dashboard',
+  },
+  {
+    path: '/dashboard',
+    name: VIEW.dashboard,
+    component: () => import('../views/Dashboard.vue'),
+  },
+  {
+    path: '/active-workout/:id',
+    name: VIEW.activeWorkout,
+    component: () => import('../views/ActiveWorkout.vue'),
+  },
+  {
+    path: '/test',
+    name: VIEW.test,
+    component: () => import('../views/Test.vue'),
+  },
+  {
+    path: '*', // 404
+    name: VIEW.notFound,
+    component: () => import('../views/NotFound.vue'),
   },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes,
 })
 

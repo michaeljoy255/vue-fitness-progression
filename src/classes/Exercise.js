@@ -1,9 +1,8 @@
-
 import _Descriptors from './_Descriptors.js'
 import { DEFAULT_CATEGORY, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
 
 /**
- * 
+ *
  */
 export default class Exercise extends _Descriptors {
   constructor({

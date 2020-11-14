@@ -1,7 +1,7 @@
 import _Record from './_Record.js'
 
 /**
- * 
+ *
  */
 export default class WorkoutRecord extends _Record {
   constructor({
