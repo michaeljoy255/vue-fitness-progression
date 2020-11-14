@@ -1,10 +1,10 @@
 import ExerciseContainer from '../classes/ExerciseContainer.js'
 
-export const isDef = (value) => {
+export const isUndef = (value) => {
   return value === undefined || value === null
 }
 
-export const isUndef = (value) => {
+export const isDef = (value) => {
   return value !== undefined && value !== null
 }
 

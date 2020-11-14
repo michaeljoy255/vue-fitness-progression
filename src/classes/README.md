@@ -70,3 +70,16 @@
   measurementRecords: [],
 }
 ```
+
+## Storage Adapters
+
+- Use CRUD interface
+
+```javascript
+const ADAPTERS = Object.freeze({
+  sessionStorage: 'Session Storage',
+  localStorage: 'Local Storage',
+  indexedDB: 'Indexed DB',
+  firebase: 'Firebase',
+})
+```

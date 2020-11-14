@@ -4,10 +4,7 @@
 
 - Initial and placeholder tests for classes and more
 - Views
-  - /dashboard
-  - /active-workout/:id
-  - /test (for defaults testing and more)
-  - /404
+  - Build out core View designs (based on old app)
 - Components
   - DefaultHeader
   - ActiveWorkoutHeader
