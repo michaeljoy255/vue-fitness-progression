@@ -6,7 +6,7 @@ export default {
 
   data() {
     return {
-      date: new Date().toLocaleDateString(),
+      date: new Date().toDateString(),
     }
   },
 }

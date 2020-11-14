@@ -1,5 +1,3 @@
-// import Exporter from './Exporter.js'
-import fs from 'fs'
 import ExerciseContainer from './ExerciseContainer.js'
 import Exercise from './Exercise.js'
 import WorkoutContainer from './WorkoutContainer.js'
@@ -7,9 +5,6 @@ import Workout from './Workout.js'
 import ExerciseInput from './ExerciseInput.js'
 import { DEFAULT_EXERCISE, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
 
-/**
- * Postponed: extends Exporter
- */
 export default class DefaultsGenerator {
   constructor() {
     this._exercises = new ExerciseContainer()
@@ -208,23 +203,5 @@ export default class DefaultsGenerator {
     })
     exercises.items = exercises.findByEquipment(equipment)
     return exercises.items[0] // Only return the first element
-  }
-
-  // Remove: Use Exporter method instead
-  createJsonFile() {
-    const jsonFileData = {
-      exercises: this._exercises,
-      workouts: this._workouts,
-    }
-
-    fs.writeFile(
-      'fitness-defaults-export.json',
-      JSON.stringify(jsonFileData),
-      (err) => {
-        if (err) {
-          throw err
-        }
-      }
-    )
   }
 }

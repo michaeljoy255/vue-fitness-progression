@@ -1,8 +1,19 @@
 <script>
 import { COMPONENT } from '../constants/globals.js'
+import StaticTimer from '../components/StaticTimer.vue'
 
 export default {
   name: COMPONENT.workoutCard,
+
+  components: {
+    StaticTimer,
+  },
+
+  methods: {
+    getPreviousDate() {
+      return new Date().toDateString()
+    },
+  },
 }
 </script>
 
@@ -11,9 +22,13 @@ export default {
     <v-card>
       <v-card-title>Workout Name</v-card-title>
 
-      <v-card-subtitle>Previous Date</v-card-subtitle>
+      <v-card-subtitle>
+        Previously completed on {{ getPreviousDate() }}
+      </v-card-subtitle>
 
-      <v-card-text>Timer -:-:-</v-card-text>
+      <v-card-text>
+        <StaticTimer />
+      </v-card-text>
 
       <v-card-actions>
         <v-container>

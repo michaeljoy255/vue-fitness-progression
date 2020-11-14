@@ -2,16 +2,16 @@
 
 ## Database (Firebase, IndexedDB, Local Storage, etc.)
 
-- users
+- users **(postponed)**
 - exercises
 - workouts
-- measurementRecords
+- measurementRecords **(postponed)**
 - exerciseRecords
 - workoutRecords
 
 ## Active Data (Local Storage)
 
-- activeWorkout
+- activeWorkoutRecord
 - activeExerciseRecords
 
 ## App Store (Vuex, Redux, etc.)

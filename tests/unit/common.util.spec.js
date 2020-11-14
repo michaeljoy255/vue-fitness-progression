@@ -1,4 +1,4 @@
-import * as CommonUtils from '../../src/utils/common.js'
+import * as CommonUtils from '../../src/utils/common.util.js'
 
 describe('Utils > common.js', () => {
   it('isUndef with defined value, returns false', () => {

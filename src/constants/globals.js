@@ -68,4 +68,5 @@ export const COMPONENT = Object.freeze({
   defaultsCard: 'DefaultsCard',
   workoutCard: 'WorkoutCard',
   resumeCard: 'ResumeCard',
+  staticTimer: 'StaticTimer',
 })

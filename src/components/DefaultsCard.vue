@@ -12,8 +12,7 @@ export default {
       <v-card-title>No Workouts Found</v-card-title>
 
       <v-card-subtitle>
-        Would you like to prefill the app with default exercises and workouts to
-        start?
+        Would you like to prefill the app with default exercises and workouts?
       </v-card-subtitle>
 
       <v-card-actions>
