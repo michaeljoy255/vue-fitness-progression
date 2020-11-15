@@ -1,21 +1,21 @@
 <script>
 import { COMPONENT } from '../constants/globals.js'
-import DefaultsCard from '../components/DefaultsCard.vue'
-import ResumeCard from '../components/ResumeCard.vue'
+import DashboardDefaultsCard from '../components/DashboardDefaultsCard.vue'
+import DashboardResumeCard from '../components/DashboardResumeCard.vue'
 
 export default {
   name: COMPONENT.dashboardRecommendations,
 
   components: {
-    DefaultsCard,
-    ResumeCard,
+    DashboardDefaultsCard,
+    DashboardResumeCard,
   },
 }
 </script>
 
 <template>
   <v-row>
-    <DefaultsCard />
-    <ResumeCard />
+    <DashboardDefaultsCard />
+    <DashboardResumeCard />
   </v-row>
 </template>

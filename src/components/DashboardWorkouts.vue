@@ -1,29 +1,29 @@
 <script>
 import { COMPONENT } from '../constants/globals.js'
-import WorkoutCard from '../components/WorkoutCard.vue'
+import DashboardWorkoutCard from '../components/DashboardWorkoutCard.vue'
 
 export default {
   name: COMPONENT.dashboardWorkouts,
 
   components: {
-    WorkoutCard,
+    DashboardWorkoutCard,
   },
 }
 </script>
 
 <template>
   <v-row>
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
-    <WorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
+    <DashboardWorkoutCard />
   </v-row>
 </template>

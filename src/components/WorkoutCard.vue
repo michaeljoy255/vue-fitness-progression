@@ -3,7 +3,7 @@ import { COMPONENT } from '../constants/globals.js'
 import StaticTimer from '../components/StaticTimer.vue'
 
 export default {
-  name: COMPONENT.workoutCard,
+  name: COMPONENT.dashboardWorkoutCard,
 
   components: {
     StaticTimer,

@@ -2,7 +2,7 @@
 import { COMPONENT } from '../constants/globals.js'
 
 export default {
-  name: COMPONENT.defaultsCard,
+  name: COMPONENT.dashboardDefaultsCard,
 }
 </script>
 

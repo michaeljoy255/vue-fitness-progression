@@ -65,8 +65,8 @@ export const COMPONENT = Object.freeze({
   workoutAppBar: 'WorkoutAppBar',
   dashboardRecommendations: 'DashboardRecommendations',
   dashboardWorkouts: 'DashboardWorkouts',
-  defaultsCard: 'DefaultsCard',
-  workoutCard: 'WorkoutCard',
-  resumeCard: 'ResumeCard',
+  dashboardDefaultsCard: 'DashboardDefaultsCard',
+  dashboardWorkoutCard: 'DashboardWorkoutCard',
+  DashboardResumeCard: 'DashboardResumeCard',
   staticTimer: 'StaticTimer',
 })

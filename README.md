@@ -1,29 +1,23 @@
 # vue-fitness-progression
 
-## Todos / Tasks
+## Use Case Problem Solving (Define core use cases!)
 
-- Define core use cases!
+`* Loading app for the first time and then loading the defaults`
 
-- App state initialized on startup
-  - Load state data from storage
-- When to display ResumeCard
-  - If activeWorkoutRecord exists in state
-- When to display DefaultsCard
-  - If exercises and workouts don't exist in state
-  - How to prevent from showing breifly while data is being fetched?
+- During state initialization pull data from storage if any
+- Track a loading state for the apps' overall state
+  - Only load initial cards (defaults, resume, etc) once state is ready
+- App state finishes loading
+  - Display DashboardDefaultsCard if no data found in storage
+  - Display Workouts if they are found
+  - Display DashboardSummaryCard of key information that was loaded
+    - Will be useful if no workouts are found, but exercises or other data is
 
-## Time Permitting
+## Additional Tasks
 
-- Initial and placeholder tests for classes and more
-- Views
-  - Build out core View designs (based on old app)
-- Components
-  - Finalize DefaultAppBar and WorkoutAppBar
-  - Date and timer components / functions?
-
-## Logic to Consider
-
-- DefaultsCard should only display if no workouts AND exercises are found
+- Change `Recommendations` to something else (rename sub components)?
+- Tests for classes, utils, and services (attempt components later)
+- Date and timer components / functions?
 
 ## Customize configuration
 
