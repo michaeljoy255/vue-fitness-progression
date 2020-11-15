@@ -2,7 +2,15 @@
 
 ## Todos / Tasks
 
-- Core use cases!
+- Define core use cases!
+
+- App state initialized on startup
+  - Load state data from storage
+- When to display ResumeCard
+  - If activeWorkoutRecord exists in state
+- When to display DefaultsCard
+  - If exercises and workouts don't exist in state
+  - How to prevent from showing breifly while data is being fetched?
 
 ## Time Permitting
 
