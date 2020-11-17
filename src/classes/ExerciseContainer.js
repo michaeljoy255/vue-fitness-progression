@@ -1,5 +1,6 @@
 import _DescriptorsContainer from './_DescriptorsContainer.js'
 import Exercise from './Exercise.js'
+import { ContainerMismatchError } from './Errors.js'
 
 /**
  *
@@ -14,23 +15,18 @@ export default class ExerciseContainer extends _DescriptorsContainer {
   }
 
   fromArray(exercisesArray) {
-    if (this._isArrayWithExercises(exercisesArray)) {
+    if (
+      Array.isArray(exercisesArray) &&
+      exercisesArray.every((element) => Exercise.isExercise(element))
+    ) {
       this._items = exercisesArray
     } else {
-      // Need custom errors?!
-      throw 'Argument must be Array with Exercise elements only.'
+      new ContainerMismatchError()
     }
   }
 
   toArray() {
     return this._items
-  }
-
-  _isArrayWithExercises(exercisesArray) {
-    return (
-      Array.isArray(exercisesArray) &&
-      exercisesArray.every((val) => Exercise.isExercise(val))
-    )
   }
 
   findByName(name) {
