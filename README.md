@@ -15,6 +15,8 @@
 
 ## Additional Tasks
 
+- Add custom Error classes (check Luxon project for examples)
+- Add static "is..." instance of methods to certain classes
 - Change `Recommendations` to something else (rename sub components)?
 - Tests for classes, utils, and services (attempt components later)
 - Date and timer components / functions?

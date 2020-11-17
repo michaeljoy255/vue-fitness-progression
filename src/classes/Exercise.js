@@ -20,6 +20,10 @@ export default class Exercise extends _Descriptors {
     this._inputs = inputs
   }
 
+  static isExercise(exercise) {
+    return exercise instanceof Exercise
+  }
+
   get category() {
     return this._category
   }
