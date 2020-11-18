@@ -1,6 +1,6 @@
 import * as CommonUtils from '../../src/utils/common.util.js'
 
-describe('Utils > common.js', () => {
+describe('common.util.js', () => {
   it('isUndef with defined value, returns false', () => {
     let value = true
     expect(CommonUtils.isUndef(value)).toBe(false)

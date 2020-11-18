@@ -17,6 +17,10 @@ export default class ExerciseRecord extends _Record {
     this._exerciseId = exerciseId
   }
 
+  static isExerciseRecord(record) {
+    return record instanceof ExerciseRecord
+  }
+
   get sets() {
     return this._sets
   }

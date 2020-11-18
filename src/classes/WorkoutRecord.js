@@ -16,6 +16,10 @@ export default class WorkoutRecord extends _Record {
     this._workoutId = workoutId
   }
 
+  static isWorkoutRecord(record) {
+    return record instanceof WorkoutRecord
+  }
+
   get duration() {
     return this._duration
   }

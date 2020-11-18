@@ -15,6 +15,7 @@
 
 ## Additional Tasks
 
+- Make DefaultsGenerator use static methods???
 - Add custom Error classes (check Luxon project for examples)
 - Add static "is..." instance of methods to certain classes
 - Change `Recommendations` to something else (rename sub components)?

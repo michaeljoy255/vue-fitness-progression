@@ -16,6 +16,10 @@ export default class Workout extends _Descriptors {
     this._exercises = new ExerciseContainer({ items: exercises })
   }
 
+  static isWorkout(workout) {
+    return workout instanceof Workout
+  }
+
   get exercises() {
     return this._exercises
   }

@@ -6,22 +6,6 @@ export default class _IdContainer {
     this._items = items
   }
 
-  get items() {
-    return this._items
-  }
-
-  set items(items) {
-    this._items = items
-  }
-
-  toArray() {
-    return this._items
-  }
-
-  fromArray(items) {
-    this._items = items
-  }
-
   // findById(id) {
   //   return null
   // }
