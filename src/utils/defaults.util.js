@@ -5,10 +5,14 @@ import WorkoutContainer from '../classes/WorkoutContainer.js'
 import ExerciseInput from '../classes/ExerciseInput.js'
 import { DEFAULT_EXERCISE, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
 
+/**
+ * Singleton for generating defaults for the app if needed.
+ */
 const Defaults = (() => {
   let exercises, workouts
 
   function initDefaults() {
+    console.log('Initializing defaults...')
     initExercises()
     initWorkouts()
   }

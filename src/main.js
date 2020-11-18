@@ -10,8 +10,8 @@ import { LAYOUT } from './constants/globals.js'
 
 import Defaults from './utils/defaults.util.js'
 
-console.log('Default Exercises:', Defaults.getExercises())
-console.log('Default Workouts:', Defaults.getWorkouts())
+console.log('Preview Default Exercises:', Defaults.getExercises())
+console.log('Preview Default Workouts:', Defaults.getWorkouts())
 
 Vue.component(LAYOUT.default, DefaultLayout)
 Vue.component(LAYOUT.workout, WorkoutLayout)

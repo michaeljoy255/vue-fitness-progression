@@ -21,7 +21,7 @@ export default class WorkoutContainer extends _DescriptorsContainer {
     ) {
       this._items = workouts
     } else {
-      new WorkoutContainerMismatchError(workouts)
+      throw new WorkoutContainerMismatchError(workouts)
     }
   }
 }

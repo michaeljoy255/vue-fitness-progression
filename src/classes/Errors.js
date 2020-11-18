@@ -1,33 +1,29 @@
 class ContainerMismatchError extends Error {
-  constructor({ type = null, data = null } = {}) {
-    super(
-      `${type}Container can only store instances of the ${type} class. Recieved (JSON stringified): ${JSON.stringify(
-        data
-      )}`
-    )
+  constructor({ type = null } = {}) {
+    super(`${type}Container can only store instances of the ${type} class.`)
   }
 }
 
 export class ExerciseContainerMismatchError extends ContainerMismatchError {
-  constructor(data) {
-    super({ type: 'Exercise', data })
+  constructor() {
+    super({ type: 'Exercise' })
   }
 }
 
 export class WorkoutContainerMismatchError extends ContainerMismatchError {
-  constructor(data) {
-    super({ type: 'Workout', data })
+  constructor() {
+    super({ type: 'Workout' })
   }
 }
 
 export class ExerciseRecordContainerMismatchError extends ContainerMismatchError {
-  constructor(data) {
-    super({ type: 'ExerciseRecord', data })
+  constructor() {
+    super({ type: 'ExerciseRecord' })
   }
 }
 
 export class WorkoutRecordContainerMismatchError extends ContainerMismatchError {
-  constructor(data) {
-    super({ type: 'WorkoutRecord', data })
+  constructor() {
+    super({ type: 'WorkoutRecord' })
   }
 }

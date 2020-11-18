@@ -21,7 +21,7 @@ export default class ExerciseRecordContainer extends _RecordContainer {
     ) {
       this._items = records
     } else {
-      new ExerciseRecordContainerMismatchError(records)
+      throw new ExerciseRecordContainerMismatchError(records)
     }
   }
 }

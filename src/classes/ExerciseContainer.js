@@ -25,7 +25,7 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     ) {
       this._items = exercises
     } else {
-      new ExerciseContainerMismatchError(exercises)
+      throw new ExerciseContainerMismatchError(exercises)
     }
   }
 
