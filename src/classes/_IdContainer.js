@@ -2,8 +2,8 @@
  *
  */
 export default class _IdContainer {
-  constructor({ items = [] } = {}) {
-    this._items = items
+  constructor() {
+    this._items = []
   }
 
   // findById(id) {

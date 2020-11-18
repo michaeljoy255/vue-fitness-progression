@@ -22,7 +22,8 @@ const Defaults = (() => {
       addExercise(exercise)
     )
 
-    exercises = new ExerciseContainer({ items: exercisesArray })
+    exercises = new ExerciseContainer()
+    exercises.items = exercisesArray
   }
 
   function addExercise(exercise) {
@@ -76,7 +77,8 @@ const Defaults = (() => {
       }),
     ]
 
-    workouts = new WorkoutContainer({ items: workoutsArray })
+    workouts = new WorkoutContainer()
+    workouts.items = workoutsArray
   }
 
   function addChest1() {

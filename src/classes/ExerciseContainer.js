@@ -6,10 +6,6 @@ import { ExerciseContainerMismatchError } from './Errors.js'
  *
  */
 export default class ExerciseContainer extends _DescriptorsContainer {
-  constructor({ items = [] } = {}) {
-    super({ items })
-  }
-
   static isExerciseContainer(container) {
     return container instanceof ExerciseContainer
   }

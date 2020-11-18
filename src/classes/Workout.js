@@ -13,7 +13,9 @@ export default class Workout extends _Descriptors {
     exercises = null,
   } = {}) {
     super({ id, name, description, previousRecord })
-    this._exercises = new ExerciseContainer({ items: exercises })
+
+    this._exercises = new ExerciseContainer()
+    this._exercises.items = exercises
   }
 
   static isWorkout(workout) {

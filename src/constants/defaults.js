@@ -393,7 +393,7 @@ export const DEFAULT_EXERCISE = Object.freeze({
     ],
   },
   shoulderShrugs: {
-    name: 'Shoulder Shrugs',
+    name: 'Shrugs',
     description:
       'Brace your core. Lift with your shoulders while standing with arms extended.',
     category: DEFAULT_CATEGORY.shoulders,
@@ -405,7 +405,7 @@ export const DEFAULT_EXERCISE = Object.freeze({
     ],
   },
   shoulderShrugsDumbbell: {
-    name: 'Shoulder Shrugs',
+    name: 'Shrugs',
     description: 'Lift with your shoulders while standing with arms extended.',
     category: DEFAULT_CATEGORY.shoulders,
     equipment: DEFAULT_EQUIPMENT.dumbbell,
