@@ -10,19 +10,25 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     return container instanceof ExerciseContainer
   }
 
-  get items() {
+  getArray() {
     return this._items
   }
 
-  set items(exercises) {
-    if (
-      Array.isArray(exercises) &&
-      exercises.every((element) => Exercise.isExercise(element))
-    ) {
-      this._items = exercises
+  set(data) {
+    if (ExerciseContainer.isExerciseContainer(data)) {
+      this._items = data.getArray()
+    } else if (this._isValidExerciseArray(data)) {
+      this._items = data
     } else {
-      throw new ExerciseContainerMismatchError(exercises)
+      throw new ExerciseContainerMismatchError()
     }
+  }
+
+  _isValidExerciseArray(items) {
+    return (
+      Array.isArray(items) &&
+      items.every((element) => Exercise.isExercise(element))
+    )
   }
 
   findByName(name) {

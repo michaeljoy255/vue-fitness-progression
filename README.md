@@ -15,9 +15,10 @@
 
 ## Additional Tasks
 
-- Make DefaultsGenerator use static methods???
-- Add custom Error classes (check Luxon project for examples)
+- Add UUID and Luxon packages?
+- Add custom Error classes
 - Add static "is..." instance of methods to certain classes
+- Add getArray() and set(data) methods to containers
 - Change `Recommendations` to something else (rename sub components)?
 - Tests for classes, utils, and services (attempt components later)
 - Date and timer components / functions?

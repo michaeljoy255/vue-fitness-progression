@@ -23,7 +23,7 @@ const Defaults = (() => {
     )
 
     exercises = new ExerciseContainer()
-    exercises.items = exercisesArray
+    exercises.set(exercisesArray)
   }
 
   function addExercise(exercise) {
@@ -193,9 +193,9 @@ const Defaults = (() => {
   }
 
   function getExerciseByNameAndEquipment(name, equipment) {
-    return exercises.items.find(
-      (item) => item.name === name && item.equipment === equipment
-    )
+    return exercises
+      .getArray()
+      .find((item) => item.name === name && item.equipment === equipment)
   }
 
   return {
