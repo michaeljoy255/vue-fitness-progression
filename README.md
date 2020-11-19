@@ -15,7 +15,7 @@
 
 ## Additional Tasks
 
-- Add UUID and Luxon packages?
+- Use Luxon for dates and times
 - Add custom Error classes
 - Add static "is..." instance of methods to certain classes
 - Add getArray() and set(data) methods to containers
