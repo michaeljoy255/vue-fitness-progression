@@ -1,6 +1,7 @@
 class ContainerMismatchError extends Error {
   constructor({ type = null } = {}) {
-    super(`${type}Container can only store instances of the ${type} class.`)
+    const message = `${type}Container can only store instances of the ${type} class.`
+    super(message)
   }
 }
 
@@ -27,3 +28,12 @@ export class WorkoutRecordContainerMismatchError extends ContainerMismatchError 
     super({ type: 'WorkoutRecord' })
   }
 }
+
+/*
+class ValueLimitError extends Error {
+  constructor({ type = null, value = null, limit = null } = {}) {
+    const message = `The value ${value} is out of bounds`
+    super()
+  }
+}
+*/

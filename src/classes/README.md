@@ -2,14 +2,13 @@
 
 ## General
 
+- Errors
 - ExerciseInput
 - ExerciseSet
 - \_Id
-  - User **(postponed)**
   - \_Record
     - WorkoutRecord
     - ExerciseRecord
-    - MeasurementRecord **(postponed)**
   - \_Descriptors
     - Exercise
     - Workout
@@ -26,7 +25,7 @@
     - ExerciseContainer
     - WorkoutContainer
 
-## Other
+## May Need
 
 - Response (for storage, promises, and more?)
 - Storage Adapters (classes?)
@@ -35,15 +34,17 @@
 - StaticTime
 - WorkoutSummary
 
-## Postponed
+## Unimplemented
 
 - Distance
+- Height
+- Weight
 - Exporter
 - ExporterSummary
-- Height
 - Importer
 - StringContainer
-- Weight
+- MeasurementRecord
+- MeasurementRecordContainer
 
 ## Exporter Output
 
