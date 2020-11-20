@@ -1,31 +1,31 @@
 class ContainerMismatchError extends Error {
-  constructor({ type = null } = {}) {
-    const message = `${type}Container can only store instances of the ${type} class.`
+  constructor(type) {
+    const message = `${type}Container requires the use of ${type} instances.`
     super(message)
   }
 }
 
 export class ExerciseContainerMismatchError extends ContainerMismatchError {
   constructor() {
-    super({ type: 'Exercise' })
+    super('Exercise')
   }
 }
 
 export class WorkoutContainerMismatchError extends ContainerMismatchError {
   constructor() {
-    super({ type: 'Workout' })
+    super('Workout')
   }
 }
 
 export class ExerciseRecordContainerMismatchError extends ContainerMismatchError {
   constructor() {
-    super({ type: 'ExerciseRecord' })
+    super('ExerciseRecord')
   }
 }
 
 export class WorkoutRecordContainerMismatchError extends ContainerMismatchError {
   constructor() {
-    super({ type: 'WorkoutRecord' })
+    super('WorkoutRecord')
   }
 }
 

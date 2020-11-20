@@ -4,5 +4,7 @@ import _IdContainer from './_IdContainer.js'
  *
  */
 export default class _DescriptorsContainer extends _IdContainer {
-  // Need specific methods here...
+  findByName(name) {
+    return this._items.filter((item) => item.name === name)
+  }
 }

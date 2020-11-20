@@ -10,14 +10,49 @@ export default class WorkoutContainer extends _DescriptorsContainer {
     return container instanceof WorkoutContainer
   }
 
-  set items(workouts) {
+  fromArray(workouts) {
     if (
       Array.isArray(workouts) &&
-      workouts.every((element) => Workout.isWorkout(element))
+      workouts.every((i) => Workout.isWorkout(i))
     ) {
       this._items = workouts
+      return this
     } else {
-      throw new WorkoutContainerMismatchError(workouts)
+      throw new WorkoutContainerMismatchError()
+    }
+  }
+
+  fromContainer(workouts) {
+    if (WorkoutContainer.isExerciseContainer(workouts)) {
+      this._items = workouts.toArray()
+      return this
+    } else {
+      throw new WorkoutContainerMismatchError()
+    }
+  }
+
+  add(workout) {
+    if (Workout.isWorkout(workout)) {
+      this._items.push(workout)
+      return this
+    } else {
+      throw new WorkoutContainerMismatchError()
+    }
+  }
+
+  update(workout) {
+    if (Workout.isWorkout(workout)) {
+      console.log('WorkoutContainer update() called - NOT IMPLEMENTED')
+    } else {
+      throw new WorkoutContainerMismatchError()
+    }
+  }
+
+  remove(workout) {
+    if (Workout.isWorkout(workout)) {
+      console.log('WorkoutContainer remove() called - NOT IMPLEMENTED')
+    } else {
+      throw new WorkoutContainerMismatchError()
     }
   }
 }

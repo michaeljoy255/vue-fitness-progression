@@ -12,7 +12,6 @@ const Defaults = (() => {
   let exercises, workouts
 
   function initDefaults() {
-    console.log('Initializing defaults...')
     initExercises()
     initWorkouts()
   }
@@ -22,8 +21,7 @@ const Defaults = (() => {
       addExercise(exercise)
     )
 
-    exercises = new ExerciseContainer()
-    exercises.set(exercisesArray)
+    exercises = new ExerciseContainer().fromArray(exercisesArray)
   }
 
   function addExercise(exercise) {
@@ -77,8 +75,7 @@ const Defaults = (() => {
       }),
     ]
 
-    workouts = new WorkoutContainer()
-    workouts.items = workoutsArray
+    workouts = new WorkoutContainer().fromArray(workoutsArray)
   }
 
   function addChest1() {
@@ -194,7 +191,7 @@ const Defaults = (() => {
 
   function getExerciseByNameAndEquipment(name, equipment) {
     return exercises
-      .getArray()
+      .toArray()
       .find((item) => item.name === name && item.equipment === equipment)
   }
 

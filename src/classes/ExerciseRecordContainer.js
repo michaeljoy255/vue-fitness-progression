@@ -6,22 +6,53 @@ import { ExerciseRecordContainerMismatchError } from './Errors.js'
  *
  */
 export default class ExerciseRecordContainer extends _RecordContainer {
-  constructor({ items = [] } = {}) {
-    super({ items })
-  }
-
   static isExerciseRecordContainer(container) {
     return container instanceof ExerciseRecordContainer
   }
 
-  set items(records) {
+  fromArray(records) {
     if (
       Array.isArray(records) &&
-      records.every((element) => ExerciseRecord.isExerciseRecord(element))
+      records.every((i) => ExerciseRecord.isExerciseRecord(i))
     ) {
       this._items = records
+      return this
     } else {
-      throw new ExerciseRecordContainerMismatchError(records)
+      throw new ExerciseRecordContainerMismatchError()
+    }
+  }
+
+  fromContainer(records) {
+    if (ExerciseRecordContainer.isExerciseRecordContainer(records)) {
+      this._items = records.toArray()
+      return this
+    } else {
+      throw new ExerciseRecordContainerMismatchError()
+    }
+  }
+
+  add(record) {
+    if (ExerciseRecord.isExerciseRecord(record)) {
+      this._items.push(record)
+      return this
+    } else {
+      throw new ExerciseRecordContainerMismatchError()
+    }
+  }
+
+  update(record) {
+    if (ExerciseRecord.isExerciseRecord(record)) {
+      console.log('ExerciseRecordContainer update() called - NOT IMPLEMENTED')
+    } else {
+      throw new ExerciseRecordContainerMismatchError()
+    }
+  }
+
+  remove(record) {
+    if (ExerciseRecord.isExerciseRecord(record)) {
+      console.log('ExerciseRecordContainer remove() called - NOT IMPLEMENTED')
+    } else {
+      throw new ExerciseRecordContainerMismatchError()
     }
   }
 }

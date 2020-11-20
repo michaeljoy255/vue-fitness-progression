@@ -6,27 +6,15 @@ export default class _IdContainer {
     this._items = []
   }
 
-  // findById(id) {
-  //   return null
-  // }
-
-  // findByIds(ids) {
-  //   return null
-  // }
-
-  sort() {
-    this._items.sort()
+  toArray() {
+    return this._items
   }
 
-  add(item) {
-    this._items.push(item)
+  findById(id) {
+    return this._items.filter((item) => item.id === id)
   }
 
-  // update(item) {
-  //   //
-  // }
-
-  // remove(item) {
-  //   //
+  // sort() {
+  //   this._items.sort()
   // }
 }

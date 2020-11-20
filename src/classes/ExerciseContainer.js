@@ -10,29 +10,54 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     return container instanceof ExerciseContainer
   }
 
-  getArray() {
-    return this._items
-  }
-
-  set(data) {
-    if (ExerciseContainer.isExerciseContainer(data)) {
-      this._items = data.getArray()
-    } else if (this._isValidExerciseArray(data)) {
-      this._items = data
+  fromArray(exercises) {
+    if (
+      Array.isArray(exercises) &&
+      exercises.every((i) => Exercise.isExercise(i))
+    ) {
+      this._items = exercises
+      return this
     } else {
       throw new ExerciseContainerMismatchError()
     }
   }
 
-  _isValidExerciseArray(items) {
-    return (
-      Array.isArray(items) &&
-      items.every((element) => Exercise.isExercise(element))
-    )
+  fromContainer(exercises) {
+    if (ExerciseContainer.isExerciseContainer(exercises)) {
+      this._items = exercises.toArray()
+      return this
+    } else {
+      throw new ExerciseContainerMismatchError()
+    }
   }
 
-  findByName(name) {
-    return this._items.filter((item) => item.name === name)
+  add(exercise) {
+    if (Exercise.isExercise(exercise)) {
+      this._items.push(exercise)
+      return this
+    } else {
+      throw new ExerciseContainerMismatchError()
+    }
+  }
+
+  update(exercise) {
+    if (Exercise.isExercise(exercise)) {
+      console.log('ExerciseContainer update() called - NOT IMPLEMENTED')
+    } else {
+      throw new ExerciseContainerMismatchError()
+    }
+  }
+
+  remove(exercise) {
+    if (Exercise.isExercise(exercise)) {
+      console.log('ExerciseContainer remove() called - NOT IMPLEMENTED')
+    } else {
+      throw new ExerciseContainerMismatchError()
+    }
+  }
+
+  findByCategory(category) {
+    return this._items.filter((item) => item.category === category)
   }
 
   findByEquipment(equipment) {

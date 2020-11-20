@@ -14,8 +14,11 @@ export default class Workout extends _Descriptors {
   } = {}) {
     super({ id, name, description, previousRecord })
 
-    this._exercises = new ExerciseContainer()
-    this._exercises.set(exercises)
+    if (Array.isArray(exercises)) {
+      this._exercises = new ExerciseContainer().fromArray(exercises)
+    } else {
+      this._exercises = new ExerciseContainer().fromContainer(exercises)
+    }
   }
 
   static isWorkout(workout) {
@@ -27,6 +30,10 @@ export default class Workout extends _Descriptors {
   }
 
   set exercises(exercises) {
-    this._exercises = exercises
+    if (Array.isArray(exercises)) {
+      this._exercises.fromArray(exercises)
+    } else {
+      this._exercises.fromContainer(exercises)
+    }
   }
 }
