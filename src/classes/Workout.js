@@ -25,6 +25,12 @@ export default class Workout extends _Descriptors {
     return workout instanceof Workout
   }
 
+  static isArrayOfWorkouts(workouts) {
+    return (
+      Array.isArray(workouts) && workouts.every((i) => Workout.isWorkout(i))
+    )
+  }
+
   get exercises() {
     return this._exercises
   }

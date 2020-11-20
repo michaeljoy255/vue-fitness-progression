@@ -1,6 +1,9 @@
 import _DescriptorsContainer from './_DescriptorsContainer.js'
 import Exercise from './Exercise.js'
-import { ExerciseContainerMismatchError } from './Errors.js'
+import {
+  ContainerItemsMismatchError,
+  ContainersMismatchError,
+} from './Errors.js'
 
 /**
  *
@@ -11,14 +14,11 @@ export default class ExerciseContainer extends _DescriptorsContainer {
   }
 
   fromArray(exercises) {
-    if (
-      Array.isArray(exercises) &&
-      exercises.every((i) => Exercise.isExercise(i))
-    ) {
+    if (Exercise.isArrayOfExercises(exercises)) {
       this._items = exercises
       return this
     } else {
-      throw new ExerciseContainerMismatchError()
+      console.error(new ContainerItemsMismatchError())
     }
   }
 
@@ -27,7 +27,7 @@ export default class ExerciseContainer extends _DescriptorsContainer {
       this._items = exercises.toArray()
       return this
     } else {
-      throw new ExerciseContainerMismatchError()
+      console.error(new ContainersMismatchError())
     }
   }
 
@@ -36,7 +36,7 @@ export default class ExerciseContainer extends _DescriptorsContainer {
       this._items.push(exercise)
       return this
     } else {
-      throw new ExerciseContainerMismatchError()
+      console.error(new ContainerItemsMismatchError())
     }
   }
 
@@ -44,7 +44,7 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     if (Exercise.isExercise(exercise)) {
       console.log('ExerciseContainer update() called - NOT IMPLEMENTED')
     } else {
-      throw new ExerciseContainerMismatchError()
+      console.error(new ContainerItemsMismatchError())
     }
   }
 
@@ -52,7 +52,7 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     if (Exercise.isExercise(exercise)) {
       console.log('ExerciseContainer remove() called - NOT IMPLEMENTED')
     } else {
-      throw new ExerciseContainerMismatchError()
+      console.error(new ContainerItemsMismatchError())
     }
   }
 

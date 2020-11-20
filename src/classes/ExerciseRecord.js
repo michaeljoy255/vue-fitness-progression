@@ -21,6 +21,13 @@ export default class ExerciseRecord extends _Record {
     return record instanceof ExerciseRecord
   }
 
+  static isArrayOfExerciseRecords(records) {
+    return (
+      Array.isArray(records) &&
+      records.every((i) => ExerciseRecord.isExerciseRecord(i))
+    )
+  }
+
   get sets() {
     return this._sets
   }

@@ -24,6 +24,12 @@ export default class Exercise extends _Descriptors {
     return exercise instanceof Exercise
   }
 
+  static isArrayOfExercises(exercises) {
+    return (
+      Array.isArray(exercises) && exercises.every((i) => Exercise.isExercise(i))
+    )
+  }
+
   get category() {
     return this._category
   }

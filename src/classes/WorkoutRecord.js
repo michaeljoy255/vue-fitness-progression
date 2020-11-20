@@ -20,6 +20,13 @@ export default class WorkoutRecord extends _Record {
     return record instanceof WorkoutRecord
   }
 
+  static isArrayOfWorkoutRecords(records) {
+    return (
+      Array.isArray(records) &&
+      records.every((i) => WorkoutRecord.isWorkoutRecord(i))
+    )
+  }
+
   get duration() {
     return this._duration
   }
