@@ -1,27 +1,31 @@
+import ExerciseContainer from '../classes/ExerciseContainer.js'
+
 const ExerciseService = (function() {
   function getExercises() {
-    return new Promise((resolve) => {
-      resolve(JSON.parse(localStorage.getItem('exercises')))
+    return new Promise((resolve, reject) => {
+      try {
+        const exercises = JSON.parse(localStorage.getItem('exercises'))
+        return resolve(new ExerciseContainer().fromArray(exercises))
+      } catch (error) {
+        console.error('Error getting exercises from storage.', error)
+        return reject(null)
+      }
     })
   }
 
-  function updateExercise(exercise) {
-    return new Promise((resolve) => {
-      resolve(exercise)
-    })
-  }
-
-  function deleteExercise(exercise) {
-    return new Promise((resolve) => {
-      localStorage.removeItem('exercises')
-      resolve(exercise)
+  function saveExercises() {
+    return new Promise((resolve, reject) => {
+      try {
+        resolve(true)
+      } catch (error) {
+        reject(false)
+      }
     })
   }
 
   return {
     getExercises,
-    updateExercise,
-    deleteExercise,
+    saveExercises,
   }
 })()
 

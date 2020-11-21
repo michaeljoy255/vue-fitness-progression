@@ -4,6 +4,10 @@ import { COMPONENT, LAYOUT } from './constants/globals'
 export default {
   name: COMPONENT.app,
 
+  created() {
+    this.$store.dispatch('initApp')
+  },
+
   computed: {
     layout() {
       return this.$route.meta.layout || LAYOUT.default

@@ -1,17 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/store.js'
 import vuetify from './plugins/vuetify'
 // Layouts
 import DefaultLayout from './layouts/Default.vue'
 import WorkoutLayout from './layouts/Workout.vue'
 import { LAYOUT } from './constants/globals.js'
-
-import Defaults from './utils/defaults.util.js'
-
-console.log('Preview Default Exercises:', Defaults.getExercises())
-console.log('Preview Default Workouts:', Defaults.getWorkouts())
 
 Vue.component(LAYOUT.default, DefaultLayout)
 Vue.component(LAYOUT.workout, WorkoutLayout)
