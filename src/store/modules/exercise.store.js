@@ -47,6 +47,9 @@ export const actions = {
   importTesting() {
     const importedExercises = JSON.parse(localStorage.getItem('exercises'))
     console.log('importedExercises:Object', importedExercises)
+
+    const convertedExercises = ExerciseContainer.importData(importedExercises)
+    console.log('convertedExercises:', convertedExercises)
   },
 }
 

@@ -31,6 +31,15 @@ export default class ExerciseSet {
     }
   }
 
+  static importData(set) {
+    return new ExerciseSet({
+      weight: set.weight,
+      reps: set.reps,
+      duration: set.duration,
+      distance: set.distance,
+    })
+  }
+
   get weight() {
     return this._weight
   }

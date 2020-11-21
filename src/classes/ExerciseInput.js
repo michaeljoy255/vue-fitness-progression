@@ -24,6 +24,13 @@ export default class ExerciseInput {
     }
   }
 
+  static importData(input) {
+    return new ExerciseInput({
+      inputType: input.inputType,
+      hint: input.hint,
+    })
+  }
+
   get inputType() {
     return this._inputType
   }

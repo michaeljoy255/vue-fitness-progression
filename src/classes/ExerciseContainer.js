@@ -21,6 +21,12 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     }
   }
 
+  static importData(exercises) {
+    return new ExerciseContainer().fromArray(
+      exercises.map((i) => Exercise.importData(i))
+    )
+  }
+
   fromArray(exercises) {
     if (Exercise.isArrayOfExercises(exercises)) {
       this._items = exercises

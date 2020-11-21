@@ -41,6 +41,16 @@ export default class WorkoutRecord extends _Record {
     }
   }
 
+  static importData(record) {
+    return new WorkoutRecord({
+      id: record.id,
+      createdAt: record.createdAt,
+      note: record.note,
+      duration: record.duration,
+      workoutId: record.workoutId,
+    })
+  }
+
   get duration() {
     return this._duration
   }

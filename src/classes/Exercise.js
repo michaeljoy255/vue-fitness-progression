@@ -11,7 +11,7 @@ export default class Exercise extends _Descriptors {
     id = null,
     name = null,
     description = null,
-    previousRecord = null,
+    previousRecord = new ExerciseRecord(),
     category = DEFAULT_CATEGORY.misc,
     equipment = DEFAULT_EQUIPMENT.none,
     inputs = [],
@@ -46,6 +46,18 @@ export default class Exercise extends _Descriptors {
     } else {
       console.error('Error:', exercise)
     }
+  }
+
+  static importData(exercise) {
+    return new Exercise({
+      id: exercise.id,
+      name: exercise.name,
+      description: exercise.description,
+      previousRecord: ExerciseRecord.importData(exercise.previousRecord),
+      category: exercise.category,
+      equipment: exercise.equipment,
+      inputs: exercise.inputs.map((i) => ExerciseInput.importData(i)),
+    })
   }
 
   get category() {

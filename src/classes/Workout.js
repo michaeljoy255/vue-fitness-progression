@@ -1,6 +1,7 @@
 import _Descriptors from './_Descriptors.js'
 import WorkoutRecord from './WorkoutRecord.js'
 import ExerciseContainer from './ExerciseContainer.js'
+import Exercise from './Exercise.js'
 
 /**
  *
@@ -10,7 +11,7 @@ export default class Workout extends _Descriptors {
     id = null,
     name = null,
     description = null,
-    previousRecord = null,
+    previousRecord = new WorkoutRecord(),
     exercises = null,
   } = {}) {
     super({ id, name, description, previousRecord })
@@ -44,6 +45,18 @@ export default class Workout extends _Descriptors {
     } else {
       console.error('Error:', workout)
     }
+  }
+
+  static importData(workout) {
+    return new Workout({
+      id: workout.id,
+      name: workout.name,
+      description: workout.description,
+      previousRecord: WorkoutRecord.importData(workout.previousRecord),
+      exercises: new ExerciseContainer().fromArray(
+        workout.exercises.map((i) => Exercise.importData(i))
+      ),
+    })
   }
 
   get exercises() {

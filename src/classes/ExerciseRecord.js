@@ -42,6 +42,16 @@ export default class ExerciseRecord extends _Record {
     }
   }
 
+  static importData(record) {
+    return new ExerciseRecord({
+      id: record.id,
+      createdAt: record.createdAt,
+      note: record.note,
+      sets: record.sets.map((i) => ExerciseSet.importData(i)),
+      exerciseId: record.exerciseId,
+    })
+  }
+
   get sets() {
     return this._sets
   }

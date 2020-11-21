@@ -16,8 +16,8 @@ export default new Vuex.Store({
       await dispatch('exercise/setDefaults') // temp
       await dispatch('workout/setDefaults') // temp
 
-      // await dispatch('exercise/exportTesting')
-      // await dispatch('workout/exportTesting')
+      await dispatch('exercise/exportTesting')
+      await dispatch('workout/exportTesting')
 
       await dispatch('exercise/importTesting')
     },

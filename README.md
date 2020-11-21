@@ -4,11 +4,10 @@
 
 `* Loading app for the first time and then loading the defaults`
 
-- ~~During state initialization pull data from storage if any~~
-- Use tree graph to plan out methods for object flattening
-  - When loading from storage - MUST CONVERT TO CONTAINER
-  - When saving to storage - MUST CONVERT TO PLAIN OBJECT
-  - Implement save...() for the services (convert container items to JSON)
+- **Storage related services/store, methods/actions**
+  - Implement LOAD from storage into STORE (app initialize)
+  - Implement SAVE into storage from STORE (eg. saving a workout)
+  - Implement SETTING DEFAULTS with button click (store & storage)
 - Track a loading state for the apps' overall state
   - Only load initial cards (defaults, resume, etc) once state is ready
 - App state finishes loading
