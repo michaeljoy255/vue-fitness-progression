@@ -1,5 +1,5 @@
 import _Record from './_Record.js'
-// import ExerciseSets
+import ExerciseSet from './ExerciseSet.js'
 
 /**
  *
@@ -26,6 +26,20 @@ export default class ExerciseRecord extends _Record {
       Array.isArray(records) &&
       records.every((i) => ExerciseRecord.isExerciseRecord(i))
     )
+  }
+
+  static exportData(record) {
+    if (ExerciseRecord.isExerciseRecord(record)) {
+      return {
+        id: record._id,
+        createdAt: record._createdAt,
+        note: record._note,
+        sets: record._sets.map((i) => ExerciseSet.exportData(i)),
+        exerciseId: record._exerciseId,
+      }
+    } else {
+      console.error('Error:', record)
+    }
   }
 
   get sets() {

@@ -13,6 +13,14 @@ export default class WorkoutContainer extends _DescriptorsContainer {
     return container instanceof WorkoutContainer
   }
 
+  static exportData(container) {
+    if (WorkoutContainer.isWorkoutContainer(container)) {
+      return container._items.map((i) => Workout.exportData(i))
+    } else {
+      console.error('Error:', container._items)
+    }
+  }
+
   fromArray(workouts) {
     if (Workout.isArrayOfWorkouts(workouts)) {
       this._items = workouts

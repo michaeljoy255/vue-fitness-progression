@@ -5,7 +5,7 @@ const WorkoutService = (function() {
     return new Promise((resolve, reject) => {
       try {
         const workouts = JSON.parse(localStorage.getItem('workouts'))
-        return resolve(new WorkoutContainer().fromArray(workouts))
+        return resolve(new WorkoutContainer().fromArray(workouts || []))
       } catch (error) {
         console.error('Error getting workouts from storage.', error)
         return reject(null)

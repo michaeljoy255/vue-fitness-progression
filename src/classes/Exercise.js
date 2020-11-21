@@ -1,4 +1,6 @@
 import _Descriptors from './_Descriptors.js'
+import ExerciseRecord from './ExerciseRecord.js'
+import ExerciseInput from './ExerciseInput.js'
 import { DEFAULT_CATEGORY, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
 
 /**
@@ -30,6 +32,22 @@ export default class Exercise extends _Descriptors {
     )
   }
 
+  static exportData(exercise) {
+    if (Exercise.isExercise(exercise)) {
+      return {
+        id: exercise._id,
+        name: exercise._name,
+        description: exercise._description,
+        previousRecord: ExerciseRecord.exportData(exercise._previousRecord),
+        category: exercise._category,
+        equipment: exercise._equipment,
+        inputs: exercise._inputs.map((i) => ExerciseInput.exportData(i)),
+      }
+    } else {
+      console.error('Error:', exercise)
+    }
+  }
+
   get category() {
     return this._category
   }
@@ -59,5 +77,17 @@ export default class Exercise extends _Descriptors {
       return `${this._name}, ${this._equipment}`
     }
     return this._name
+  }
+
+  exportData() {
+    return {
+      id: this._id,
+      name: this._name,
+      description: this._description,
+      previousRecord: this._previousRecord && this._previousRecord.exportData(),
+      category: this._category,
+      equipment: this._equipment,
+      inputs: this._inputs && this._inputs.map((i) => i.exportData()),
+    }
   }
 }

@@ -14,6 +14,23 @@ export default class ExerciseSet {
     this._distance = distance
   }
 
+  static isExerciseSet(set) {
+    return set instanceof ExerciseSet
+  }
+
+  static exportData(set) {
+    if (ExerciseSet.isExerciseSet(set)) {
+      return {
+        weight: set._weight,
+        reps: set._reps,
+        duration: set._duration,
+        distance: set._distance,
+      }
+    } else {
+      console.error('Error:', set)
+    }
+  }
+
   get weight() {
     return this._weight
   }

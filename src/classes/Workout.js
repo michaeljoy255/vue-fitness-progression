@@ -1,4 +1,5 @@
 import _Descriptors from './_Descriptors.js'
+import WorkoutRecord from './WorkoutRecord.js'
 import ExerciseContainer from './ExerciseContainer.js'
 
 /**
@@ -31,6 +32,20 @@ export default class Workout extends _Descriptors {
     )
   }
 
+  static exportData(workout) {
+    if (Workout.isWorkout(workout)) {
+      return {
+        id: workout._id,
+        name: workout._name,
+        description: workout._description,
+        previousRecord: WorkoutRecord.exportData(workout._previousRecord),
+        exercises: ExerciseContainer.exportData(workout._exercises),
+      }
+    } else {
+      console.error('Error:', workout)
+    }
+  }
+
   get exercises() {
     return this._exercises
   }
@@ -40,6 +55,16 @@ export default class Workout extends _Descriptors {
       this._exercises.fromArray(exercises)
     } else {
       this._exercises.fromContainer(exercises)
+    }
+  }
+
+  exportData() {
+    return {
+      id: this._id,
+      name: this._name,
+      description: this._description,
+      previousRecord: this._previousRecord && this._previousRecord.exportData(),
+      exercises: this._exercises && this.exercises.exportData(),
     }
   }
 }

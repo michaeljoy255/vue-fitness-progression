@@ -13,6 +13,14 @@ export default class ExerciseRecordContainer extends _RecordContainer {
     return container instanceof ExerciseRecordContainer
   }
 
+  static exportData(container) {
+    if (ExerciseRecordContainer.isExerciseRecordContainer(container)) {
+      return container._items.map((i) => ExerciseRecord.exportData(i))
+    } else {
+      console.error('Error:', container._items)
+    }
+  }
+
   fromArray(records) {
     if (ExerciseRecord.isArrayOfExerciseRecords(records)) {
       this._items = records

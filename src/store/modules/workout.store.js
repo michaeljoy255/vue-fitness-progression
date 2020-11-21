@@ -1,5 +1,6 @@
 import WorkoutService from '../../services/workout.service.js'
 import Defaults from '../../services/defaults.service.js'
+import WorkoutContainer from '../../classes/WorkoutContainer.js'
 
 export const namespaced = true
 
@@ -35,6 +36,17 @@ export const actions = {
     const workouts = await Defaults.getWorkouts()
     commit('SET_WORKOUTS', workouts)
   },
+
+  exportTesting({ state }) {
+    const exportedWorkouts = WorkoutContainer.exportData(state.workouts)
+    console.log('exportedWorkouts:Object', exportedWorkouts)
+
+    localStorage.setItem('workouts', JSON.stringify(exportedWorkouts))
+  },
+
+  // importTesting({ commit }) {
+
+  // },
 }
 
 export const getters = {}

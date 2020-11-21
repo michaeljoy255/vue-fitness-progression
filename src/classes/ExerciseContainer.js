@@ -13,6 +13,14 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     return container instanceof ExerciseContainer
   }
 
+  static exportData(container) {
+    if (ExerciseContainer.isExerciseContainer(container)) {
+      return container._items.map((i) => Exercise.exportData(i))
+    } else {
+      console.error('Error:', container._items)
+    }
+  }
+
   fromArray(exercises) {
     if (Exercise.isArrayOfExercises(exercises)) {
       this._items = exercises

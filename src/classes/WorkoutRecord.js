@@ -27,6 +27,20 @@ export default class WorkoutRecord extends _Record {
     )
   }
 
+  static exportData(record) {
+    if (WorkoutRecord.isWorkoutRecord(record)) {
+      return {
+        id: record._id,
+        createdAt: record._createdAt,
+        note: record._note,
+        duration: record._duration,
+        workoutId: record._workoutId,
+      }
+    } else {
+      console.error('Error:', record)
+    }
+  }
+
   get duration() {
     return this._duration
   }
@@ -41,5 +55,15 @@ export default class WorkoutRecord extends _Record {
 
   set workoutId(workoutId) {
     this._workoutId = workoutId
+  }
+
+  exportData() {
+    return {
+      id: this._id,
+      createdAt: this._createdAt,
+      note: this._note,
+      duration: this._duration,
+      workoutId: this._workoutId,
+    }
   }
 }

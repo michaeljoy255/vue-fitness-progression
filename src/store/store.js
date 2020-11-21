@@ -10,11 +10,16 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     async initApp({ dispatch }) {
-      dispatch('exercise/get')
-      dispatch('workout/get')
+      // await dispatch('exercise/get')
+      // await dispatch('workout/get')
 
-      dispatch('exercise/setDefaults') // temp
-      dispatch('workout/setDefaults') // temp
+      await dispatch('exercise/setDefaults') // temp
+      await dispatch('workout/setDefaults') // temp
+
+      // await dispatch('exercise/exportTesting')
+      // await dispatch('workout/exportTesting')
+
+      await dispatch('exercise/importTesting')
     },
   },
   getters: {},

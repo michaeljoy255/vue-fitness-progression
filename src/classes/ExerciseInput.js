@@ -9,6 +9,21 @@ export default class ExerciseInput {
     this._hint = hint
   }
 
+  static isExerciseInput(input) {
+    return input instanceof ExerciseInput
+  }
+
+  static exportData(input) {
+    if (ExerciseInput.isExerciseInput(input)) {
+      return {
+        inputType: input._inputType,
+        hint: input._hint,
+      }
+    } else {
+      console.error('Error:', input)
+    }
+  }
+
   get inputType() {
     return this._inputType
   }
