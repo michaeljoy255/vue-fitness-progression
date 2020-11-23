@@ -6,7 +6,9 @@
 
 - **Storage related services/store, methods/actions**
   - Implement LOAD from storage into STORE (app initialize)
-  - Implement SAVE into storage from STORE (eg. saving a workout)
+  - Implement SAVE into storage from STORE
+    - Saving or updating a workout
+    - Setting defaults
   - Implement SETTING DEFAULTS with button click (store & storage)
 - Track a loading state for the apps' overall state
   - Only load initial cards (defaults, resume, etc) once state is ready
