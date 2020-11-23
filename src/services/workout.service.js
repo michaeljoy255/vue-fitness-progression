@@ -4,21 +4,24 @@ const WorkoutService = (function() {
   function getWorkouts() {
     return new Promise((resolve, reject) => {
       try {
-        const workouts = JSON.parse(localStorage.getItem('workouts'))
-        return resolve(new WorkoutContainer().fromArray(workouts || []))
+        const parsedWorkouts = JSON.parse(localStorage.getItem('workouts'))
+        const workouts = WorkoutContainer.importData(parsedWorkouts)
+        return resolve(workouts)
       } catch (error) {
-        console.error('Error getting workouts from storage.', error)
-        return reject(null)
+        return reject(new Error('Error getting workouts from storage.', error))
       }
     })
   }
 
-  function saveWorkouts() {
+  function saveWorkouts(workouts) {
     return new Promise((resolve, reject) => {
       try {
-        resolve(true)
+        const exportedWorkouts = WorkoutContainer.exportData(workouts)
+        const jsonWorkouts = JSON.stringify(exportedWorkouts)
+        localStorage.setItem('workouts', jsonWorkouts)
+        resolve()
       } catch (error) {
-        reject(false)
+        reject(new Error('Error saving workouts to storage.', error))
       }
     })
   }

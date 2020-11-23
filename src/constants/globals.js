@@ -67,6 +67,7 @@ export const COMPONENT = Object.freeze({
   dashboardWorkouts: 'DashboardWorkouts',
   dashboardDefaultsCard: 'DashboardDefaultsCard',
   dashboardWorkoutCard: 'DashboardWorkoutCard',
-  DashboardResumeCard: 'DashboardResumeCard',
+  dashboardResumeCard: 'DashboardResumeCard',
+  dashboardTestCard: 'DashboardTestCard',
   staticTimer: 'StaticTimer',
 })

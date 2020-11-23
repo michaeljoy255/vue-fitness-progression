@@ -1,6 +1,5 @@
 import WorkoutService from '../../services/workout.service.js'
 import Defaults from '../../services/defaults.service.js'
-import WorkoutContainer from '../../classes/WorkoutContainer.js'
 
 export const namespaced = true
 
@@ -26,27 +25,25 @@ export const mutations = {
 }
 
 export const actions = {
-  async get({ commit }) {
+  async getWorkouts({ commit }) {
     const workouts = await WorkoutService.getWorkouts()
     commit('SET_WORKOUTS', workouts)
     commit('SET_DATA_FETCHED', true)
   },
 
+  async saveWorkouts({ state }) {
+    await WorkoutService.saveWorkouts(state.workouts)
+  },
+
   async setDefaults({ commit }) {
     const workouts = await Defaults.getWorkouts()
     commit('SET_WORKOUTS', workouts)
+    commit('SET_DATA_FETCHED', true)
   },
 
-  exportTesting({ state }) {
-    const exportedWorkouts = WorkoutContainer.exportData(state.workouts)
-    console.log('exportedWorkouts:Object', exportedWorkouts)
-
-    localStorage.setItem('workouts', JSON.stringify(exportedWorkouts))
+  async clearState({ commit }) {
+    commit('CLEAR_STATE')
   },
-
-  // importTesting({ commit }) {
-
-  // },
 }
 
 export const getters = {}

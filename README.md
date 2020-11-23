@@ -2,21 +2,23 @@
 
 ## Use Case Problem Solving (Define core use cases!)
 
-`* Loading app for the first time and then loading the defaults`
+`Dashboard Defaults Card`
 
-- **Storage related services/store, methods/actions**
-  - Implement LOAD from storage into STORE (app initialize)
-  - Implement SAVE into storage from STORE
-    - Saving or updating a workout
-    - Setting defaults
-  - Implement SETTING DEFAULTS with button click (store & storage)
-- Track a loading state for the apps' overall state
-  - Only load initial cards (defaults, resume, etc) once state is ready
-- App state finishes loading
-  - Display DashboardDefaultsCard if no data found in storage
-  - Display Workouts if they are found
-  - Display DashboardSummaryCard of key information that was loaded
-    - Will be useful if no workouts are found, but exercises or other data is
+- Show card if store dataFetched and data is empty
+
+`Dashboard Resume Card`
+
+- Show card is store active workout record is found
+
+`Workout Cards`
+
+- Loaded from workouts if they are found
+
+`Active Workout Page`
+
+- Custom nav bar (no timer right now)
+- Design how exercises will appear
+- Create active workout record local storage data
 
 ## Additional Tasks
 
@@ -27,6 +29,7 @@
 - Change `Recommendations` to something else (rename sub components)?
 - Tests for classes, utils, and services (attempt components later)
 - Date and timer components / functions?
+- DashboardSummaryCard
 
 ## Customize configuration
 

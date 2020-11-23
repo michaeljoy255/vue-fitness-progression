@@ -1,6 +1,5 @@
 import ExerciseService from '../../services/exercise.service.js'
 import Defaults from '../../services/defaults.service.js'
-import ExerciseContainer from '../../classes/ExerciseContainer.js'
 
 export const namespaced = true
 
@@ -26,30 +25,24 @@ export const mutations = {
 }
 
 export const actions = {
-  async get({ commit }) {
+  async getExercises({ commit }) {
     const exercises = await ExerciseService.getExercises()
     commit('SET_EXERCISES', exercises)
     commit('SET_DATA_FETCHED', true)
   },
 
+  async saveExercises({ state }) {
+    await ExerciseService.saveExercises(state.exercises)
+  },
+
   async setDefaults({ commit }) {
     const exercises = await Defaults.getExercises()
     commit('SET_EXERCISES', exercises)
+    commit('SET_DATA_FETCHED', true)
   },
 
-  exportTesting({ state }) {
-    const exportedExercises = ExerciseContainer.exportData(state.exercises)
-    console.log('exportedExercises:Object', exportedExercises)
-
-    localStorage.setItem('exercises', JSON.stringify(exportedExercises))
-  },
-
-  importTesting() {
-    const importedExercises = JSON.parse(localStorage.getItem('exercises'))
-    console.log('importedExercises:Object', importedExercises)
-
-    const convertedExercises = ExerciseContainer.importData(importedExercises)
-    console.log('convertedExercises:', convertedExercises)
+  async clearState({ commit }) {
+    commit('CLEAR_STATE')
   },
 }
 
