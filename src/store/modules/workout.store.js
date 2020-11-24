@@ -1,11 +1,12 @@
 import WorkoutService from '../../services/workout.service.js'
 import Defaults from '../../services/defaults.service.js'
+import WorkoutContainer from '../../classes/WorkoutContainer.js'
 
 export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    dataFetched: false,
+    isInitialized: false,
     workouts: null,
   }
 }
@@ -13,8 +14,8 @@ const initDefaultState = () => {
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_DATA_FETCHED(state, boolean) {
-    state.dataFetched = !!boolean
+  SET_IS_INITIALIZED(state, boolean) {
+    state.isInitialized = !!boolean
   },
   SET_WORKOUTS(state, workouts) {
     state.workouts = workouts
@@ -28,7 +29,7 @@ export const actions = {
   async getWorkouts({ commit }) {
     const workouts = await WorkoutService.getWorkouts()
     commit('SET_WORKOUTS', workouts)
-    commit('SET_DATA_FETCHED', true)
+    commit('SET_IS_INITIALIZED', true)
   },
 
   async saveWorkouts({ state }) {
@@ -38,7 +39,7 @@ export const actions = {
   async setDefaults({ commit }) {
     const workouts = await Defaults.getWorkouts()
     commit('SET_WORKOUTS', workouts)
-    commit('SET_DATA_FETCHED', true)
+    commit('SET_IS_INITIALIZED', true)
   },
 
   async clearState({ commit }) {
@@ -46,4 +47,12 @@ export const actions = {
   },
 }
 
-export const getters = {}
+export const getters = {
+  getWorkoutsArray(state) {
+    if (WorkoutContainer.isWorkoutContainer(state.workouts)) {
+      return state.workouts.toArray()
+    } else {
+      return []
+    }
+  },
+}

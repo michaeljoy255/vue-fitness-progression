@@ -53,7 +53,6 @@ export const LAYOUT = Object.freeze({
 const view = 'View'
 
 export const VIEW = Object.freeze({
-  test: 'Test' + view,
   notFound: 'NotFound' + view,
   dashboard: 'Dashboard' + view,
   activeWorkout: 'ActiveWorkout' + view,
@@ -69,5 +68,4 @@ export const COMPONENT = Object.freeze({
   dashboardWorkoutCard: 'DashboardWorkoutCard',
   dashboardResumeCard: 'DashboardResumeCard',
   dashboardTestCard: 'DashboardTestCard',
-  staticTimer: 'StaticTimer',
 })

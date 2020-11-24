@@ -2,15 +2,10 @@
 
 ## Database (Firebase, IndexedDB, Local Storage, etc.)
 
-- users **(postponed)**
 - exercises
 - workouts
-- measurementRecords **(postponed)**
 - exerciseRecords
 - workoutRecords
-
-## Active Data (Local Storage)
-
 - activeWorkoutRecord
 - activeExerciseRecords
 

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as exercise from './modules/exercise.store.js'
 import * as workout from './modules/workout.store.js'
+import * as activeExerciseRecords from './modules/active-exercise-records.store.js'
+import * as activeWorkoutRecord from './modules/active-workout-record.store.js'
 
 Vue.use(Vuex)
 
@@ -21,5 +23,7 @@ export default new Vuex.Store({
   modules: {
     exercise,
     workout,
+    activeExerciseRecords,
+    activeWorkoutRecord,
   },
 })

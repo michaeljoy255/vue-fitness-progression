@@ -8,22 +8,21 @@ export default {
   components: {
     DashboardWorkoutCard,
   },
+
+  computed: {
+    workouts() {
+      return this.$store.getters['workout/getWorkoutsArray']
+    },
+  },
 }
 </script>
 
 <template>
   <v-row>
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
-    <DashboardWorkoutCard />
+    <DashboardWorkoutCard
+      v-for="workout in workouts"
+      :key="workout.id"
+      :workout="workout"
+    />
   </v-row>
 </template>

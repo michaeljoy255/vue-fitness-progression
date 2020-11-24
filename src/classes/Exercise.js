@@ -90,16 +90,4 @@ export default class Exercise extends _Descriptors {
     }
     return this._name
   }
-
-  exportData() {
-    return {
-      id: this._id,
-      name: this._name,
-      description: this._description,
-      previousRecord: this._previousRecord && this._previousRecord.exportData(),
-      category: this._category,
-      equipment: this._equipment,
-      inputs: this._inputs && this._inputs.map((i) => i.exportData()),
-    }
-  }
 }

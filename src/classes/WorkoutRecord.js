@@ -66,14 +66,4 @@ export default class WorkoutRecord extends _Record {
   set workoutId(workoutId) {
     this._workoutId = workoutId
   }
-
-  exportData() {
-    return {
-      id: this._id,
-      createdAt: this._createdAt,
-      note: this._note,
-      duration: this._duration,
-      workoutId: this._workoutId,
-    }
-  }
 }

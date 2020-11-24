@@ -2,7 +2,7 @@
 import { COMPONENT } from '../constants/globals.js'
 import DashboardDefaultsCard from '../components/DashboardDefaultsCard.vue'
 import DashboardResumeCard from '../components/DashboardResumeCard.vue'
-import DashboardTestCard from '../components/DashboardTestCard.vue'
+// import DashboardTestCard from '../components/DashboardTestCard.vue'
 
 export default {
   name: COMPONENT.dashboardRecommendations,
@@ -10,15 +10,15 @@ export default {
   components: {
     DashboardDefaultsCard,
     DashboardResumeCard,
-    DashboardTestCard,
+    // DashboardTestCard,
   },
 }
 </script>
 
 <template>
   <v-row>
-    <DashboardTestCard />
-    <DashboardDefaultsCard />
-    <DashboardResumeCard />
+    <!-- <DashboardTestCard /> -->
+    <DashboardDefaultsCard v-if="!$store.state.workout.workouts" />
+    <DashboardResumeCard v-if="!$store.state.workout.workouts" />
   </v-row>
 </template>

@@ -21,11 +21,6 @@ const routes = [
     component: () => import('../views/ActiveWorkout.vue'),
   },
   {
-    path: '/test',
-    name: VIEW.test,
-    component: () => import('../views/Test.vue'),
-  },
-  {
     path: '*', // 404
     name: VIEW.notFound,
     component: () => import('../views/NotFound.vue'),

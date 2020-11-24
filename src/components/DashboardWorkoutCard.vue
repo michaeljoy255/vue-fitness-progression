@@ -1,17 +1,24 @@
 <script>
-import { COMPONENT } from '../constants/globals.js'
-import StaticTimer from '../components/StaticTimer.vue'
+import { COMPONENT, VIEW } from '../constants/globals.js'
 
 export default {
   name: COMPONENT.dashboardWorkoutCard,
 
-  components: {
-    StaticTimer,
+  props: {
+    workout: {
+      type: Object,
+      required: true,
+    },
   },
 
   methods: {
-    getPreviousDate() {
-      return new Date().toDateString()
+    beginWorkout() {
+      this.$router.push({
+        name: VIEW.activeWorkout,
+        params: {
+          id: this.workout.id,
+        },
+      })
     },
   },
 }
@@ -20,19 +27,18 @@ export default {
 <template>
   <v-col class="col-12 col-sm-6 col-md-4 col-xl-3">
     <v-card>
-      <v-card-title>Workout Name</v-card-title>
+      <v-card-title>{{ workout.name }}</v-card-title>
 
       <v-card-subtitle>
-        Previously completed on {{ getPreviousDate() }}
+        Previous
+        {{ new Date(workout.previousRecord.createdAt).toDateString() }}
       </v-card-subtitle>
-
-      <v-card-text>
-        <StaticTimer />
-      </v-card-text>
 
       <v-card-actions>
         <v-container>
-          <v-btn block color="primary">Begin Workout</v-btn>
+          <v-btn block color="primary" @click="beginWorkout()">
+            Begin Workout
+          </v-btn>
         </v-container>
       </v-card-actions>
     </v-card>

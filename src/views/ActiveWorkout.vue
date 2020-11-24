@@ -3,6 +3,10 @@ import { VIEW } from '../constants/globals'
 
 export default {
   name: VIEW.activeWorkout,
+
+  created() {
+    console.log(this.$route.params.id)
+  },
 }
 </script>
 
