@@ -55,4 +55,12 @@ export const getters = {
       return []
     }
   },
+
+  getWorkoutsContainer(state) {
+    if (WorkoutContainer.isWorkoutContainer(state.workouts)) {
+      return state.workouts
+    } else {
+      return null
+    }
+  },
 }

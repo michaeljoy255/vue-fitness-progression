@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as exercise from './modules/exercise.store.js'
-import * as workout from './modules/workout.store.js'
-import * as activeExerciseRecords from './modules/active-exercise-records.store.js'
-import * as activeWorkoutRecord from './modules/active-workout-record.store.js'
+import * as exercises from './modules/exercises.store.js'
+import * as workouts from './modules/workouts.store.js'
+import * as activeExercises from './modules/active-exercises.store.js'
+import * as activeWorkout from './modules/active-workout.store.js'
 
 Vue.use(Vuex)
 
@@ -12,18 +12,25 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     async initApp({ dispatch }) {
-      await dispatch('exercise/getExercises')
-      await dispatch('workout/getWorkouts')
+      await dispatch('exercises/getExercises')
+      await dispatch('workouts/getWorkouts')
+    },
 
-      // await dispatch('exercise/setDefaults') // temp
-      // await dispatch('workout/setDefaults') // temp
+    async initActiveWorkout({ dispatch }, payload) {
+      await dispatch('', payload)
+      await dispatch('', payload)
+    },
+
+    async cancelActiveWorkout({ dispatch }) {
+      await dispatch('activeExercises/clearState')
+      await dispatch('activeWorkout/clearState')
     },
   },
   getters: {},
   modules: {
-    exercise,
-    workout,
-    activeExerciseRecords,
-    activeWorkoutRecord,
+    exercises,
+    workouts,
+    activeExercises,
+    activeWorkout,
   },
 })

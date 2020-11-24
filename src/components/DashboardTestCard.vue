@@ -6,13 +6,13 @@ export default {
 
   methods: {
     async setDefaults() {
-      await this.$store.dispatch('exercise/setDefaults')
-      await this.$store.dispatch('workout/setDefaults')
+      await this.$store.dispatch('exercises/setDefaults')
+      await this.$store.dispatch('workouts/setDefaults')
     },
 
     async clearState() {
-      await this.$store.dispatch('exercise/clearState')
-      await this.$store.dispatch('workout/clearState')
+      await this.$store.dispatch('exercises/clearState')
+      await this.$store.dispatch('workouts/clearState')
     },
   },
 }

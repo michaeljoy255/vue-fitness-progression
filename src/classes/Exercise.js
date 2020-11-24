@@ -11,7 +11,7 @@ export default class Exercise extends _Descriptors {
     id = null,
     name = null,
     description = null,
-    previousRecord = new ExerciseRecord(),
+    previousRecord = new ExerciseRecord({ createdAt: null }),
     category = DEFAULT_CATEGORY.misc,
     equipment = DEFAULT_EQUIPMENT.none,
     inputs = [],

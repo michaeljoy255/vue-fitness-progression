@@ -18,7 +18,7 @@ export default {
 <template>
   <v-row>
     <!-- <DashboardTestCard /> -->
-    <DashboardDefaultsCard v-if="!$store.state.workout.workouts" />
-    <DashboardResumeCard v-if="!$store.state.workout.workouts" />
+    <DashboardDefaultsCard v-if="!$store.state.workouts.workouts" />
+    <DashboardResumeCard v-if="!$store.state.workouts.workouts" />
   </v-row>
 </template>

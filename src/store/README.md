@@ -6,8 +6,8 @@
 - workouts
 - exerciseRecords
 - workoutRecords
-- activeWorkoutRecord
-- activeExerciseRecords
+- activeWorkout
+- activeExercises
 
 ## App Store (Vuex, Redux, etc.)
 

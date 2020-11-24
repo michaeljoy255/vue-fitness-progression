@@ -1,3 +1,5 @@
+import WorkoutRecord from '../../classes/WorkoutRecord.js'
+
 export const namespaced = true
 
 const initDefaultState = () => {
@@ -22,6 +24,12 @@ export const mutations = {
 }
 
 export const actions = {
+  async create({ commit }, workoutId) {
+    const activeWorkoutRecord = new WorkoutRecord({ id: workoutId })
+    commit('SET_ACTIVE_WORKOUT_RECORD', activeWorkoutRecord)
+    commit('SET_IS_READY', true)
+  },
+
   async clearState({ commit }) {
     commit('CLEAR_STATE')
   },

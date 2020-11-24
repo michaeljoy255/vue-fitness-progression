@@ -11,7 +11,7 @@ export default class _IdContainer {
   }
 
   findById(id) {
-    return this._items.filter((item) => item.id === id)
+    return this._items.find((item) => item.id === id)
   }
 
   // sort() {

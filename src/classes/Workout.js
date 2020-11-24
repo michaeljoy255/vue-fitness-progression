@@ -11,7 +11,7 @@ export default class Workout extends _Descriptors {
     id = null,
     name = null,
     description = null,
-    previousRecord = new WorkoutRecord(),
+    previousRecord = new WorkoutRecord({ createdAt: null }),
     exercises = null,
   } = {}) {
     super({ id, name, description, previousRecord })
@@ -68,16 +68,6 @@ export default class Workout extends _Descriptors {
       this._exercises.fromArray(exercises)
     } else {
       this._exercises.fromContainer(exercises)
-    }
-  }
-
-  exportData() {
-    return {
-      id: this._id,
-      name: this._name,
-      description: this._description,
-      previousRecord: this._previousRecord && this._previousRecord.exportData(),
-      exercises: this._exercises && this.exercises.exportData(),
     }
   }
 }

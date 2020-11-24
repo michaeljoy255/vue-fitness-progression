@@ -1,3 +1,5 @@
+import ExerciseRecordContainer from '../../classes/ExerciseRecordContainer.js'
+
 export const namespaced = true
 
 const initDefaultState = () => {
@@ -22,6 +24,13 @@ export const mutations = {
 }
 
 export const actions = {
+  async create({ commit }, workoutId) {
+    console.log(workoutId)
+    const activeExerciseRecords = new ExerciseRecordContainer()
+    commit('SET_ACTIVE_EXERCISE_RECORDS', activeExerciseRecords)
+    commit('SET_IS_READY', true)
+  },
+
   async clearState({ commit }) {
     commit('CLEAR_STATE')
   },
