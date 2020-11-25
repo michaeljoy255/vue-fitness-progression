@@ -6,19 +6,20 @@ export const namespaced = true
 
 const initDefaultState = () => {
   return {
+    isLoading: true,
     isInitialized: false,
-    workouts: null,
+    workoutContainer: null,
   }
 }
 
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_IS_INITIALIZED(state, boolean) {
-    state.isInitialized = !!boolean
+  SET_IS_LOADING(state, boolean) {
+    state.isLoading = !!boolean
   },
   SET_WORKOUTS(state, workouts) {
-    state.workouts = workouts
+    state.workoutContainer = workouts
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -27,19 +28,19 @@ export const mutations = {
 
 export const actions = {
   async getWorkouts({ commit }) {
-    const workouts = await WorkoutService.getWorkouts()
-    commit('SET_WORKOUTS', workouts)
-    commit('SET_IS_INITIALIZED', true)
+    const workoutContainer = await WorkoutService.getWorkouts()
+    commit('SET_WORKOUTS', workoutContainer)
+    commit('SET_IS_LOADING', false)
   },
 
   async saveWorkouts({ state }) {
-    await WorkoutService.saveWorkouts(state.workouts)
+    await WorkoutService.saveWorkouts(state.workoutContainer)
   },
 
   async setDefaults({ commit }) {
     const workouts = await Defaults.getWorkouts()
     commit('SET_WORKOUTS', workouts)
-    commit('SET_IS_INITIALIZED', true)
+    commit('SET_IS_LOADING', false)
   },
 
   async clearState({ commit }) {
@@ -49,18 +50,27 @@ export const actions = {
 
 export const getters = {
   getWorkoutsArray(state) {
-    if (WorkoutContainer.isWorkoutContainer(state.workouts)) {
-      return state.workouts.toArray()
+    if (WorkoutContainer.isWorkoutContainer(state.workoutContainer)) {
+      return state.workoutContainer.toArray()
     } else {
       return []
     }
   },
 
   getWorkoutsContainer(state) {
-    if (WorkoutContainer.isWorkoutContainer(state.workouts)) {
-      return state.workouts
+    if (WorkoutContainer.isWorkoutContainer(state.workoutContainer)) {
+      return state.workoutContainer
     } else {
       return null
+    }
+  },
+
+  getWorkoutNameById: (state) => (id) => {
+    if (!state.isLoading && state.workoutContainer) {
+      const workout = state.workoutContainer.findById(id)
+      return workout.name
+    } else {
+      return ''
     }
   },
 }

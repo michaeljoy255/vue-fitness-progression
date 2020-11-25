@@ -15,16 +15,6 @@ export default new Vuex.Store({
       await dispatch('exercises/getExercises')
       await dispatch('workouts/getWorkouts')
     },
-
-    async initActiveWorkout({ dispatch }, payload) {
-      await dispatch('', payload)
-      await dispatch('', payload)
-    },
-
-    async cancelActiveWorkout({ dispatch }) {
-      await dispatch('activeExercises/clearState')
-      await dispatch('activeWorkout/clearState')
-    },
   },
   getters: {},
   modules: {

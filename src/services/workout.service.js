@@ -1,4 +1,5 @@
 import WorkoutContainer from '../classes/WorkoutContainer.js'
+import WorkoutRecord from '../classes/WorkoutRecord.js'
 
 const WorkoutService = (function() {
   function getWorkouts() {
@@ -26,9 +27,25 @@ const WorkoutService = (function() {
     })
   }
 
+  function saveActiveWorkout(activeWorkout) {
+    return new Promise((resolve, reject) => {
+      try {
+        const exportedActiveWorkout = WorkoutRecord.exportData(activeWorkout)
+        const jsonActiveWorkout = JSON.stringify(exportedActiveWorkout)
+        localStorage.setItem('activeWorkout', jsonActiveWorkout)
+        resolve()
+      } catch (error) {
+        reject(
+          new Error('Error saving active workout record to storage.', error)
+        )
+      }
+    })
+  }
+
   return {
     getWorkouts,
     saveWorkouts,
+    saveActiveWorkout,
   }
 })()
 

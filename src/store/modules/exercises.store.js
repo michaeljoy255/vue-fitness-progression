@@ -6,19 +6,20 @@ export const namespaced = true
 
 const initDefaultState = () => {
   return {
+    isLoading: true,
     isInitialized: false,
-    exercises: null,
+    exerciseContainer: null,
   }
 }
 
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_IS_INITIALIZED(state, boolean) {
-    state.isInitialized = !!boolean
+  SET_IS_LOADING(state, boolean) {
+    state.isLoading = !!boolean
   },
   SET_EXERCISES(state, exercises) {
-    state.exercises = exercises
+    state.exerciseContainer = exercises
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -27,19 +28,19 @@ export const mutations = {
 
 export const actions = {
   async getExercises({ commit }) {
-    const exercises = await ExerciseService.getExercises()
-    commit('SET_EXERCISES', exercises)
-    commit('SET_IS_INITIALIZED', true)
+    const exerciseContainer = await ExerciseService.getExercises()
+    commit('SET_EXERCISES', exerciseContainer)
+    commit('SET_IS_LOADING', false)
   },
 
   async saveExercises({ state }) {
-    await ExerciseService.saveExercises(state.exercises)
+    await ExerciseService.saveExercises(state.exerciseContainer)
   },
 
   async setDefaults({ commit }) {
     const exercises = await Defaults.getExercises()
     commit('SET_EXERCISES', exercises)
-    commit('SET_IS_INITIALIZED', true)
+    commit('SET_IS_LOADING', false)
   },
 
   async clearState({ commit }) {
@@ -49,8 +50,8 @@ export const actions = {
 
 export const getters = {
   getExercises(state) {
-    if (ExerciseContainer.isExerciseContainer(state.exercises)) {
-      return state.exercises.toArray()
+    if (ExerciseContainer.isExerciseContainer(state.exerciseContainer)) {
+      return state.exerciseContainer.toArray()
     } else {
       return []
     }

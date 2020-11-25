@@ -1,4 +1,5 @@
 import ExerciseContainer from '../classes/ExerciseContainer.js'
+import ExerciseRecordContainer from '../classes/ExerciseRecordContainer.js'
 
 const ExerciseService = (function() {
   function getExercises() {
@@ -26,9 +27,27 @@ const ExerciseService = (function() {
     })
   }
 
+  function saveActiveExercises(activeExercises) {
+    return new Promise((resolve, reject) => {
+      try {
+        const exportedActiveExercises = ExerciseRecordContainer.exportData(
+          activeExercises
+        )
+        const jsonActiveExercises = JSON.stringify(exportedActiveExercises)
+        localStorage.setItem('activeExercises', jsonActiveExercises)
+        resolve()
+      } catch (error) {
+        reject(
+          new Error('Error saving active exercise records to storage.', error)
+        )
+      }
+    })
+  }
+
   return {
     getExercises,
     saveExercises,
+    saveActiveExercises,
   }
 })()
 

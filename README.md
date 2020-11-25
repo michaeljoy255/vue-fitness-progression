@@ -4,7 +4,7 @@
 
 `Dashboard Defaults Card`
 
-- Show card if store isInitialized and data is empty
+- Show card if store isLoading and data is empty
 
 `Dashboard Resume Card`
 

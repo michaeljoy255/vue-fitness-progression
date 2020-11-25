@@ -19,6 +19,9 @@ export default {
           id: this.workout.id,
         },
       })
+
+      this.$store.dispatch('activeWorkout/create', this.workout.id)
+      this.$store.dispatch('activeExercises/create', this.workout.exercises)
     },
   },
 }

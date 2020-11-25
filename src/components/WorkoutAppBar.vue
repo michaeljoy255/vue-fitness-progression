@@ -12,14 +12,15 @@ export default {
 
   computed: {
     workoutName() {
-      return this.$store.state.workouts.workouts.findById(this.workoutId).name
+      return this.$store.state.workouts.workoutContainer.findById(
+        this.workoutId
+      ).name
     },
   },
 
   methods: {
-    cancelWorkout() {
-      if (confirm('Cancel this workout?')) {
-        this.$store.dispatch('cancelActiveWorkout')
+    leaveWorkout() {
+      if (confirm('Return to the Dashboard?')) {
         this.$router.push({
           name: VIEW.dashboard,
         })
@@ -35,6 +36,6 @@ export default {
 
     <v-spacer />
 
-    <v-btn icon right @click="cancelWorkout()">X</v-btn>
+    <v-btn icon right @click="leaveWorkout()">X</v-btn>
   </v-app-bar>
 </template>
