@@ -11,7 +11,7 @@ export default {
 
   computed: {
     workouts() {
-      return this.$store.getters.workouts.workoutsContainer
+      return this.$store.state.workouts.workoutContainer.toArray()
     },
   },
 }

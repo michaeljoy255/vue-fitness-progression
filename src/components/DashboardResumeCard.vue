@@ -1,15 +1,32 @@
 <script>
-import { COMPONENT } from '../constants/globals.js'
+import { COMPONENT, VIEW } from '../constants/globals.js'
 
 export default {
   name: COMPONENT.dashboardResumeCard,
+
+  computed: {
+    activeWorkoutId() {
+      return this.$store.state.activeWorkout.activeWorkoutRecord.workoutId
+    },
+  },
+
+  methods: {
+    resumeWorkout() {
+      this.$router.push({
+        name: VIEW.activeWorkout,
+        params: {
+          id: this.activeWorkoutId,
+        },
+      })
+    },
+  },
 }
 </script>
 
 <template>
   <v-col class="col-12">
     <v-card>
-      <v-card-title>Workout Name</v-card-title>
+      <v-card-title>{{ activeWorkoutId }}</v-card-title>
 
       <v-card-subtitle>
         Workout started on Date
@@ -17,7 +34,7 @@ export default {
 
       <v-card-actions>
         <v-container>
-          <v-btn color="success">Resume Workout</v-btn>
+          <v-btn color="success" @click="resumeWorkout()">Resume Workout</v-btn>
         </v-container>
       </v-card-actions>
     </v-card>

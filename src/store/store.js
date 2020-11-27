@@ -14,6 +14,7 @@ export default new Vuex.Store({
     async initApp({ dispatch }) {
       await dispatch('exercises/getExercises')
       await dispatch('workouts/getWorkouts')
+      // await
     },
   },
   getters: {},

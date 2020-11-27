@@ -27,6 +27,22 @@ const WorkoutService = (function() {
     })
   }
 
+  function getActiveWorkout() {
+    return new Promise((resolve, reject) => {
+      try {
+        const parsedActiveWorkout = JSON.parse(
+          localStorage.getItem('activeWorkout')
+        )
+        const activeWorkout = WorkoutRecord.importData(parsedActiveWorkout)
+        return resolve(activeWorkout)
+      } catch (error) {
+        return reject(
+          new Error('Error getting active workout from storage.', error)
+        )
+      }
+    })
+  }
+
   function saveActiveWorkout(activeWorkout) {
     return new Promise((resolve, reject) => {
       try {
@@ -44,6 +60,7 @@ const WorkoutService = (function() {
 
   return {
     getWorkouts,
+    getActiveWorkout,
     saveWorkouts,
     saveActiveWorkout,
   }

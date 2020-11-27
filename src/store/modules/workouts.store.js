@@ -7,7 +7,7 @@ const initDefaultState = () => {
   return {
     isLoading: true,
     isInitialized: false,
-    workoutsContainer: null,
+    workoutContainer: null,
   }
 }
 
@@ -21,7 +21,7 @@ export const mutations = {
     state.isInitialized = !!boolean
   },
   SET_WORKOUTS(state, workouts) {
-    state.workoutsContainer = workouts
+    state.workoutContainer = workouts
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -30,13 +30,13 @@ export const mutations = {
 
 export const actions = {
   async getWorkouts({ commit }) {
-    const workoutsContainer = await WorkoutService.getWorkouts()
-    commit('SET_WORKOUTS', workoutsContainer)
+    const workoutContainer = await WorkoutService.getWorkouts()
+    commit('SET_WORKOUTS', workoutContainer)
     commit('SET_IS_LOADING', false)
   },
 
   async saveWorkouts({ state }) {
-    await WorkoutService.saveWorkouts(state.workoutsContainer)
+    await WorkoutService.saveWorkouts(state.workoutContainer)
   },
 
   async setDefaults({ commit }) {
