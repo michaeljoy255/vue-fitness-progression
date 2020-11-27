@@ -1,6 +1,5 @@
 import ExerciseService from '../../services/exercise.service.js'
 import Defaults from '../../services/defaults.service.js'
-import ExerciseContainer from '../../classes/ExerciseContainer.js'
 
 export const namespaced = true
 
@@ -8,7 +7,7 @@ const initDefaultState = () => {
   return {
     isLoading: true,
     isInitialized: false,
-    exerciseContainer: null,
+    exercisesContainer: null,
   }
 }
 
@@ -18,8 +17,11 @@ export const mutations = {
   SET_IS_LOADING(state, boolean) {
     state.isLoading = !!boolean
   },
+  SET_IS_INITIALIZED(state, boolean) {
+    state.isInitialized = !!boolean
+  },
   SET_EXERCISES(state, exercises) {
-    state.exerciseContainer = exercises
+    state.exercisesContainer = exercises
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -28,13 +30,13 @@ export const mutations = {
 
 export const actions = {
   async getExercises({ commit }) {
-    const exerciseContainer = await ExerciseService.getExercises()
-    commit('SET_EXERCISES', exerciseContainer)
+    const exercisesContainer = await ExerciseService.getExercises()
+    commit('SET_EXERCISES', exercisesContainer)
     commit('SET_IS_LOADING', false)
   },
 
   async saveExercises({ state }) {
-    await ExerciseService.saveExercises(state.exerciseContainer)
+    await ExerciseService.saveExercises(state.exercisesContainer)
   },
 
   async setDefaults({ commit }) {
@@ -48,12 +50,4 @@ export const actions = {
   },
 }
 
-export const getters = {
-  getExercises(state) {
-    if (ExerciseContainer.isExerciseContainer(state.exerciseContainer)) {
-      return state.exerciseContainer.toArray()
-    } else {
-      return []
-    }
-  },
-}
+export const getters = {}

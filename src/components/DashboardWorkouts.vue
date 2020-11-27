@@ -11,7 +11,7 @@ export default {
 
   computed: {
     workouts() {
-      return this.$store.getters['workouts/getWorkoutsArray']
+      return this.$store.getters.workouts.workoutsContainer
     },
   },
 }
