@@ -2,9 +2,14 @@
 
 ## Use Case Problem Solving (Define core use cases!)
 
+`Need to fix classes before continuing!`
+
+- How to handle **empty** instances?
+- Unit tests for the classes!
+
 `Dashboard Defaults Card`
 
-- Show card if store isLoading and data is empty
+- Show card if store is loading and data is empty
 
 `Dashboard Resume Card`
 

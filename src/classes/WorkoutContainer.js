@@ -22,6 +22,8 @@ export default class WorkoutContainer extends _DescriptorsContainer {
   }
 
   static importData(workouts) {
+    if (!workouts) return null
+
     return new WorkoutContainer().fromArray(
       workouts.map((i) => Workout.importData(i))
     )

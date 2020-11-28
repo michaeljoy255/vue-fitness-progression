@@ -11,7 +11,7 @@ export default class Workout extends _Descriptors {
     id = null,
     name = null,
     description = null,
-    previousRecord = new WorkoutRecord({ createdAt: null }),
+    previousRecord = null,
     exercises = null,
   } = {}) {
     super({ id, name, description, previousRecord })
@@ -39,7 +39,9 @@ export default class Workout extends _Descriptors {
         id: workout._id,
         name: workout._name,
         description: workout._description,
-        previousRecord: WorkoutRecord.exportData(workout._previousRecord),
+        previousRecord: workout._previousRecord
+          ? WorkoutRecord.exportData(workout._previousRecord)
+          : null,
         exercises: ExerciseContainer.exportData(workout._exercises),
       }
     } else {
@@ -48,6 +50,8 @@ export default class Workout extends _Descriptors {
   }
 
   static importData(workout) {
+    if (!workout) return null
+
     return new Workout({
       id: workout.id,
       name: workout.name,
@@ -68,6 +72,14 @@ export default class Workout extends _Descriptors {
       this._exercises.fromArray(exercises)
     } else {
       this._exercises.fromContainer(exercises)
+    }
+  }
+
+  getPreviousRecordCreatedAt() {
+    if (this._previousRecord && this._previousRecord.createdAt) {
+      return new Date(this._previousRecord.createdAt).toDateString()
+    } else {
+      return 'No previous record found'
     }
   }
 }

@@ -43,6 +43,8 @@ export default class ExerciseRecord extends _Record {
   }
 
   static importData(record) {
+    if (!record) return null
+
     return new ExerciseRecord({
       id: record.id,
       createdAt: record.createdAt,

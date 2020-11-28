@@ -11,7 +11,7 @@ export default class Exercise extends _Descriptors {
     id = null,
     name = null,
     description = null,
-    previousRecord = new ExerciseRecord({ createdAt: null }),
+    previousRecord = null,
     category = DEFAULT_CATEGORY.misc,
     equipment = DEFAULT_EQUIPMENT.none,
     inputs = [],
@@ -38,7 +38,9 @@ export default class Exercise extends _Descriptors {
         id: exercise._id,
         name: exercise._name,
         description: exercise._description,
-        previousRecord: ExerciseRecord.exportData(exercise._previousRecord),
+        previousRecord: exercise._previousRecord
+          ? ExerciseRecord.exportData(exercise._previousRecord)
+          : null,
         category: exercise._category,
         equipment: exercise._equipment,
         inputs: exercise._inputs.map((i) => ExerciseInput.exportData(i)),
@@ -49,6 +51,8 @@ export default class Exercise extends _Descriptors {
   }
 
   static importData(exercise) {
+    if (!exercise) return null
+
     return new Exercise({
       id: exercise.id,
       name: exercise.name,
@@ -82,6 +86,14 @@ export default class Exercise extends _Descriptors {
 
   set inputs(inputs) {
     this._inputs = inputs
+  }
+
+  getPreviousRecordCreatedAt() {
+    if (this._previousRecord && this._previousRecord.createdAt) {
+      return new Date(this._previousRecord.createdAt).toDateString()
+    } else {
+      return 'No previous record found'
+    }
   }
 
   longName() {

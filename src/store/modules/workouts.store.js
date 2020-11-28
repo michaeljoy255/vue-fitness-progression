@@ -5,7 +5,6 @@ export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    isLoading: true,
     isInitialized: false,
     workoutContainer: null,
   }
@@ -14,9 +13,6 @@ const initDefaultState = () => {
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_IS_LOADING(state, boolean) {
-    state.isLoading = !!boolean
-  },
   SET_IS_INITIALIZED(state, boolean) {
     state.isInitialized = !!boolean
   },
@@ -29,10 +25,9 @@ export const mutations = {
 }
 
 export const actions = {
-  async getWorkouts({ commit }) {
+  async initWorkouts({ commit }) {
     const workoutContainer = await WorkoutService.getWorkouts()
     commit('SET_WORKOUTS', workoutContainer)
-    commit('SET_IS_LOADING', false)
   },
 
   async saveWorkouts({ state }) {
@@ -42,7 +37,6 @@ export const actions = {
   async setDefaults({ commit }) {
     const workouts = await Defaults.getWorkouts()
     commit('SET_WORKOUTS', workouts)
-    commit('SET_IS_LOADING', false)
   },
 
   async clearState({ commit }) {

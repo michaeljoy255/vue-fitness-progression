@@ -6,18 +6,14 @@ export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    isLoading: true,
     isInitialized: false,
-    activeExerciseRecordContainer: new ExerciseRecordContainer(),
+    activeExerciseRecordContainer: null,
   }
 }
 
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_IS_LOADING(state, boolean) {
-    state.isLoading = !!boolean
-  },
   SET_IS_INITIALIZED(state, boolean) {
     state.isInitialized = !!boolean
   },
@@ -41,11 +37,12 @@ export const actions = {
     commit('SET_ACTIVE_EXERCISES', activeExerciseRecordContainer)
   },
 
-  async getActiveExercises({ commit }) {
+  async initActiveExercises({ commit }) {
     const exerciseContainer = await ExerciseService.getActiveExercises()
-    commit('SET_ACTIVE_EXERCISES', exerciseContainer)
-    commit('SET_IS_INITIALIZED', true)
-    commit('SET_IS_LOADING', false)
+    if (exerciseContainer) {
+      commit('SET_ACTIVE_EXERCISES', exerciseContainer)
+      commit('SET_IS_INITIALIZED', true)
+    }
   },
 
   async clearState({ commit }) {

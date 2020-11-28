@@ -25,6 +25,8 @@ export default class ExerciseInput {
   }
 
   static importData(input) {
+    if (!input) return null
+
     return new ExerciseInput({
       inputType: input.inputType,
       hint: input.hint,

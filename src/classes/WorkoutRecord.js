@@ -42,6 +42,8 @@ export default class WorkoutRecord extends _Record {
   }
 
   static importData(record) {
+    if (!record) return null
+
     return new WorkoutRecord({
       id: record.id,
       createdAt: record.createdAt,

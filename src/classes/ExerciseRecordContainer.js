@@ -22,6 +22,8 @@ export default class ExerciseRecordContainer extends _RecordContainer {
   }
 
   static importData(records) {
+    if (!records) return null
+
     return new ExerciseRecordContainer().fromArray(
       records.map((i) => ExerciseRecord.importData(i))
     )

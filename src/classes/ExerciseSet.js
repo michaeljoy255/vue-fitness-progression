@@ -32,6 +32,8 @@ export default class ExerciseSet {
   }
 
   static importData(set) {
+    if (!set) return null
+
     return new ExerciseSet({
       weight: set.weight,
       reps: set.reps,

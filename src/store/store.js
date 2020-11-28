@@ -12,9 +12,11 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     async initApp({ dispatch }) {
-      await dispatch('exercises/getExercises')
-      await dispatch('workouts/getWorkouts')
-      // await
+      await dispatch('exercises/initExercises')
+      await dispatch('workouts/initWorkouts')
+
+      await dispatch('activeWorkout/initActiveWorkout')
+      await dispatch('activeExercises/initActiveExercises')
     },
   },
   getters: {},

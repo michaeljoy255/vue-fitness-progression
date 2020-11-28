@@ -22,6 +22,8 @@ export default class WorkoutRecordContainer extends _RecordContainer {
   }
 
   static importData(records) {
+    if (!records) return null
+
     return new WorkoutRecordContainer().fromArray(
       records.map((i) => WorkoutRecord.importData(i))
     )
