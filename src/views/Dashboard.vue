@@ -12,8 +12,8 @@ export default {
   },
 
   async created() {
-    await this.$store.dispatch('activeWorkout/initActiveWorkout')
-    await this.$store.dispatch('activeExercises/initActiveExercises')
+    await this.$store.dispatch('activeWorkout/loadActiveWorkoutFromStorage')
+    await this.$store.dispatch('activeExercises/loadActiveExercisesFromStorage')
   },
 }
 </script>

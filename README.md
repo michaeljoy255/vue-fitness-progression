@@ -4,7 +4,7 @@
 
 `Need to fix classes before continuing!`
 
-- How to handle **empty** instances?
+- How to handle **empty** instances? (use null, don't use empty classes)
 - Unit tests for the classes!
 
 `Dashboard Defaults Card`

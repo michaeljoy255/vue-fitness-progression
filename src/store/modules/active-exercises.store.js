@@ -37,7 +37,7 @@ export const actions = {
     commit('SET_ACTIVE_EXERCISES', activeExerciseRecordContainer)
   },
 
-  async initActiveExercises({ commit }) {
+  async loadActiveExercisesFromStorage({ commit }) {
     const exerciseContainer = await ExerciseService.getActiveExercises()
     if (exerciseContainer) {
       commit('SET_ACTIVE_EXERCISES', exerciseContainer)

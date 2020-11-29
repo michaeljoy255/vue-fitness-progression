@@ -25,7 +25,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async initWorkouts({ commit }) {
+  async loadExercisesFromStorage({ commit }) {
     const workoutContainer = await WorkoutService.getWorkouts()
     commit('SET_WORKOUTS', workoutContainer)
   },

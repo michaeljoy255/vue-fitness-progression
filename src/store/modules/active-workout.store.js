@@ -31,7 +31,7 @@ export const actions = {
     commit('SET_ACTIVE_WORKOUT', activeWorkoutRecord)
   },
 
-  async initActiveWorkout({ commit }) {
+  async loadActiveWorkoutFromStorage({ commit }) {
     const workoutRecord = await WorkoutService.getActiveWorkout()
     if (workoutRecord) {
       commit('SET_ACTIVE_WORKOUT', workoutRecord)
