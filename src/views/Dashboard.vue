@@ -19,7 +19,7 @@ export default {
   computed: {
     renderWorkouts() {
       const workouts = this.$store.state.workouts
-      return workouts.isInitialized && workouts.workoutContainer.hasData()
+      return workouts.isInitialized && workouts.workoutContainer
     },
   },
 }

@@ -13,7 +13,7 @@ export default new Vuex.Store({
   actions: {
     async initApp({ dispatch }) {
       await dispatch('exercises/loadExercisesFromStorage')
-      await dispatch('workouts/loadExercisesFromStorage')
+      await dispatch('workouts/loadWorkoutsFromStorage')
     },
   },
   getters: {},
