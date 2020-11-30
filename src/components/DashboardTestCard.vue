@@ -13,6 +13,8 @@ export default {
     async clearState() {
       await this.$store.dispatch('exercises/clearState')
       await this.$store.dispatch('workouts/clearState')
+      await this.$store.dispatch('activeWorkout/clearState')
+      await this.$store.dispatch('activeExercises/clearState')
     },
   },
 }

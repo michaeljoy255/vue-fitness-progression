@@ -14,6 +14,10 @@ export default class _IdContainer {
     return this._items.find((item) => item.id === id)
   }
 
+  hasData() {
+    return this._items.length > 0
+  }
+
   // sort() {
   //   this._items.sort()
   // }

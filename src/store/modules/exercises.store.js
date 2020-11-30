@@ -28,6 +28,7 @@ export const actions = {
   async loadExercisesFromStorage({ commit }) {
     const exerciseContainer = await ExerciseService.getExercises()
     commit('SET_EXERCISES', exerciseContainer)
+    commit('SET_IS_INITIALIZED', true)
   },
 
   async saveExercises({ state }) {
@@ -37,6 +38,7 @@ export const actions = {
   async setDefaults({ commit }) {
     const exercises = await Defaults.getExercises()
     commit('SET_EXERCISES', exercises)
+    commit('SET_IS_INITIALIZED', true)
   },
 
   async clearState({ commit }) {

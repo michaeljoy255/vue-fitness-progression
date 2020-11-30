@@ -28,6 +28,7 @@ export const actions = {
   async loadExercisesFromStorage({ commit }) {
     const workoutContainer = await WorkoutService.getWorkouts()
     commit('SET_WORKOUTS', workoutContainer)
+    commit('SET_IS_INITIALIZED', true)
   },
 
   async saveWorkouts({ state }) {
@@ -37,6 +38,7 @@ export const actions = {
   async setDefaults({ commit }) {
     const workouts = await Defaults.getWorkouts()
     commit('SET_WORKOUTS', workouts)
+    commit('SET_IS_INITIALIZED', true)
   },
 
   async clearState({ commit }) {

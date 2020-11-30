@@ -4,6 +4,7 @@
 
 `Need to fix classes before continuing!`
 
+- Change init and data checking to getters for the stores
 - How to handle **empty** instances? (use null, don't use empty classes)
 - Unit tests for the classes!
 

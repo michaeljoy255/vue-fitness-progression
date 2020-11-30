@@ -12,13 +12,25 @@ export default {
     DashboardResumeCard,
     DashboardTestCard,
   },
+
+  computed: {
+    renderDefaultsCard() {
+      const workouts = this.$store.state.workouts
+      return workouts.isInitialized && workouts.workoutContainer.hasData()
+    },
+
+    renderResumeCard() {
+      const activeWorkout = this.$store.state.activeWorkout
+      return activeWorkout.isInitialized && activeWorkout.activeWorkoutRecord
+    },
+  },
 }
 </script>
 
 <template>
   <v-row>
     <DashboardTestCard />
-    <DashboardDefaultsCard v-if="$store.state.workouts.isInitialized" />
-    <DashboardResumeCard v-if="$store.state.activeWorkout.isInitialized" />
+    <DashboardDefaultsCard v-if="renderDefaultsCard" />
+    <DashboardResumeCard v-if="renderResumeCard" />
   </v-row>
 </template>

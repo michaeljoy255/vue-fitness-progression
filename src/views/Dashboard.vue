@@ -15,12 +15,19 @@ export default {
     await this.$store.dispatch('activeWorkout/loadActiveWorkoutFromStorage')
     await this.$store.dispatch('activeExercises/loadActiveExercisesFromStorage')
   },
+
+  computed: {
+    renderWorkouts() {
+      const workouts = this.$store.state.workouts
+      return workouts.isInitialized && workouts.workoutContainer.hasData()
+    },
+  },
 }
 </script>
 
 <template>
   <v-container>
     <DashboardRecommendations />
-    <DashboardWorkouts />
+    <DashboardWorkouts v-if="renderWorkouts" />
   </v-container>
 </template>
