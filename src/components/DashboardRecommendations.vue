@@ -15,13 +15,11 @@ export default {
 
   computed: {
     renderDefaultsCard() {
-      const workouts = this.$store.state.workouts
-      return workouts.isInitialized && workouts.workoutContainer
+      return !this.$store.getters['workouts/isReady']
     },
 
     renderResumeCard() {
-      const activeWorkout = this.$store.state.activeWorkout
-      return activeWorkout.isInitialized && activeWorkout.activeWorkoutRecord
+      return this.$store.getters['activeWorkout/isReady']
     },
   },
 }

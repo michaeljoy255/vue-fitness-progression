@@ -5,7 +5,6 @@ export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    isInitialized: false,
     activeWorkoutRecord: null,
   }
 }
@@ -13,9 +12,6 @@ const initDefaultState = () => {
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_IS_INITIALIZED(state, boolean) {
-    state.isInitialized = !!boolean
-  },
   SET_ACTIVE_WORKOUT(state, record) {
     state.activeWorkoutRecord = record
   },
@@ -25,27 +21,23 @@ export const mutations = {
 }
 
 export const actions = {
-  async create({ commit }, workoutId) {
+  async save({ commit }, workoutId) {
     const activeWorkoutRecord = new WorkoutRecord({ workoutId })
     await WorkoutService.saveActiveWorkout(activeWorkoutRecord)
     commit('SET_ACTIVE_WORKOUT', activeWorkoutRecord)
   },
 
-  async loadActiveWorkoutFromStorage({ commit }) {
-    const workoutRecord = await WorkoutService.getActiveWorkout()
-    if (workoutRecord) {
-      commit('SET_ACTIVE_WORKOUT', workoutRecord)
-      commit('SET_IS_INITIALIZED', true)
-    }
+  async load({ commit }) {
+    commit('SET_ACTIVE_WORKOUT', await WorkoutService.getActiveWorkout())
   },
 
-  async clearState({ commit }) {
+  async clear({ commit }) {
     commit('CLEAR_STATE')
   },
 }
 
 export const getters = {
   isReady(state) {
-    return state.isInitialized && !state.isLoading
+    return WorkoutRecord.isWorkoutRecord(state.activeWorkoutRecord)
   },
 }

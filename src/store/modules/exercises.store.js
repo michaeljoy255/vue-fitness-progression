@@ -1,11 +1,11 @@
 import ExerciseService from '../../services/exercise.service.js'
 import Defaults from '../../services/defaults.service.js'
+import ExerciseContainer from '../../classes/ExerciseContainer.js'
 
 export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    isInitialized: false,
     exerciseContainer: null,
   }
 }
@@ -13,9 +13,6 @@ const initDefaultState = () => {
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_IS_INITIALIZED(state, boolean) {
-    state.isInitialized = !!boolean
-  },
   SET_EXERCISES(state, exercises) {
     state.exerciseContainer = exercises
   },
@@ -25,25 +22,28 @@ export const mutations = {
 }
 
 export const actions = {
-  async loadExercisesFromStorage({ commit }) {
-    const exerciseContainer = await ExerciseService.getExercises()
-    commit('SET_EXERCISES', exerciseContainer)
-    commit('SET_IS_INITIALIZED', true)
-  },
-
-  async saveExercises({ state }) {
+  async save({ state }) {
     await ExerciseService.saveExercises(state.exerciseContainer)
   },
 
-  async setDefaults({ commit }) {
-    const exercises = await Defaults.getExercises()
-    commit('SET_EXERCISES', exercises)
-    commit('SET_IS_INITIALIZED', true)
+  async load({ commit }) {
+    const exerciseContainer = await ExerciseService.getExercises()
+    commit('SET_EXERCISES', exerciseContainer)
   },
 
-  async clearState({ commit }) {
+  async clear({ commit }) {
     commit('CLEAR_STATE')
+  },
+
+  async loadDefaults({ commit }) {
+    const exercises = await Defaults.getExercises()
+    await ExerciseService.saveExercises(exercises)
+    commit('SET_EXERCISES', exercises)
   },
 }
 
-export const getters = {}
+export const getters = {
+  isReady(state) {
+    return ExerciseContainer.isExerciseContainer(state.exerciseContainer)
+  },
+}

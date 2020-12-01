@@ -27,6 +27,17 @@ const WorkoutService = (function() {
     })
   }
 
+  function deleteWorkouts() {
+    return new Promise((resolve, reject) => {
+      try {
+        localStorage.removeItem('workouts')
+        resolve()
+      } catch (error) {
+        reject(new Error('Error deleting workouts from storage.', error))
+      }
+    })
+  }
+
   function getActiveWorkout() {
     return new Promise((resolve, reject) => {
       try {
@@ -58,11 +69,24 @@ const WorkoutService = (function() {
     })
   }
 
+  function deleteActiveWorkout() {
+    return new Promise((resolve, reject) => {
+      try {
+        localStorage.removeItem('activeWorkout')
+        resolve()
+      } catch (error) {
+        reject(new Error('Error deleting active workout from storage.', error))
+      }
+    })
+  }
+
   return {
     getWorkouts,
     getActiveWorkout,
     saveWorkouts,
     saveActiveWorkout,
+    deleteWorkouts,
+    deleteActiveWorkout,
   }
 })()
 

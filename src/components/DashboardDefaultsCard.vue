@@ -3,6 +3,13 @@ import { COMPONENT } from '../constants/globals.js'
 
 export default {
   name: COMPONENT.dashboardDefaultsCard,
+
+  methods: {
+    loadDefaults() {
+      this.$store.dispatch('exercises/loadDefaults')
+      this.$store.dispatch('workouts/loadDefaults')
+    },
+  },
 }
 </script>
 
@@ -17,7 +24,7 @@ export default {
 
       <v-card-actions>
         <v-container>
-          <v-btn color="success">Use Defaults</v-btn>
+          <v-btn color="success" @click="loadDefaults()">Use Defaults</v-btn>
         </v-container>
       </v-card-actions>
     </v-card>

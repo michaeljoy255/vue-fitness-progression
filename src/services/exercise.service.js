@@ -27,6 +27,17 @@ const ExerciseService = (function() {
     })
   }
 
+  function deleteExercises() {
+    return new Promise((resolve, reject) => {
+      try {
+        localStorage.removeItem('exercises')
+        resolve()
+      } catch (error) {
+        reject(new Error('Error deleting exercises from storage.', error))
+      }
+    })
+  }
+
   function getActiveExercises() {
     return new Promise((resolve, reject) => {
       try {
@@ -62,11 +73,26 @@ const ExerciseService = (function() {
     })
   }
 
+  function deleteActiveExercises() {
+    return new Promise((resolve, reject) => {
+      try {
+        localStorage.removeItem('activeExercises')
+        resolve()
+      } catch (error) {
+        reject(
+          new Error('Error deleting active exercises from storage.', error)
+        )
+      }
+    })
+  }
+
   return {
     getExercises,
     getActiveExercises,
     saveExercises,
     saveActiveExercises,
+    deleteExercises,
+    deleteActiveExercises,
   }
 })()
 

@@ -13,6 +13,18 @@ export default {
 
   methods: {
     beginWorkout() {
+      const currentWorkout = this.$store.getters['activeWorkout/isReady']
+
+      if (!currentWorkout) {
+        this.loadWorkout()
+      } else {
+        if (confirm('Replace in progress workout?')) {
+          this.loadWorkout()
+        }
+      }
+    },
+
+    loadWorkout() {
       this.$router.push({
         name: VIEW.activeWorkout,
         params: {
@@ -20,8 +32,8 @@ export default {
         },
       })
 
-      this.$store.dispatch('activeWorkout/create', this.workout.id)
-      this.$store.dispatch('activeExercises/create', this.workout.exercises)
+      this.$store.dispatch('activeWorkout/save', this.workout.id)
+      this.$store.dispatch('activeExercises/save', this.workout.exercises)
     },
   },
 }
@@ -33,7 +45,7 @@ export default {
       <v-card-title>{{ workout.name }}</v-card-title>
 
       <v-card-subtitle>
-        Previous {{ workout.getPreviousRecordCreatedAt() }}
+        {{ workout.getPreviousRecordCreatedAt() }}
       </v-card-subtitle>
 
       <v-card-actions>

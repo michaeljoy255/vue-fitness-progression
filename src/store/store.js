@@ -12,8 +12,8 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     async initApp({ dispatch }) {
-      await dispatch('exercises/loadExercisesFromStorage')
-      await dispatch('workouts/loadWorkoutsFromStorage')
+      await dispatch('exercises/load')
+      await dispatch('workouts/load')
     },
   },
   getters: {},

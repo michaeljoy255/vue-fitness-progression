@@ -12,14 +12,13 @@ export default {
   },
 
   async created() {
-    await this.$store.dispatch('activeWorkout/loadActiveWorkoutFromStorage')
-    await this.$store.dispatch('activeExercises/loadActiveExercisesFromStorage')
+    await this.$store.dispatch('activeWorkout/load')
+    await this.$store.dispatch('activeExercises/load')
   },
 
   computed: {
     renderWorkouts() {
-      const workouts = this.$store.state.workouts
-      return workouts.isInitialized && workouts.workoutContainer
+      return this.$store.getters['workouts/isReady']
     },
   },
 }
