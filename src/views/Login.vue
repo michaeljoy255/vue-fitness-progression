@@ -2,10 +2,10 @@
 import { VIEW } from '../constants/globals'
 
 export default {
-  name: VIEW.notFound,
+  name: VIEW.login,
 }
 </script>
 
 <template>
-  <v-container>404 Not Found</v-container>
+  <v-container>Login View</v-container>
 </template>

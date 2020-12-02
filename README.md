@@ -4,8 +4,10 @@
 
 `Need to fix classes before continuing!`
 
-- Change init and data checking to getters for the stores
-- How to handle **empty** instances? (use null, don't use empty classes)
+- Imporve Errors class
+  - Service errors
+  - Store errors (if any)
+  - Class errors
 - Unit tests for the classes!
 
 `Dashboard Defaults Card`
@@ -28,11 +30,9 @@
 
 ## Additional Tasks
 
+- Use try..catch at component level to provide useful errors for users
 - Use Luxon for dates and times
 - Add custom Error classes
-- Add static "is..." instance of methods to certain classes
-- Add getArray() and set(data) methods to containers
-- Change `Recommendations` to something else (rename sub components)?
 - Tests for classes, utils, and services (attempt components later)
 - Date and timer components / functions?
 - DashboardSummaryCard

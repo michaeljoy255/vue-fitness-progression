@@ -12,8 +12,12 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     async initApp({ dispatch }) {
-      await dispatch('exercises/load')
-      await dispatch('workouts/load')
+      try {
+        const promises = [dispatch('exercises/load'), dispatch('workouts/load')]
+        await Promise.all(promises)
+      } catch (error) {
+        console.error(new Error('Error loading exercises and workouts.'))
+      }
     },
   },
   getters: {},

@@ -1,6 +1,9 @@
 import ExerciseRecord from '../../classes/ExerciseRecord.js'
 import ExerciseRecordContainer from '../../classes/ExerciseRecordContainer.js'
-import ExerciseService from '../../services/exercise.service.js'
+import {
+  saveActiveExercises,
+  getActiveExercises,
+} from '../../services/exercise.service.js'
 
 export const namespaced = true
 
@@ -29,12 +32,12 @@ export const actions = {
     const activeExerciseRecordContainer = new ExerciseRecordContainer().fromArray(
       exerciseRecordsArray
     )
-    await ExerciseService.saveActiveExercises(activeExerciseRecordContainer)
+    await saveActiveExercises(activeExerciseRecordContainer)
     commit('SET_ACTIVE_EXERCISES', activeExerciseRecordContainer)
   },
 
   async load({ commit }) {
-    commit('SET_ACTIVE_EXERCISES', await ExerciseService.getActiveExercises())
+    commit('SET_ACTIVE_EXERCISES', await getActiveExercises())
   },
 
   async clear({ commit }) {

@@ -1,5 +1,8 @@
 import WorkoutRecord from '../../classes/WorkoutRecord.js'
-import WorkoutService from '../../services/workout.service.js'
+import {
+  saveActiveWorkout,
+  getActiveWorkout,
+} from '../../services/workout.service.js'
 
 export const namespaced = true
 
@@ -23,12 +26,12 @@ export const mutations = {
 export const actions = {
   async save({ commit }, workoutId) {
     const activeWorkoutRecord = new WorkoutRecord({ workoutId })
-    await WorkoutService.saveActiveWorkout(activeWorkoutRecord)
+    await saveActiveWorkout(activeWorkoutRecord)
     commit('SET_ACTIVE_WORKOUT', activeWorkoutRecord)
   },
 
   async load({ commit }) {
-    commit('SET_ACTIVE_WORKOUT', await WorkoutService.getActiveWorkout())
+    commit('SET_ACTIVE_WORKOUT', await getActiveWorkout())
   },
 
   async clear({ commit }) {

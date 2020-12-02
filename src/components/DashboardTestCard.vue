@@ -1,7 +1,13 @@
 <script>
 import { COMPONENT } from '../constants/globals.js'
-import ExerciseService from '../services/exercise.service.js'
-import WorkoutService from '../services/workout.service.js'
+import {
+  deleteExercises,
+  deleteActiveExercises,
+} from '../services/exercise.service.js'
+import {
+  deleteWorkouts,
+  deleteActiveWorkout,
+} from '../services/workout.service.js'
 
 export default {
   name: COMPONENT.dashboardTestCard,
@@ -20,10 +26,10 @@ export default {
     },
 
     async clearStorage() {
-      await ExerciseService.deleteExercises()
-      await ExerciseService.deleteActiveExercises()
-      await WorkoutService.deleteWorkouts()
-      await WorkoutService.deleteActiveWorkout()
+      await deleteExercises()
+      await deleteActiveExercises()
+      await deleteWorkouts()
+      await deleteActiveWorkout()
     },
   },
 }

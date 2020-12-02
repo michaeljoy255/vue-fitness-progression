@@ -7,5 +7,5 @@ export default {
 </script>
 
 <template>
-  <div>Active Workout View {{ $route.params.id }}</div>
+  <v-container>Active Workout View {{ $route.params.id }}</v-container>
 </template>

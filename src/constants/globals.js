@@ -54,18 +54,21 @@ const view = 'View'
 
 export const VIEW = Object.freeze({
   notFound: 'NotFound' + view,
+  login: 'Login' + view,
   dashboard: 'Dashboard' + view,
   activeWorkout: 'ActiveWorkout' + view,
 })
+
+const dashboard = 'Dashboard'
 
 export const COMPONENT = Object.freeze({
   app: 'App',
   defaultAppBar: 'DefaultAppBar',
   workoutAppBar: 'WorkoutAppBar',
-  dashboardRecommendations: 'DashboardRecommendations',
-  dashboardWorkouts: 'DashboardWorkouts',
-  dashboardDefaultsCard: 'DashboardDefaultsCard',
-  dashboardWorkoutCard: 'DashboardWorkoutCard',
-  dashboardResumeCard: 'DashboardResumeCard',
-  dashboardTestCard: 'DashboardTestCard',
+  dashboardRecommendations: dashboard + 'Recommendations',
+  dashboardWorkouts: dashboard + 'Workouts',
+  dashboardDefaultsCard: dashboard + 'DefaultsCard',
+  dashboardWorkoutCard: dashboard + 'WorkoutCard',
+  dashboardResumeCard: dashboard + 'ResumeCard',
+  dashboardTestCard: dashboard + 'TestCard',
 })
