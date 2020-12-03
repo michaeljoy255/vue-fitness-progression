@@ -4,10 +4,6 @@
 
 `Need to fix classes before continuing!`
 
-- Imporve Errors class
-  - Service errors
-  - Store errors (if any)
-  - Class errors
 - Unit tests for the classes!
 
 `Dashboard Defaults Card`

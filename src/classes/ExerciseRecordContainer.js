@@ -1,9 +1,6 @@
 import _RecordContainer from './_RecordContainer.js'
 import ExerciseRecord from './ExerciseRecord.js'
-import {
-  ContainerItemsMismatchError,
-  ContainersMismatchError,
-} from './Errors.js'
+import { InstanceError } from './Errors.js'
 
 /**
  *
@@ -17,7 +14,7 @@ export default class ExerciseRecordContainer extends _RecordContainer {
     if (ExerciseRecordContainer.isExerciseRecordContainer(container)) {
       return container._items.map((i) => ExerciseRecord.exportData(i))
     } else {
-      console.error('Error:', container._items)
+      console.error(new InstanceError('ExerciseRecordContainer'))
     }
   }
 
@@ -34,7 +31,7 @@ export default class ExerciseRecordContainer extends _RecordContainer {
       this._items = records
       return this
     } else {
-      console.error(new ContainerItemsMismatchError())
+      console.error(new InstanceError('ExerciseRecord'))
     }
   }
 
@@ -43,7 +40,7 @@ export default class ExerciseRecordContainer extends _RecordContainer {
       this._items = records.toArray()
       return this
     } else {
-      console.error(new ContainersMismatchError())
+      console.error(new InstanceError('ExerciseRecordContainer'))
     }
   }
 
@@ -52,23 +49,7 @@ export default class ExerciseRecordContainer extends _RecordContainer {
       this._items.push(record)
       return this
     } else {
-      console.error(new ContainerItemsMismatchError())
-    }
-  }
-
-  update(record) {
-    if (ExerciseRecord.isExerciseRecord(record)) {
-      console.log('ExerciseRecordContainer update() called - NOT IMPLEMENTED')
-    } else {
-      console.error(new ContainerItemsMismatchError())
-    }
-  }
-
-  remove(record) {
-    if (ExerciseRecord.isExerciseRecord(record)) {
-      console.log('ExerciseRecordContainer remove() called - NOT IMPLEMENTED')
-    } else {
-      console.error(new ContainerItemsMismatchError())
+      console.error(new InstanceError('ExerciseRecord'))
     }
   }
 }

@@ -1,5 +1,6 @@
 import ExerciseContainer from '../classes/ExerciseContainer.js'
 import ExerciseRecordContainer from '../classes/ExerciseRecordContainer.js'
+import { StorageError } from '../classes/Errors.js'
 
 export function getExercises() {
   return new Promise((resolve, reject) => {
@@ -8,7 +9,7 @@ export function getExercises() {
       const exercises = ExerciseContainer.importData(parsedExercises)
       return resolve(exercises)
     } catch (error) {
-      return reject(new Error('Error getting exercises from storage.', error))
+      return reject(new StorageError(error))
     }
   })
 }
@@ -21,7 +22,7 @@ export function saveExercises(exercises) {
       localStorage.setItem('exercises', jsonExercises)
       resolve()
     } catch (error) {
-      reject(new Error('Error saving exercises to storage.', error))
+      reject(new StorageError(error))
     }
   })
 }
@@ -32,7 +33,7 @@ export function deleteExercises() {
       localStorage.removeItem('exercises')
       resolve()
     } catch (error) {
-      reject(new Error('Error deleting exercises from storage.', error))
+      reject(new StorageError(error))
     }
   })
 }
@@ -48,9 +49,7 @@ export function getActiveExercises() {
       )
       return resolve(activeExercises)
     } catch (error) {
-      return reject(
-        new Error('Error getting active exercises from storage.', error)
-      )
+      return reject(new StorageError(error))
     }
   })
 }
@@ -65,9 +64,7 @@ export function saveActiveExercises(activeExercises) {
       localStorage.setItem('activeExercises', jsonActiveExercises)
       resolve()
     } catch (error) {
-      reject(
-        new Error('Error saving active exercise records to storage.', error)
-      )
+      reject(new StorageError(error))
     }
   })
 }
@@ -78,7 +75,7 @@ export function deleteActiveExercises() {
       localStorage.removeItem('activeExercises')
       resolve()
     } catch (error) {
-      reject(new Error('Error deleting active exercises from storage.', error))
+      reject(new StorageError(error))
     }
   })
 }

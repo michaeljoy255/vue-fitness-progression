@@ -4,6 +4,7 @@ import Workout from '../classes/Workout.js'
 import WorkoutContainer from '../classes/WorkoutContainer.js'
 import ExerciseInput from '../classes/ExerciseInput.js'
 import { DEFAULT_EXERCISE, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
+import { DefaultsError } from '../classes/Errors.js'
 
 let exercises
 let workouts
@@ -183,7 +184,7 @@ export function getDefaultExercises() {
       if (!ExerciseContainer.isExerciseContainer(exercises)) initExercises()
       return resolve(exercises)
     } catch (error) {
-      return reject(new Error('Error initializing default exercises.', error))
+      return reject(new DefaultsError('Initializing default exercises.', error))
     }
   })
 }
@@ -194,7 +195,7 @@ export function getDefaultWorkouts() {
       if (!WorkoutContainer.isWorkoutContainer(workouts)) initWorkouts()
       return resolve(workouts)
     } catch (error) {
-      return reject(new Error('Error initializing default workouts.', error))
+      return reject(new DefaultsError('Initializing default workouts.', error))
     }
   })
 }

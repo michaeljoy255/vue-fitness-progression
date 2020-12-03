@@ -1,5 +1,6 @@
 import WorkoutContainer from '../classes/WorkoutContainer.js'
 import WorkoutRecord from '../classes/WorkoutRecord.js'
+import { StorageError } from '../classes/Errors.js'
 
 export function getWorkouts() {
   return new Promise((resolve, reject) => {
@@ -8,7 +9,7 @@ export function getWorkouts() {
       const workouts = WorkoutContainer.importData(parsedWorkouts)
       return resolve(workouts)
     } catch (error) {
-      return reject(new Error('Error getting workouts from storage.', error))
+      return reject(new StorageError(error))
     }
   })
 }
@@ -21,7 +22,7 @@ export function saveWorkouts(workouts) {
       localStorage.setItem('workouts', jsonWorkouts)
       resolve()
     } catch (error) {
-      reject(new Error('Error saving workouts to storage.', error))
+      reject(new StorageError(error))
     }
   })
 }
@@ -32,7 +33,7 @@ export function deleteWorkouts() {
       localStorage.removeItem('workouts')
       resolve()
     } catch (error) {
-      reject(new Error('Error deleting workouts from storage.', error))
+      reject(new StorageError(error))
     }
   })
 }
@@ -46,9 +47,7 @@ export function getActiveWorkout() {
       const activeWorkout = WorkoutRecord.importData(parsedActiveWorkout)
       return resolve(activeWorkout)
     } catch (error) {
-      return reject(
-        new Error('Error getting active workout from storage.', error)
-      )
+      return reject(new StorageError(error))
     }
   })
 }
@@ -61,7 +60,7 @@ export function saveActiveWorkout(activeWorkout) {
       localStorage.setItem('activeWorkout', jsonActiveWorkout)
       resolve()
     } catch (error) {
-      reject(new Error('Error saving active workout record to storage.', error))
+      reject(new StorageError(error))
     }
   })
 }
@@ -72,7 +71,7 @@ export function deleteActiveWorkout() {
       localStorage.removeItem('activeWorkout')
       resolve()
     } catch (error) {
-      reject(new Error('Error deleting active workout from storage.', error))
+      reject(new StorageError(error))
     }
   })
 }

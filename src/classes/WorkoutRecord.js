@@ -1,4 +1,5 @@
 import _Record from './_Record.js'
+import { InstanceError } from '../classes/Errors.js'
 
 /**
  *
@@ -37,7 +38,7 @@ export default class WorkoutRecord extends _Record {
         workoutId: record._workoutId,
       }
     } else {
-      console.error('Error:', record)
+      console.error(new InstanceError('WorkoutRecord'))
     }
   }
 

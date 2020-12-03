@@ -2,6 +2,7 @@ import _Descriptors from './_Descriptors.js'
 import WorkoutRecord from './WorkoutRecord.js'
 import ExerciseContainer from './ExerciseContainer.js'
 import Exercise from './Exercise.js'
+import { InstanceError } from '../classes/Errors.js'
 
 /**
  *
@@ -45,7 +46,7 @@ export default class Workout extends _Descriptors {
         exercises: ExerciseContainer.exportData(workout._exercises),
       }
     } else {
-      console.error('Error:', workout)
+      console.error(new InstanceError('Workout'))
     }
   }
 

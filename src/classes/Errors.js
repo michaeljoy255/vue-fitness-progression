@@ -1,20 +1,11 @@
-export class ContainersMismatchError extends Error {
-  constructor() {
-    super('Containers must match.')
+export class DefaultsError extends Error {}
+
+export class InstanceError extends Error {
+  constructor(instance) {
+    super(`Expected ${instance} instance.`)
   }
 }
 
-export class ContainerItemsMistmacthError extends Error {
-  constructor() {
-    super('Container item instances must match.')
-  }
-}
+export class StorageError extends Error {}
 
-/*
-class ValueLimitError extends Error {
-  constructor({ type = null, value = null, limit = null } = {}) {
-    const message = `The value ${value} is out of bounds`
-    super()
-  }
-}
-*/
+export class ValueLimitError extends Error {}

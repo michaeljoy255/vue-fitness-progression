@@ -1,4 +1,5 @@
 import { INPUT_TYPE } from '../constants/globals.js'
+import { InstanceError } from '../classes/Errors.js'
 
 /**
  *
@@ -20,7 +21,7 @@ export default class ExerciseInput {
         hint: input._hint,
       }
     } else {
-      console.error('Error:', input)
+      console.error(new InstanceError('ExerciseInput'))
     }
   }
 

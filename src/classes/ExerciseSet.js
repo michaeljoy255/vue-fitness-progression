@@ -1,3 +1,5 @@
+import { InstanceError } from '../classes/Errors.js'
+
 /**
  *
  */
@@ -27,7 +29,7 @@ export default class ExerciseSet {
         distance: set._distance,
       }
     } else {
-      console.error('Error:', set)
+      console.error(new InstanceError('ExerciseSet'))
     }
   }
 
