@@ -1,8 +1,4 @@
 import Exercise from '../../../src/models/Exercise.js'
-import {
-  DEFAULT_CATEGORY,
-  DEFAULT_EQUIPMENT,
-} from '../../../src/constants/defaults.js'
 
 describe('Exercise', () => {
   it('initializes correctly', () => {
@@ -12,8 +8,8 @@ describe('Exercise', () => {
     expect(obj.name).toEqual('')
     expect(obj.description).toEqual('')
     expect(obj.previousRecord).toBeNull()
-    expect(obj.category).toBe(DEFAULT_CATEGORY.misc)
-    expect(obj.equipment).toBe(DEFAULT_EQUIPMENT.none)
+    expect(obj.category).toEqual('Miscellaneous')
+    expect(obj.equipment).toEqual('None')
     expect(obj.inputs).toEqual([])
   })
 })

@@ -2,9 +2,24 @@
 
 ## Use Case Problem Solving (Define core use cases!)
 
-`Need to fix classes before continuing!`
+`Needed additions and corrections before continuing!`
 
-- Unit tests for the classes!
+- **Add Tests:**
+
+  - Static class methods
+  - Certian class public methods
+  - Class construction with good/bad values
+  - Util functions
+  - Routes file
+
+- **Local Storage:**
+
+  - Have a storage version constant
+  - Append the constant to Local Storage access
+
+    ```javascript
+    localstorage.setItem(`exercises:${localStorageAdapterVersion}`, exercises)
+    ```
 
 `Dashboard Defaults Card`
 

@@ -13,18 +13,6 @@
     - Exercise
     - Workout
 
-## Containers
-
-- \_IdContainer
-  - ExerciseSetContainer (may not need, handle in ExerciseRecord class?)
-  - \_RecordContainer
-    - WorkoutRecordContainer
-    - ExerciseRecordContainer
-    - MeasurementRecordContainer **(postponed)**
-  - \_DescriptorsContainer
-    - ExerciseContainer
-    - WorkoutContainer
-
 ## May Need
 
 - Response (for storage, promises, and more?)
@@ -42,9 +30,7 @@
 - Exporter
 - ExporterSummary
 - Importer
-- StringContainer
 - MeasurementRecord
-- MeasurementRecordContainer
 
 ## Exporter Output
 
