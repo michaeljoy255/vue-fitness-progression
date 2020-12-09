@@ -5,6 +5,7 @@
 `Need to fix classes before continuing!`
 
 - Consider/research the following options `**Do on a new branch!**`
+  - Write out how you would tackle this before proceeding!!!!!!!!!!
   - Removing containers
   - Use stores as containers with much of their logic
   - Simplify classes by removing import/export and \_properties
