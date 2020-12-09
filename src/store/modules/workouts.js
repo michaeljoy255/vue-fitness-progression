@@ -1,7 +1,10 @@
 import Workout from '../../models/Workout.js'
-import { getDefaultWorkouts } from '../../utils/defaults.js'
-import { StorageError } from '../../utils/errors.js'
-import { getLocalStorage, setLocalStorage } from '../../utils/storage.js'
+import { getDefaultWorkouts } from '../../utils/store/defaults.js'
+import {
+  saveWorkoutsToLocalStorage,
+  fetchWorkoutsFromLocalStorage,
+  deleteWorkoutsFromLocalStorage,
+} from '../../utils/store/local-storage.js'
 
 export const namespaced = true
 
@@ -24,36 +27,21 @@ export const mutations = {
 
 export const actions = {
   async save({ state }) {
-    try {
-      setLocalStorage('workouts', state.workouts)
-    } catch (error) {
-      throw new StorageError(error)
-    }
+    saveWorkoutsToLocalStorage(state.workouts)
   },
 
   async fetch({ commit }) {
-    try {
-      const data = getLocalStorage('workouts')
-      if (data) {
-        const workouts = data.map((i) => new Workout(i))
-        commit('SET_WORKOUTS', workouts)
-      }
-    } catch (error) {
-      throw new StorageError(error)
-    }
+    const workouts = fetchWorkoutsFromLocalStorage()
+    commit('SET_WORKOUTS', workouts)
   },
 
   async fetchDefaults({ commit, dispatch }) {
-    try {
-      await commit('SET_WORKOUTS', await getDefaultWorkouts())
-      await dispatch('workouts/save', null, { root: true })
-    } catch (error) {
-      throw new StorageError(error)
-    }
+    await commit('SET_WORKOUTS', await getDefaultWorkouts())
+    await dispatch('workouts/save', null, { root: true })
   },
 
   async delete({ dispatch }) {
-    localStorage.removeItem('workouts')
+    deleteWorkoutsFromLocalStorage()
     dispatch('workouts/clearState', null, { root: true })
   },
 

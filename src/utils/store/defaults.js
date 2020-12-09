@@ -1,7 +1,10 @@
-import Exercise from '../models/Exercise.js'
-import Workout from '../models/Workout.js'
-import ExerciseInput from '../models/ExerciseInput.js'
-import { DEFAULT_EXERCISE, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
+import Exercise from '../../models/Exercise.js'
+import Workout from '../../models/Workout.js'
+import ExerciseInput from '../../models/ExerciseInput.js'
+import {
+  DEFAULT_EXERCISE,
+  DEFAULT_EQUIPMENT,
+} from '../../constants/defaults.js'
 
 let exercises
 let workouts

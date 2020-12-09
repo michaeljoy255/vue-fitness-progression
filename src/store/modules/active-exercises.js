@@ -1,6 +1,9 @@
 import ExerciseRecord from '../../models/ExerciseRecord.js'
-import { StorageError } from '../../utils/errors.js'
-import { getLocalStorage, setLocalStorage } from '../../utils/storage.js'
+import {
+  saveActiveExercisesToLocalStorage,
+  fetchActiveExercisesFromLocalStorage,
+  deleteActiveExercisesFromLocalStorage,
+} from '../../utils/store/local-storage.js'
 
 export const namespaced = true
 
@@ -23,31 +26,20 @@ export const mutations = {
 
 export const actions = {
   async save({ commit }, workoutExercises) {
-    try {
-      const exercises = workoutExercises.map(
-        (i) => new ExerciseRecord({ exerciseId: i.id })
-      )
-      setLocalStorage('activeExercises', exercises)
-      commit('SET_ACTIVE_EXERCISES', exercises)
-    } catch (error) {
-      throw new StorageError(error)
-    }
+    const exercises = workoutExercises.map(
+      (i) => new ExerciseRecord({ exerciseId: i.id })
+    )
+    saveActiveExercisesToLocalStorage(exercises)
+    commit('SET_ACTIVE_EXERCISES', exercises)
   },
 
   async fetch({ commit }) {
-    try {
-      const data = getLocalStorage('activeExercises')
-      if (data) {
-        const exercises = data.map((i) => new ExerciseRecord(i))
-        commit('SET_ACTIVE_EXERCISES', exercises)
-      }
-    } catch (error) {
-      throw new StorageError(error)
-    }
+    const exercises = fetchActiveExercisesFromLocalStorage()
+    commit('SET_ACTIVE_EXERCISES', exercises)
   },
 
   async delete({ dispatch }) {
-    localStorage.removeItem('activeExercises')
+    deleteActiveExercisesFromLocalStorage()
     dispatch('activeExercises/clearState', null, { root: true })
   },
 
