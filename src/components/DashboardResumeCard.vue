@@ -6,7 +6,7 @@ export default {
 
   computed: {
     activeWorkoutId() {
-      return this.$store.state.activeWorkout.activeWorkoutRecord.workoutId
+      return this.$store.state.activeWorkout.activeWorkout.workoutId
     },
   },
 

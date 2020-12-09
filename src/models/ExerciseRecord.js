@@ -1,10 +1,5 @@
 import _Record from './_Record.js'
-import ExerciseSet from './ExerciseSet.js'
-import { InstanceError } from '../utils/errors.js'
 
-/**
- *
- */
 export default class ExerciseRecord extends _Record {
   constructor({
     id = null,
@@ -14,8 +9,8 @@ export default class ExerciseRecord extends _Record {
     exerciseId = null,
   } = {}) {
     super({ id, createdAt, note })
-    this._sets = sets
-    this._exerciseId = exerciseId
+    this.sets = sets
+    this.exerciseId = exerciseId
   }
 
   static isExerciseRecord(record) {
@@ -27,47 +22,5 @@ export default class ExerciseRecord extends _Record {
       Array.isArray(records) &&
       records.every((i) => ExerciseRecord.isExerciseRecord(i))
     )
-  }
-
-  static exportData(record) {
-    if (ExerciseRecord.isExerciseRecord(record)) {
-      return {
-        id: record._id,
-        createdAt: record._createdAt,
-        note: record._note,
-        sets: record._sets.map((i) => ExerciseSet.exportData(i)),
-        exerciseId: record._exerciseId,
-      }
-    } else {
-      console.error(new InstanceError('ExerciseRecord'))
-    }
-  }
-
-  static importData(record) {
-    if (!record) return null
-
-    return new ExerciseRecord({
-      id: record.id,
-      createdAt: record.createdAt,
-      note: record.note,
-      sets: record.sets.map((i) => ExerciseSet.importData(i)),
-      exerciseId: record.exerciseId,
-    })
-  }
-
-  get sets() {
-    return this._sets
-  }
-
-  get exerciseId() {
-    return this._exerciseId
-  }
-
-  set sets(sets) {
-    this._sets = sets
-  }
-
-  set exerciseId(exerciseId) {
-    this._exerciseId = exerciseId
   }
 }

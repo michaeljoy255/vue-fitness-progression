@@ -1,29 +1,25 @@
 import Exercise from '../models/Exercise.js'
-import ExerciseContainer from '../models/ExerciseContainer.js'
 import Workout from '../models/Workout.js'
-import WorkoutContainer from '../models/WorkoutContainer.js'
 import ExerciseInput from '../models/ExerciseInput.js'
 import { DEFAULT_EXERCISE, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
 
-let exercises = null
-let workouts = null
+let exercises
+let workouts
 
 export function getDefaultExercises() {
-  if (!ExerciseContainer.isExerciseContainer(exercises)) initExercises()
+  if (!Exercise.isArrayOfExercises(exercises)) initExercises()
   return exercises
 }
 
 export function getDefaultWorkouts() {
-  if (!WorkoutContainer.isWorkoutContainer(workouts)) initWorkouts()
+  if (!Workout.isArrayOfWorkouts(workouts)) initWorkouts()
   return workouts
 }
 
 function initExercises() {
-  const exercisesArray = Object.values(DEFAULT_EXERCISE).map((exercise) =>
-    addExercise(exercise)
-  )
-
-  exercises = new ExerciseContainer().fromArray(exercisesArray)
+  exercises = Object.values(DEFAULT_EXERCISE).map((exercise) => {
+    return addExercise(exercise)
+  })
 }
 
 function addExercise(exercise) {
@@ -49,9 +45,9 @@ function addExerciseInputs(inputs) {
 }
 
 function initWorkouts() {
-  if (!ExerciseContainer.isExerciseContainer(exercises)) initExercises()
+  if (!Exercise.isArrayOfExercises(exercises)) initExercises()
 
-  const workoutsArray = [
+  workouts = [
     new Workout({
       name: 'Chest #1',
       description: 'Chest focused workout version #1.',
@@ -78,8 +74,6 @@ function initWorkouts() {
       exercises: addCore1(),
     }),
   ]
-
-  workouts = new WorkoutContainer().fromArray(workoutsArray)
 }
 
 function addChest1() {
@@ -182,7 +176,7 @@ function addCore1() {
 }
 
 function getExerciseByNameAndEquipment(name, equipment) {
-  return exercises
-    .toArray()
-    .find((item) => item.name === name && item.equipment === equipment)
+  return exercises.find(
+    (item) => item.name === name && item.equipment === equipment
+  )
 }

@@ -4,12 +4,8 @@
 
 `Need to fix classes before continuing!`
 
-- START HERE
-- Consider/research the following options `**Do on a new branch!**`
-  - Write out how you would tackle this before proceeding!!!!!!!!!!
-  - Removing containers
-  - Use stores as containers with much of their logic
-  - Simplify classes by removing import/export and \_properties
+- Vetur path mapping - look up Setup > Project Setup
+- Research removing store namespaced and use unique names for actions
 - Unit tests for the classes!
 
 `Dashboard Defaults Card`

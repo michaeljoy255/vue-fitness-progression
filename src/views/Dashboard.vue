@@ -12,8 +12,8 @@ export default {
   },
 
   async created() {
-    await this.$store.dispatch('activeWorkout/load')
-    await this.$store.dispatch('activeExercises/load')
+    await this.$store.dispatch('activeWorkout/fetch')
+    await this.$store.dispatch('activeExercises/fetch')
   },
 
   computed: {

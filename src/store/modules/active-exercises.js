@@ -1,11 +1,12 @@
 import ExerciseRecord from '../../models/ExerciseRecord.js'
-import ExerciseRecordContainer from '../../models/ExerciseRecordContainer.js'
+import { StorageError } from '../../utils/errors.js'
+import { getLocalStorage, setLocalStorage } from '../../utils/storage.js'
 
 export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    activeExerciseRecordContainer: null,
+    activeExercises: [],
   }
 }
 
@@ -13,7 +14,7 @@ export const state = () => initDefaultState()
 
 export const mutations = {
   SET_ACTIVE_EXERCISES(state, container) {
-    state.activeExerciseRecordContainer = container
+    state.activeExercises = container
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -22,37 +23,57 @@ export const mutations = {
 
 export const actions = {
   async save({ commit }, workoutExercises) {
-    const exerciseRecordsArray = workoutExercises
-      .toArray()
-      .map((i) => new ExerciseRecord({ exerciseId: i.id }))
-
-    const activeExerciseRecordContainer = new ExerciseRecordContainer().fromArray(
-      exerciseRecordsArray
-    )
-
-    await ExerciseRecordContainer.saveActiveExercises(
-      activeExerciseRecordContainer
-    )
-
-    commit('SET_ACTIVE_EXERCISES', activeExerciseRecordContainer)
+    try {
+      const exercises = workoutExercises.map(
+        (i) => new ExerciseRecord({ exerciseId: i.id })
+      )
+      setLocalStorage('activeExercises', exercises)
+      commit('SET_ACTIVE_EXERCISES', exercises)
+    } catch (error) {
+      throw new StorageError(error)
+    }
   },
 
-  async load({ commit }) {
-    commit(
-      'SET_ACTIVE_EXERCISES',
-      await ExerciseRecordContainer.fetchActiveExercises()
-    )
+  async fetch({ commit }) {
+    try {
+      const data = getLocalStorage('activeExercises')
+      if (data) {
+        const exercises = data.map((i) => new ExerciseRecord(i))
+        commit('SET_ACTIVE_EXERCISES', exercises)
+      }
+    } catch (error) {
+      throw new StorageError(error)
+    }
   },
 
-  async clear({ commit }) {
+  async delete({ dispatch }) {
+    localStorage.removeItem('activeExercises')
+    dispatch('activeExercises/clearState', null, { root: true })
+  },
+
+  async clearState({ commit }) {
     commit('CLEAR_STATE')
   },
 }
 
 export const getters = {
   isReady(state) {
-    return ExerciseRecordContainer.isExerciseRecordContainer(
-      state.activeExerciseRecordContainer
+    return (
+      ExerciseRecord.isArrayOfExerciseRecords(state.activeExercises) &&
+      state.activeExercises.length > 0
     )
   },
 }
+
+// findByDate(date) {
+//   return null
+// }
+// findNewest() {
+//   return null
+// }
+// findOldest() {
+//   return null
+// }
+// findBetweenDates(date1, date2) {
+//   return null
+// }

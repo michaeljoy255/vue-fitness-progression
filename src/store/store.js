@@ -13,7 +13,10 @@ export default new Vuex.Store({
   actions: {
     async initApp({ dispatch }) {
       try {
-        const promises = [dispatch('exercises/load'), dispatch('workouts/load')]
+        const promises = [
+          dispatch('exercises/fetch'),
+          dispatch('workouts/fetch'),
+        ]
         await Promise.all(promises)
       } catch (error) {
         console.error(new Error('Error loading exercises and workouts.'))
