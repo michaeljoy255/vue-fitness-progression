@@ -4,6 +4,7 @@
 
 `Need to fix classes before continuing!`
 
+- **Do NOT merge in class-trimming branch until you have tests and cleanup done!**
 - Vetur path mapping - look up Setup > Project Setup
 - Research removing store namespaced and use unique names for actions
 - Unit tests for the classes!
