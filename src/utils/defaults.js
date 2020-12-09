@@ -1,13 +1,22 @@
-import Exercise from '../classes/Exercise.js'
-import ExerciseContainer from '../classes/ExerciseContainer.js'
-import Workout from '../classes/Workout.js'
-import WorkoutContainer from '../classes/WorkoutContainer.js'
-import ExerciseInput from '../classes/ExerciseInput.js'
+import Exercise from '../models/Exercise.js'
+import ExerciseContainer from '../models/ExerciseContainer.js'
+import Workout from '../models/Workout.js'
+import WorkoutContainer from '../models/WorkoutContainer.js'
+import ExerciseInput from '../models/ExerciseInput.js'
 import { DEFAULT_EXERCISE, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
-import { DefaultsError } from '../classes/Errors.js'
 
-let exercises
-let workouts
+let exercises = null
+let workouts = null
+
+export function getDefaultExercises() {
+  if (!ExerciseContainer.isExerciseContainer(exercises)) initExercises()
+  return exercises
+}
+
+export function getDefaultWorkouts() {
+  if (!WorkoutContainer.isWorkoutContainer(workouts)) initWorkouts()
+  return workouts
+}
 
 function initExercises() {
   const exercisesArray = Object.values(DEFAULT_EXERCISE).map((exercise) =>
@@ -40,7 +49,7 @@ function addExerciseInputs(inputs) {
 }
 
 function initWorkouts() {
-  initExercises() // References exercises, so they must be initialized
+  if (!ExerciseContainer.isExerciseContainer(exercises)) initExercises()
 
   const workoutsArray = [
     new Workout({
@@ -176,26 +185,4 @@ function getExerciseByNameAndEquipment(name, equipment) {
   return exercises
     .toArray()
     .find((item) => item.name === name && item.equipment === equipment)
-}
-
-export function getDefaultExercises() {
-  return new Promise((resolve, reject) => {
-    try {
-      if (!ExerciseContainer.isExerciseContainer(exercises)) initExercises()
-      return resolve(exercises)
-    } catch (error) {
-      return reject(new DefaultsError('Initializing default exercises.', error))
-    }
-  })
-}
-
-export function getDefaultWorkouts() {
-  return new Promise((resolve, reject) => {
-    try {
-      if (!WorkoutContainer.isWorkoutContainer(workouts)) initWorkouts()
-      return resolve(workouts)
-    } catch (error) {
-      return reject(new DefaultsError('Initializing default workouts.', error))
-    }
-  })
 }

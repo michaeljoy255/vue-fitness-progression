@@ -4,6 +4,10 @@
 
 `Need to fix classes before continuing!`
 
+- Consider/research the following options `**Do on a new branch!**`
+  - Removing containers
+  - Use stores as containers with much of their logic
+  - Simplify classes by removing import/export and \_properties
 - Unit tests for the classes!
 
 `Dashboard Defaults Card`

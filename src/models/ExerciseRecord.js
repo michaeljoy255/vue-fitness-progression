@@ -1,6 +1,6 @@
 import _Record from './_Record.js'
 import ExerciseSet from './ExerciseSet.js'
-import { InstanceError } from '../classes/Errors.js'
+import { InstanceError } from '../utils/errors.js'
 
 /**
  *

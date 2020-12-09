@@ -2,7 +2,7 @@ import _Descriptors from './_Descriptors.js'
 import ExerciseRecord from './ExerciseRecord.js'
 import ExerciseInput from './ExerciseInput.js'
 import { DEFAULT_CATEGORY, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
-import { InstanceError } from '../classes/Errors.js'
+import { InstanceError } from '../utils/errors.js'
 
 /**
  *

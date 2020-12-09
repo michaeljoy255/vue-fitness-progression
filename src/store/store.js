@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as exercises from './modules/exercises.store.js'
-import * as workouts from './modules/workouts.store.js'
-import * as activeExercises from './modules/active-exercises.store.js'
-import * as activeWorkout from './modules/active-workout.store.js'
+import * as exercises from './modules/exercises.js'
+import * as workouts from './modules/workouts.js'
+import * as activeExercises from './modules/active-exercises.js'
+import * as activeWorkout from './modules/active-workout.js'
 
 Vue.use(Vuex)
 

@@ -1,10 +1,9 @@
 import _DescriptorsContainer from './_DescriptorsContainer.js'
 import Workout from './Workout.js'
-import { InstanceError } from './Errors.js'
+import { getDefaultWorkouts } from '../utils/defaults.js'
+import { InstanceError, StorageError } from '../utils/errors.js'
+import { getLocalStorage, setLocalStorage } from '../utils/storage.js'
 
-/**
- *
- */
 export default class WorkoutContainer extends _DescriptorsContainer {
   static isWorkoutContainer(container) {
     return container instanceof WorkoutContainer
@@ -24,6 +23,44 @@ export default class WorkoutContainer extends _DescriptorsContainer {
     return new WorkoutContainer().fromArray(
       workouts.map((i) => Workout.importData(i))
     )
+  }
+
+  static fetchWorkouts() {
+    return new Promise((resolve, reject) => {
+      try {
+        const data = getLocalStorage('workouts')
+        const workouts = WorkoutContainer.importData(data)
+        return resolve(workouts)
+      } catch (error) {
+        return reject(new StorageError(error))
+      }
+    })
+  }
+
+  static fetchDefaultWorkouts() {
+    return new Promise((resolve, reject) => {
+      try {
+        return resolve(getDefaultWorkouts())
+      } catch (error) {
+        return reject(new StorageError(error))
+      }
+    })
+  }
+
+  static saveWorkouts(workouts) {
+    return new Promise((resolve, reject) => {
+      try {
+        const exportedWorkouts = WorkoutContainer.exportData(workouts)
+        setLocalStorage('workouts', exportedWorkouts)
+        resolve('Workouts saved.')
+      } catch (error) {
+        reject(new StorageError(error))
+      }
+    })
+  }
+
+  static deleteWorkouts() {
+    localStorage.removeItem('workouts')
   }
 
   fromArray(workouts) {

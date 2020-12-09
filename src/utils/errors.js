@@ -1,5 +1,3 @@
-export class DefaultsError extends Error {}
-
 export class InstanceError extends Error {
   constructor(instance) {
     super(`Expected ${instance} instance.`)

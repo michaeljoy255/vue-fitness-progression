@@ -1,4 +1,4 @@
-import { InstanceError } from '../classes/Errors.js'
+import { InstanceError } from '../utils/errors.js'
 
 /**
  *

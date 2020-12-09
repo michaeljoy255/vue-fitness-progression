@@ -1,9 +1,5 @@
-import ExerciseRecord from '../../classes/ExerciseRecord.js'
-import ExerciseRecordContainer from '../../classes/ExerciseRecordContainer.js'
-import {
-  saveActiveExercises,
-  getActiveExercises,
-} from '../../services/exercise.service.js'
+import ExerciseRecord from '../../models/ExerciseRecord.js'
+import ExerciseRecordContainer from '../../models/ExerciseRecordContainer.js'
 
 export const namespaced = true
 
@@ -29,15 +25,23 @@ export const actions = {
     const exerciseRecordsArray = workoutExercises
       .toArray()
       .map((i) => new ExerciseRecord({ exerciseId: i.id }))
+
     const activeExerciseRecordContainer = new ExerciseRecordContainer().fromArray(
       exerciseRecordsArray
     )
-    await saveActiveExercises(activeExerciseRecordContainer)
+
+    await ExerciseRecordContainer.saveActiveExercises(
+      activeExerciseRecordContainer
+    )
+
     commit('SET_ACTIVE_EXERCISES', activeExerciseRecordContainer)
   },
 
   async load({ commit }) {
-    commit('SET_ACTIVE_EXERCISES', await getActiveExercises())
+    commit(
+      'SET_ACTIVE_EXERCISES',
+      await ExerciseRecordContainer.fetchActiveExercises()
+    )
   },
 
   async clear({ commit }) {

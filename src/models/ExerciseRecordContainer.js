@@ -1,6 +1,7 @@
 import _RecordContainer from './_RecordContainer.js'
 import ExerciseRecord from './ExerciseRecord.js'
-import { InstanceError } from './Errors.js'
+import { InstanceError, StorageError } from '../utils/errors.js'
+import { getLocalStorage, setLocalStorage } from '../utils/storage.js'
 
 /**
  *
@@ -24,6 +25,36 @@ export default class ExerciseRecordContainer extends _RecordContainer {
     return new ExerciseRecordContainer().fromArray(
       records.map((i) => ExerciseRecord.importData(i))
     )
+  }
+
+  static fetchActiveExercises() {
+    return new Promise((resolve, reject) => {
+      try {
+        const data = getLocalStorage('activeExercises')
+        const activeExercises = ExerciseRecordContainer.importData(data)
+        return resolve(activeExercises)
+      } catch (error) {
+        return reject(new StorageError(error))
+      }
+    })
+  }
+
+  static saveActiveExercises(activeExercises) {
+    return new Promise((resolve, reject) => {
+      try {
+        const exportedActiveExercises = ExerciseRecordContainer.exportData(
+          activeExercises
+        )
+        setLocalStorage('activeExercises', exportedActiveExercises)
+        resolve('Active Exercises saved.')
+      } catch (error) {
+        reject(new StorageError(error))
+      }
+    })
+  }
+
+  static deleteActiveExercises() {
+    localStorage.removeItem('activeExercises')
   }
 
   fromArray(records) {

@@ -1,9 +1,7 @@
 import _Record from './_Record.js'
-import { InstanceError } from '../classes/Errors.js'
+import { InstanceError, StorageError } from '../utils/errors.js'
+import { getLocalStorage, setLocalStorage } from '../utils/storage.js'
 
-/**
- *
- */
 export default class WorkoutRecord extends _Record {
   constructor({
     id = null,
@@ -52,6 +50,34 @@ export default class WorkoutRecord extends _Record {
       duration: record.duration,
       workoutId: record.workoutId,
     })
+  }
+
+  static fetchActiveWorkout() {
+    return new Promise((resolve, reject) => {
+      try {
+        const data = getLocalStorage('activeWorkout')
+        const activeWorkout = WorkoutRecord.importData(data)
+        return resolve(activeWorkout)
+      } catch (error) {
+        return reject(new StorageError(error))
+      }
+    })
+  }
+
+  static saveActiveWorkout(activeWorkout) {
+    return new Promise((resolve, reject) => {
+      try {
+        const exportedActiveWorkout = WorkoutRecord.exportData(activeWorkout)
+        setLocalStorage('activeWorkout', exportedActiveWorkout)
+        resolve('Active Workout saved.')
+      } catch (error) {
+        reject(new StorageError(error))
+      }
+    })
+  }
+
+  static deleteActiveWorkout() {
+    localStorage.removeItem('activeWorkout')
   }
 
   get duration() {

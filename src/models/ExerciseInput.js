@@ -1,5 +1,5 @@
 import { INPUT_TYPE } from '../constants/globals.js'
-import { InstanceError } from '../classes/Errors.js'
+import { InstanceError } from '../utils/errors.js'
 
 /**
  *

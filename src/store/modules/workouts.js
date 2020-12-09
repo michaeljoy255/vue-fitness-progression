@@ -1,6 +1,4 @@
-import { saveWorkouts, getWorkouts } from '../../services/workout.service.js'
-import { getDefaultWorkouts } from '../../services/defaults.service.js'
-import WorkoutContainer from '../../classes/WorkoutContainer.js'
+import WorkoutContainer from '../../models/WorkoutContainer.js'
 
 export const namespaced = true
 
@@ -23,12 +21,11 @@ export const mutations = {
 
 export const actions = {
   async save({ state }) {
-    await saveWorkouts(state.workoutContainer)
+    WorkoutContainer.saveWorkouts(state.workoutContainer)
   },
 
   async load({ commit }) {
-    const workoutContainer = await getWorkouts()
-    commit('SET_WORKOUTS', workoutContainer)
+    commit('SET_WORKOUTS', await WorkoutContainer.fetchWorkouts())
   },
 
   async clear({ commit }) {
@@ -36,8 +33,8 @@ export const actions = {
   },
 
   async loadDefaults({ commit }) {
-    const workouts = await getDefaultWorkouts()
-    await saveWorkouts(workouts)
+    const workouts = await WorkoutContainer.fetchDefaultWorkouts()
+    WorkoutContainer.saveWorkouts(workouts)
     commit('SET_WORKOUTS', workouts)
   },
 }

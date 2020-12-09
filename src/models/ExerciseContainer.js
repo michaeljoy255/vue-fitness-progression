@@ -1,10 +1,9 @@
 import _DescriptorsContainer from './_DescriptorsContainer.js'
 import Exercise from './Exercise.js'
-import { InstanceError } from './Errors.js'
+import { getDefaultExercises } from '../utils/defaults.js'
+import { InstanceError, StorageError } from '../utils/errors.js'
+import { getLocalStorage, setLocalStorage } from '../utils/storage.js'
 
-/**
- *
- */
 export default class ExerciseContainer extends _DescriptorsContainer {
   static isExerciseContainer(container) {
     return container instanceof ExerciseContainer
@@ -24,6 +23,44 @@ export default class ExerciseContainer extends _DescriptorsContainer {
     return new ExerciseContainer().fromArray(
       exercises.map((i) => Exercise.importData(i))
     )
+  }
+
+  static fetchExercises() {
+    return new Promise((resolve, reject) => {
+      try {
+        const data = getLocalStorage('exercises')
+        const exercises = ExerciseContainer.importData(data)
+        return resolve(exercises)
+      } catch (error) {
+        return reject(new StorageError(error))
+      }
+    })
+  }
+
+  static fetchDefaultExercises() {
+    return new Promise((resolve, reject) => {
+      try {
+        return resolve(getDefaultExercises())
+      } catch (error) {
+        return reject(new StorageError(error))
+      }
+    })
+  }
+
+  static saveExercises(exercises) {
+    return new Promise((resolve, reject) => {
+      try {
+        const exportedExercises = ExerciseContainer.exportData(exercises)
+        setLocalStorage('exercises', exportedExercises)
+        resolve('Exercises saved.')
+      } catch (error) {
+        reject(new StorageError(error))
+      }
+    })
+  }
+
+  static deleteExercises() {
+    localStorage.removeItem('exercises')
   }
 
   fromArray(exercises) {
