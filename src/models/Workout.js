@@ -1,13 +1,7 @@
 import _Descriptors from './_Descriptors.js'
 
 export default class Workout extends _Descriptors {
-  constructor({
-    id = null,
-    name = null,
-    description = null,
-    previousRecord = null,
-    exercises = null,
-  } = {}) {
+  constructor({ id, name, description, previousRecord, exercises = [] } = {}) {
     super({ id, name, description, previousRecord })
     this.exercises = exercises
   }

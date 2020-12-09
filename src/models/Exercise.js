@@ -3,10 +3,10 @@ import { DEFAULT_CATEGORY, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
 
 export default class Exercise extends _Descriptors {
   constructor({
-    id = null,
-    name = null,
-    description = null,
-    previousRecord = null,
+    id,
+    name,
+    description,
+    previousRecord,
     category = DEFAULT_CATEGORY.misc,
     equipment = DEFAULT_EQUIPMENT.none,
     inputs = [],

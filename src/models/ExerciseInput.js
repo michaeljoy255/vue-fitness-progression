@@ -1,7 +1,7 @@
 import { INPUT_TYPE } from '../constants/globals.js'
 
 export default class ExerciseInput {
-  constructor({ inputType = INPUT_TYPE.confirmation, hint = null } = {}) {
+  constructor({ inputType = INPUT_TYPE.confirmation, hint = '' } = {}) {
     this.inputType = inputType
     this.hint = hint
   }
