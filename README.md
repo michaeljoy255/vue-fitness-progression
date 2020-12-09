@@ -4,6 +4,7 @@
 
 `Need to fix classes before continuing!`
 
+- START HERE
 - Consider/research the following options `**Do on a new branch!**`
   - Write out how you would tackle this before proceeding!!!!!!!!!!
   - Removing containers
