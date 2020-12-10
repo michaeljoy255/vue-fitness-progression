@@ -10,7 +10,6 @@
   - Certian class public methods
   - Class construction with good/bad values
   - Util functions
-  - Routes file
 
 - **Local Storage:**
 
