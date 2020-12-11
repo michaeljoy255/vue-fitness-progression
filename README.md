@@ -66,7 +66,6 @@ Type        | true
 - DashboardSummaryCard
 - Vetur path/dir aliasing with jsconfig.json and Webpack
 - Validation of bad values in class constructors at some point?
-- Implement manifest.json and images for PWA (ref ZtM videos on subject)
 - Create validator functions for LIMIT constants
 
 ## Customize configuration
