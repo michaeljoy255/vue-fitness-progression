@@ -10,6 +10,10 @@ export default class Workout extends _Descriptors {
     return workout instanceof Workout
   }
 
+  static isWorkoutArray(items) {
+    return Array.isArray(items) && items.every((i) => Workout.isWorkout(i))
+  }
+
   static isArrayOfWorkouts(workouts) {
     return (
       Array.isArray(workouts) && workouts.every((i) => Workout.isWorkout(i))

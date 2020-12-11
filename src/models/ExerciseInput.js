@@ -1,8 +1,8 @@
-import { INPUT_TYPE } from '../constants/globals.js'
+import { INPUT } from '../constants/globals.js'
 
 export default class ExerciseInput {
-  constructor({ inputType = INPUT_TYPE.confirmation, hint = '' } = {}) {
-    this.inputType = inputType
+  constructor({ input = INPUT.confirmation, hint = '' } = {}) {
+    this.input = input
     this.hint = hint
   }
 
@@ -11,7 +11,7 @@ export default class ExerciseInput {
   }
 
   getInputTypeUnit() {
-    switch (this.inputType) {
+    switch (this.input) {
       case 'Sets':
         // do correct icon and unit
         break

@@ -36,7 +36,7 @@ export const actions = {
   },
 
   async fetchDefaults({ commit, dispatch }) {
-    await commit('SET_EXERCISES', await getDefaultExercises())
+    await commit('SET_EXERCISES', getDefaultExercises())
     await dispatch('exercises/save', null, { root: true })
   },
 

@@ -1,9 +1,7 @@
 <script>
-import { COMPONENT, VIEW } from '../constants/globals.js'
+import { VIEW } from '../constants/globals.js'
 
 export default {
-  name: COMPONENT.dashboardResumeCard,
-
   computed: {
     activeWorkoutId() {
       return this.$store.state.activeWorkout.activeWorkout.workoutId

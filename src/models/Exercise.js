@@ -1,5 +1,5 @@
 import _Descriptors from './_Descriptors.js'
-import { DEFAULT_CATEGORY, DEFAULT_EQUIPMENT } from '../constants/defaults.js'
+import { CATEGORY, EQUIPMENT } from '../constants/globals.js'
 
 export default class Exercise extends _Descriptors {
   constructor({
@@ -7,8 +7,8 @@ export default class Exercise extends _Descriptors {
     name,
     description,
     previousRecord,
-    category = DEFAULT_CATEGORY.misc,
-    equipment = DEFAULT_EQUIPMENT.none,
+    category = CATEGORY.misc,
+    equipment = EQUIPMENT.none,
     inputs = [],
   } = {}) {
     super({ id, name, description, previousRecord })
@@ -19,6 +19,10 @@ export default class Exercise extends _Descriptors {
 
   static isExercise(exercise) {
     return exercise instanceof Exercise
+  }
+
+  static isExerciseArray(items) {
+    return Array.isArray(items) && items.every((i) => Exercise.isExercise(i))
   }
 
   static isArrayOfExercises(exercises) {
@@ -36,7 +40,7 @@ export default class Exercise extends _Descriptors {
   }
 
   longName() {
-    if (this.equipment && this.equipment !== DEFAULT_EQUIPMENT.none) {
+    if (this.equipment && this.equipment !== EQUIPMENT.none) {
       return `${this.name}, ${this.equipment}`
     }
     return this.name

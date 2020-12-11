@@ -1,9 +1,5 @@
 <script>
-import { COMPONENT } from '../constants/globals.js'
-
-export default {
-  name: COMPONENT.staticTimer,
-}
+export default {}
 </script>
 
 <template>
