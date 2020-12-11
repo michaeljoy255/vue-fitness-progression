@@ -1,10 +1,16 @@
-import WorkoutContainer from '../../models/WorkoutContainer.js'
+import Workout from '../../models/Workout.js'
+import { getDefaultWorkouts } from '../../utils/store/defaults.js'
+import {
+  saveWorkoutsToLocalStorage,
+  fetchWorkoutsFromLocalStorage,
+  deleteWorkoutsFromLocalStorage,
+} from '../../utils/store/local-storage.js'
 
 export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    workoutContainer: null,
+    workouts: [],
   }
 }
 
@@ -12,7 +18,7 @@ export const state = () => initDefaultState()
 
 export const mutations = {
   SET_WORKOUTS(state, workouts) {
-    state.workoutContainer = workouts
+    state.workouts = workouts
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -21,26 +27,37 @@ export const mutations = {
 
 export const actions = {
   async save({ state }) {
-    WorkoutContainer.saveWorkouts(state.workoutContainer)
+    saveWorkoutsToLocalStorage(state.workouts)
   },
 
-  async load({ commit }) {
-    commit('SET_WORKOUTS', await WorkoutContainer.fetchWorkouts())
-  },
-
-  async clear({ commit }) {
-    commit('CLEAR_STATE')
-  },
-
-  async loadDefaults({ commit }) {
-    const workouts = await WorkoutContainer.fetchDefaultWorkouts()
-    WorkoutContainer.saveWorkouts(workouts)
+  async fetch({ commit }) {
+    const workouts = fetchWorkoutsFromLocalStorage()
     commit('SET_WORKOUTS', workouts)
+  },
+
+  async fetchDefaults({ commit, dispatch }) {
+    await commit('SET_WORKOUTS', getDefaultWorkouts())
+    await dispatch('workouts/save', null, { root: true })
+  },
+
+  async delete({ dispatch }) {
+    deleteWorkoutsFromLocalStorage()
+    dispatch('workouts/clearState', null, { root: true })
+  },
+
+  async clearState({ commit }) {
+    commit('CLEAR_STATE')
   },
 }
 
 export const getters = {
-  isReady(state) {
-    return WorkoutContainer.isWorkoutContainer(state.workoutContainer)
+  isReady: (state) => {
+    return (
+      Workout.isArrayOfWorkouts(state.workouts) && state.workouts.length > 0
+    )
+  },
+
+  findNameById: (state) => (id) => {
+    return state.workouts.find((i) => i.id === id).name
   },
 }

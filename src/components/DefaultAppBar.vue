@@ -1,9 +1,5 @@
 <script>
-import { COMPONENT } from '../constants/globals.js'
-
 export default {
-  name: COMPONENT.defaultAppBar,
-
   data() {
     return {
       date: new Date().toDateString(),

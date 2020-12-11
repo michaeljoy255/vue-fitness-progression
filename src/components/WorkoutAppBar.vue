@@ -1,9 +1,7 @@
 <script>
-import { COMPONENT, VIEW } from '../constants/globals.js'
+import { VIEW } from '../constants/globals.js'
 
 export default {
-  name: COMPONENT.workoutAppBar,
-
   data() {
     return {
       workoutId: this.$route.params.id,
@@ -12,9 +10,7 @@ export default {
 
   computed: {
     workoutName() {
-      return this.$store.state.workouts.workoutContainer.findById(
-        this.workoutId
-      ).name
+      return this.$store.getters['workouts/findNameById'](this.workoutId)
     },
   },
 

@@ -1,9 +1,7 @@
 <script>
-import { COMPONENT, LAYOUT } from './constants/globals'
+import { LAYOUT } from './constants/globals'
 
 export default {
-  name: COMPONENT.app,
-
   created() {
     this.$store.dispatch('initApp')
   },

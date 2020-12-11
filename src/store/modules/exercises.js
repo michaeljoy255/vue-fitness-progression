@@ -1,10 +1,16 @@
-import ExerciseContainer from '../../models/ExerciseContainer.js'
+import Exercise from '../../models/Exercise.js'
+import { getDefaultExercises } from '../../utils/store/defaults.js'
+import {
+  saveExercisesToLocalStorage,
+  fetchExercisesFromLocalStorage,
+  deleteExercisesFromLocalStorage,
+} from '../../utils/store/local-storage.js'
 
 export const namespaced = true
 
 const initDefaultState = () => {
   return {
-    exerciseContainer: null,
+    exercises: [],
   }
 }
 
@@ -12,7 +18,7 @@ export const state = () => initDefaultState()
 
 export const mutations = {
   SET_EXERCISES(state, exercises) {
-    state.exerciseContainer = exercises
+    state.exercises = exercises
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -21,26 +27,45 @@ export const mutations = {
 
 export const actions = {
   async save({ state }) {
-    ExerciseContainer.saveExercises(state.exerciseContainer)
+    saveExercisesToLocalStorage(state.exercises)
   },
 
-  async load({ commit }) {
-    commit('SET_EXERCISES', await ExerciseContainer.fetchExercises())
-  },
-
-  async clear({ commit }) {
-    commit('CLEAR_STATE')
-  },
-
-  async loadDefaults({ commit }) {
-    const exercises = await ExerciseContainer.fetchDefaultExercises()
-    ExerciseContainer.saveExercises(exercises)
+  async fetch({ commit }) {
+    const exercises = fetchExercisesFromLocalStorage()
     commit('SET_EXERCISES', exercises)
+  },
+
+  async fetchDefaults({ commit, dispatch }) {
+    await commit('SET_EXERCISES', getDefaultExercises())
+    await dispatch('exercises/save', null, { root: true })
+  },
+
+  async delete({ dispatch }) {
+    deleteExercisesFromLocalStorage()
+    dispatch('exercises/clearState', null, { root: true })
+  },
+
+  async clearState({ commit }) {
+    commit('CLEAR_STATE')
   },
 }
 
 export const getters = {
   isReady(state) {
-    return ExerciseContainer.isExerciseContainer(state.exerciseContainer)
+    return (
+      Exercise.isArrayOfExercises(state.exercises) && state.exercises.length > 0
+    )
   },
 }
+
+// findByName(name) {
+//   return this._items.filter((item) => item.name === name)
+// }
+
+// findByCategory(category) {
+//   return this._items.filter((item) => item.category === category)
+// }
+
+// findByEquipment(equipment) {
+//   return this._items.filter((item) => item.equipment === equipment)
+// }

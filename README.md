@@ -2,13 +2,23 @@
 
 ## Use Case Problem Solving (Define core use cases!)
 
-`Need to fix classes before continuing!`
+`Needed additions and corrections before continuing!`
 
-- Consider/research the following options `**Do on a new branch!**`
-  - Removing containers
-  - Use stores as containers with much of their logic
-  - Simplify classes by removing import/export and \_properties
-- Unit tests for the classes!
+- **Add Tests:**
+
+  - Static class methods
+  - Certian class public methods
+  - Class construction with good/bad values
+  - Util functions
+
+- **Local Storage:**
+
+  - Have a storage version constant
+  - Append the constant to Local Storage access
+
+    ```javascript
+    localstorage.setItem(`exercises:${localStorageAdapterVersion}`, exercises)
+    ```
 
 `Dashboard Defaults Card`
 
@@ -36,6 +46,7 @@
 - Tests for classes, utils, and services (attempt components later)
 - Date and timer components / functions?
 - DashboardSummaryCard
+- Vetur path/dir aliasing with jsconfig.json and Webpack
 
 ## Customize configuration
 

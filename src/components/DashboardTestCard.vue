@@ -1,31 +1,23 @@
 <script>
-import { COMPONENT } from '../constants/globals.js'
-import ExerciseRecordContainer from '../models/ExerciseRecordContainer.js'
-import ExerciseContainer from '../models/ExerciseContainer.js'
-import WorkoutContainer from '../models/WorkoutContainer.js'
-import WorkoutRecord from '../models/WorkoutRecord.js'
-
 export default {
-  name: COMPONENT.dashboardTestCard,
-
   methods: {
     async loadDefaults() {
-      await this.$store.dispatch('exercises/loadDefaults')
-      await this.$store.dispatch('workouts/loadDefaults')
+      await this.$store.dispatch('exercises/fetchDefaults')
+      await this.$store.dispatch('workouts/fetchDefaults')
     },
 
     async clearState() {
-      await this.$store.dispatch('exercises/clear')
-      await this.$store.dispatch('workouts/clear')
-      await this.$store.dispatch('activeWorkout/clear')
-      await this.$store.dispatch('activeExercises/clear')
+      await this.$store.dispatch('exercises/clearState')
+      await this.$store.dispatch('workouts/clearState')
+      await this.$store.dispatch('activeWorkout/clearState')
+      await this.$store.dispatch('activeExercises/clearState')
     },
 
     async clearStorage() {
-      await ExerciseContainer.deleteExercises()
-      await ExerciseRecordContainer.deleteActiveExercises()
-      await WorkoutContainer.deleteWorkouts()
-      await WorkoutRecord.deleteActiveWorkout()
+      await this.$store.dispatch('exercises/delete')
+      await this.$store.dispatch('workouts/delete')
+      await this.$store.dispatch('activeWorkout/delete')
+      await this.$store.dispatch('activeExercises/delete')
     },
   },
 }

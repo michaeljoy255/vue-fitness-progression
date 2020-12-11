@@ -1,13 +1,9 @@
 <script>
-import { COMPONENT } from '../constants/globals.js'
-
 export default {
-  name: COMPONENT.dashboardDefaultsCard,
-
   methods: {
-    loadDefaults() {
-      this.$store.dispatch('exercises/loadDefaults')
-      this.$store.dispatch('workouts/loadDefaults')
+    async loadDefaults() {
+      await this.$store.dispatch('exercises/fetchDefaults')
+      await this.$store.dispatch('workouts/fetchDefaults')
     },
   },
 }
