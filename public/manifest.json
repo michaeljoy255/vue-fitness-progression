@@ -30,6 +30,10 @@
     {
       "src": "icons/android-icon-192x192.png",
       "sizes": "192x192"
+    },
+    {
+      "src": "icons/android-icon-192x192.png",
+      "sizes": "512x512"
     }
   ]
 }
