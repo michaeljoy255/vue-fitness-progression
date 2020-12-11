@@ -6,15 +6,21 @@ export default {
     activeWorkoutId() {
       return this.$store.state.activeWorkout.activeWorkout.workoutId
     },
+
+    activeWorkoutCreatedAt() {
+      return this.$store.state.activeWorkout.activeWorkout.createdAt
+    },
+
+    workout() {
+      return this.$store.getters['workouts/findById'](this.activeWorkoutId)
+    },
   },
 
   methods: {
     resumeWorkout() {
       this.$router.push({
         name: VIEW.activeWorkout,
-        params: {
-          id: this.activeWorkoutId,
-        },
+        params: { id: this.activeWorkoutId },
       })
     },
   },
@@ -24,10 +30,10 @@ export default {
 <template>
   <v-col class="col-12">
     <v-card>
-      <v-card-title>{{ activeWorkoutId }}</v-card-title>
+      <v-card-title>{{ workout.name }}</v-card-title>
 
       <v-card-subtitle>
-        Workout started on Date
+        {{ new Date(activeWorkoutCreatedAt).toDateString() }}
       </v-card-subtitle>
 
       <v-card-actions>

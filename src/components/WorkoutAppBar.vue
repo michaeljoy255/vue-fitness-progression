@@ -17,9 +17,7 @@ export default {
   methods: {
     leaveWorkout() {
       if (confirm('Return to the Dashboard?')) {
-        this.$router.push({
-          name: VIEW.dashboard,
-        })
+        this.$router.push({ name: VIEW.dashboard })
       }
     },
   },

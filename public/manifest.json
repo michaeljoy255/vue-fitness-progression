@@ -5,7 +5,7 @@
   "catagories": ["fitness", "health", "lifestyle", "sports"],
   "background_color": "black",
   "theme_color": "blue",
-  "display": "standalone",
+  "display": "browser",
   "icons": [
     {
       "src": "icons/android-icon-36x36.png",

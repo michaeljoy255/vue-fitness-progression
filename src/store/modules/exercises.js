@@ -52,8 +52,6 @@ export const actions = {
 
 export const getters = {
   isReady(state) {
-    return (
-      Exercise.isExerciseArray(state.exercises) && state.exercises.length > 0
-    )
+    return Exercise.isExerciseArrayWithData(state.exercises)
   },
 }

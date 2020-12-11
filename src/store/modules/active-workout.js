@@ -25,10 +25,14 @@ export const mutations = {
 }
 
 export const actions = {
-  async save({ commit }, workoutId) {
-    const activeWorkout = new WorkoutRecord({ workoutId })
-    saveActiveWorkoutToLocalStorage(activeWorkout)
-    commit('SET_ACTIVE_WORKOUT', activeWorkout)
+  async create({ commit }, workoutId) {
+    const newActiveWorkout = new WorkoutRecord({ workoutId })
+    saveActiveWorkoutToLocalStorage(newActiveWorkout)
+    commit('SET_ACTIVE_WORKOUT', newActiveWorkout)
+  },
+
+  async save({ state }) {
+    saveActiveWorkoutToLocalStorage(state.activeWorkout)
   },
 
   async fetch({ commit }) {

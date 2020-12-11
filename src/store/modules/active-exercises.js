@@ -25,12 +25,16 @@ export const mutations = {
 }
 
 export const actions = {
-  async save({ commit }, workoutExercises) {
+  async create({ commit }, workoutExercises) {
     const exercises = workoutExercises.map(
       (i) => new ExerciseRecord({ exerciseId: i.id })
     )
     saveActiveExercisesToLocalStorage(exercises)
     commit('SET_ACTIVE_EXERCISES', exercises)
+  },
+
+  async save({ state }) {
+    saveActiveExercisesToLocalStorage(state.activeExercises)
   },
 
   async fetch({ commit }) {
@@ -50,9 +54,6 @@ export const actions = {
 
 export const getters = {
   isReady(state) {
-    return (
-      ExerciseRecord.isExerciseRecordArray(state.activeExercises) &&
-      state.activeExercises.length > 0
-    )
+    return ExerciseRecord.isExerciseRecordArrayWithData(state.activeExercises)
   },
 }
