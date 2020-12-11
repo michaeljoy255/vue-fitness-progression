@@ -1,5 +1,9 @@
 # vue-fitness-progression
 
+https://michaeljoy255.github.io/vue-fitness-progression/
+
+---
+
 ## Core Tasks for MVP
 
 - **Add Tests**
