@@ -23,24 +23,34 @@ describe('_Record.js', () => {
   })
 
   describe('static methods', () => {
-    it.skip('findByDate', () => {
-      expect(true).toBe(true) // WIP
+    describe('findByDate method', () => {
+      it.skip('findByDate', () => {
+        expect(true).toBe(true) // WIP
+      })
     })
 
-    it.skip('findByNewest', () => {
-      expect(true).toBe(true) // WIP
+    describe('findByNewest method', () => {
+      it.skip('findByNewest', () => {
+        expect(true).toBe(true) // WIP
+      })
     })
 
-    it.skip('findByOldest', () => {
-      expect(true).toBe(true) // WIP
+    describe('findByOldest method', () => {
+      it.skip('findByOldest', () => {
+        expect(true).toBe(true) // WIP
+      })
     })
 
-    it.skip('findBetweenDates', () => {
-      expect(true).toBe(true) // WIP
+    describe('findBetweenDates method', () => {
+      it.skip('findBetweenDates', () => {
+        expect(true).toBe(true) // WIP
+      })
     })
 
-    it.skip('filterByNoteKeyword', () => {
-      expect(true).toBe(true) // WIP
+    describe('filterByNoteKeyword method', () => {
+      it.skip('filterByNoteKeyword', () => {
+        expect(true).toBe(true) // WIP
+      })
     })
   })
 })

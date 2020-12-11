@@ -25,16 +25,47 @@ describe('ExerciseSet.js', () => {
   })
 
   describe('static methods', () => {
-    it.skip('isExerciseSet', () => {
-      expect(true).toBe(true) // WIP
+    describe('isExerciseSet method', () => {
+      it('returns false with incorrect instances', () => {
+        expect(ExerciseSet.isExerciseSet(null)).toBe(false)
+        expect(ExerciseSet.isExerciseSet(123)).toBe(false)
+        expect(ExerciseSet.isExerciseSet('X')).toBe(false)
+      })
+
+      it('returns true with correct instance', () => {
+        expect(ExerciseSet.isExerciseSet(new ExerciseSet())).toBe(true)
+      })
     })
 
-    it.skip('isExerciseSetArray', () => {
-      expect(true).toBe(true) // WIP
+    describe('isExerciseSetArray method', () => {
+      it('returns false if not an array or contains incorrect instances', () => {
+        expect(ExerciseSet.isExerciseSetArray(null)).toBe(false)
+        expect(ExerciseSet.isExerciseSetArray(new ExerciseSet())).toBe(false)
+        expect(ExerciseSet.isExerciseSetArray(['X'])).toBe(false)
+        expect(ExerciseSet.isExerciseSetArray(['X', new ExerciseSet()])).toBe(
+          false
+        )
+      })
+
+      it('returns true if is an array with correct instances or empty', () => {
+        expect(ExerciseSet.isExerciseSetArray([])).toBe(true)
+        expect(ExerciseSet.isExerciseSetArray([new ExerciseSet()])).toBe(true)
+      })
     })
 
-    it.skip('isExerciseSetArrayWithData', () => {
-      expect(true).toBe(true) // WIP
+    describe('isExerciseSetArrayWithData method', () => {
+      it('returns false if not an array containing at least one correct instance', () => {
+        expect(ExerciseSet.isExerciseSetArrayWithData([])).toBe(false)
+        expect(
+          ExerciseSet.isExerciseSetArrayWithData(['X', new ExerciseSet()])
+        ).toBe(false)
+      })
+
+      it('returns true if is an array with at least one correct instance', () => {
+        expect(
+          ExerciseSet.isExerciseSetArrayWithData([new ExerciseSet()])
+        ).toBe(true)
+      })
     })
   })
 })

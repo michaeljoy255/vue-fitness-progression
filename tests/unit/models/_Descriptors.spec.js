@@ -12,11 +12,12 @@ describe('_Descriptors.js', () => {
     })
 
     it('creates object with correct values', () => {
+      class MockRecord {}
       const values = {
         id: 'ABC123',
         name: 'Test Name',
         description: 'Test description text.',
-        previousRecord: null, // WIP
+        previousRecord: new MockRecord(),
       }
       const obj = new _Descriptors(values)
       expect(obj).toBeInstanceOf(_Descriptors)
@@ -25,12 +26,59 @@ describe('_Descriptors.js', () => {
   })
 
   describe('static methods', () => {
-    it.skip('findByName', () => {
-      expect(true).toBe(true) // WIP
+    const obj1 = new _Descriptors({
+      name: 'Test 1',
+      description: 'Test 1 description here.',
+    })
+    const obj2 = new _Descriptors({
+      name: 'Testing 2',
+      description: 'Testing 2 description here.',
+    })
+    const obj3 = new _Descriptors({
+      name: 'Testie 3',
+      description: 'Testie 3 description here.',
+    })
+    const items = [obj1, obj2, obj3]
+
+    describe('findByName method', () => {
+      it('throws an error with invalid inputs', () => {
+        expect(() => _Descriptors.findByName(null, 'Test')).toThrow()
+      })
+
+      it('returns undefined if no match is found', () => {
+        expect(_Descriptors.findByName(items, null)).toBeUndefined()
+        expect(_Descriptors.findByName(items, 123)).toBeUndefined()
+        expect(_Descriptors.findByName(items, 'X')).toBeUndefined()
+      })
+
+      it('returns first match found', () => {
+        expect(_Descriptors.findByName(items, 'Testing 2')).toMatchObject(obj2)
+      })
     })
 
-    it.skip('filterByDescriptionKeyword', () => {
-      expect(true).toBe(true) // WIP
+    describe('filterByDescriptionKeyword method', () => {
+      it('throws an error with invalid inputs', () => {
+        expect(() =>
+          _Descriptors.filterByDescriptionKeyword(null, 'Test')
+        ).toThrow()
+        expect(() =>
+          _Descriptors.filterByDescriptionKeyword(items, null)
+        ).toThrow()
+        expect(() =>
+          _Descriptors.filterByDescriptionKeyword(items, 123)
+        ).toThrow()
+      })
+
+      it('returns empty array if no matches are found', () => {
+        const results = _Descriptors.filterByDescriptionKeyword(items, 'XYZ')
+        expect(results).toEqual([])
+      })
+
+      it('returns array of matches', () => {
+        const results = _Descriptors.filterByDescriptionKeyword(items, 'Testi')
+        expect(Array.isArray(results)).toBe(true)
+        expect(results.length).toEqual(2)
+      })
     })
   })
 })

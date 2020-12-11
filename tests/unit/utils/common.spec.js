@@ -1,8 +1,8 @@
 import * as utils from '../../../src/utils/common.js'
 
 describe('common.js', () => {
-  describe('isUndef()', () => {
-    it('returns false with an existing value', () => {
+  describe('isUndef function', () => {
+    it('returns false with a value that exists', () => {
       expect(utils.isUndef(true)).toBe(false)
       expect(utils.isUndef(false)).toBe(false)
       expect(utils.isUndef('Hello')).toBe(false)
@@ -17,8 +17,8 @@ describe('common.js', () => {
     })
   })
 
-  describe('isDef()', () => {
-    it('returns true with a existing value', () => {
+  describe('isDef function', () => {
+    it('returns true with a value that exists', () => {
       expect(utils.isDef(true)).toBe(true)
       expect(utils.isDef(false)).toBe(true)
       expect(utils.isDef('Hello')).toBe(true)

@@ -13,12 +13,14 @@ describe('Workout.js', () => {
     })
 
     it('creates object with correct values', () => {
+      class MockRecord {}
+      class MockExercise {}
       const values = {
         id: 'ABC123',
         name: 'Test Name',
         description: 'Test description text.',
-        previousRecord: null, // WIP
-        exercises: [], // WIP
+        previousRecord: new MockRecord(),
+        exercises: [new MockExercise(), new MockExercise()],
       }
       const obj = new Workout(values)
       expect(obj).toBeInstanceOf(Workout)
@@ -27,16 +29,41 @@ describe('Workout.js', () => {
   })
 
   describe('static methods', () => {
-    it.skip('isWorkout', () => {
-      expect(true).toBe(true) // WIP
+    describe('isWorkout method', () => {
+      it('returns false with incorrect instances', () => {
+        expect(Workout.isWorkout(null)).toBe(false)
+        expect(Workout.isWorkout(123)).toBe(false)
+        expect(Workout.isWorkout('X')).toBe(false)
+      })
+
+      it('returns true with correct instance', () => {
+        expect(Workout.isWorkout(new Workout())).toBe(true)
+      })
     })
 
-    it.skip('isWorkoutArray', () => {
-      expect(true).toBe(true) // WIP
+    describe('isWorkoutArray method', () => {
+      it('returns false if not an array or contains incorrect instances', () => {
+        expect(Workout.isWorkoutArray(null)).toBe(false)
+        expect(Workout.isWorkoutArray(new Workout())).toBe(false)
+        expect(Workout.isWorkoutArray(['X'])).toBe(false)
+        expect(Workout.isWorkoutArray(['X', new Workout()])).toBe(false)
+      })
+
+      it('returns true if is an array with correct instances or empty', () => {
+        expect(Workout.isWorkoutArray([])).toBe(true)
+        expect(Workout.isWorkoutArray([new Workout()])).toBe(true)
+      })
     })
 
-    it.skip('isWorkoutArrayWithData', () => {
-      expect(true).toBe(true) // WIP
+    describe('isWorkoutArrayWithData method', () => {
+      it('returns false if not an array containing at least one correct instance', () => {
+        expect(Workout.isWorkoutArrayWithData([])).toBe(false)
+        expect(Workout.isWorkoutArrayWithData(['X', new Workout()])).toBe(false)
+      })
+
+      it('returns true if is an array with at least one correct instance', () => {
+        expect(Workout.isWorkoutArrayWithData([new Workout()])).toBe(true)
+      })
     })
   })
 })
