@@ -57,14 +57,13 @@ export const UNIT_CONVERT = Object.freeze({
 export const REGEX = Object.freeze({})
 
 export const LIMIT = Object.freeze({
-  maxExercises: 5000,
-  maxWorkouts: 500,
-  maxWorkoutExercises: 100,
-  maxExerciseSets: 100,
-  nameLength: 50,
-  descriptionLength: 300,
-  noteLength: 300,
-  planLength: 30,
+  storedExercises: 2000,
+  storedWorkouts: 200,
+  workoutExercises: 50,
+  exerciseSets: 50,
+  name: 50,
+  description: 300,
+  note: 600,
 })
 
 export const ICON = Object.freeze({
@@ -74,6 +73,13 @@ export const ICON = Object.freeze({
   duration: 'history',
   distance: 'place',
   sets: 'list',
+})
+
+export const ADAPTER = Object.freeze({
+  sessionStorage: 'Session Storage',
+  localStorage: 'Local Storage',
+  indexedDB: 'Indexed DB',
+  firebase: 'Firebase',
 })
 
 const layout = 'Layout'

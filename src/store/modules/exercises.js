@@ -53,19 +53,7 @@ export const actions = {
 export const getters = {
   isReady(state) {
     return (
-      Exercise.isArrayOfExercises(state.exercises) && state.exercises.length > 0
+      Exercise.isExerciseArray(state.exercises) && state.exercises.length > 0
     )
   },
 }
-
-// findByName(name) {
-//   return this._items.filter((item) => item.name === name)
-// }
-
-// findByCategory(category) {
-//   return this._items.filter((item) => item.category === category)
-// }
-
-// findByEquipment(equipment) {
-//   return this._items.filter((item) => item.equipment === equipment)
-// }

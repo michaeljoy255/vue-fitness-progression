@@ -52,9 +52,7 @@ export const actions = {
 
 export const getters = {
   isReady: (state) => {
-    return (
-      Workout.isArrayOfWorkouts(state.workouts) && state.workouts.length > 0
-    )
+    return Workout.isWorkoutArray(state.workouts) && state.workouts.length > 0
   },
 
   findNameById: (state) => (id) => {

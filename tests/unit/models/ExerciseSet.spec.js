@@ -1,7 +1,7 @@
 import ExerciseSet from '../../../src/models/ExerciseSet.js'
 
 describe('ExerciseSet.js', () => {
-  describe('constructor()', () => {
+  describe('constructor function', () => {
     it('creates object with correct defaults', () => {
       const obj = new ExerciseSet()
       expect(obj).toBeInstanceOf(ExerciseSet)
@@ -12,6 +12,28 @@ describe('ExerciseSet.js', () => {
     })
 
     it('creates object with correct values', () => {
+      const values = {
+        weight: 75,
+        reps: 15,
+        duration: 35000,
+        distance: 1.5,
+      }
+      const obj = new ExerciseSet(values)
+      expect(obj).toBeInstanceOf(ExerciseSet)
+      expect(obj).toMatchObject(values)
+    })
+  })
+
+  describe('static methods', () => {
+    it.skip('isExerciseSet', () => {
+      expect(true).toBe(true) // WIP
+    })
+
+    it.skip('isExerciseSetArray', () => {
+      expect(true).toBe(true) // WIP
+    })
+
+    it.skip('isExerciseSetArrayWithData', () => {
       expect(true).toBe(true) // WIP
     })
   })

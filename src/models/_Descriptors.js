@@ -7,4 +7,14 @@ export default class _Descriptors extends _Id {
     this.description = description
     this.previousRecord = previousRecord
   }
+
+  static findByName(items, name) {
+    return items.find((i) => i.name === name)
+  }
+
+  static filterByDescriptionKeyword(items, keyword) {
+    return items.filter((i) =>
+      i.description.toLowerCase().includes(keyword.toLowerCase())
+    )
+  }
 }

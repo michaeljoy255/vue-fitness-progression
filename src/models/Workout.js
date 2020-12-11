@@ -14,10 +14,8 @@ export default class Workout extends _Descriptors {
     return Array.isArray(items) && items.every((i) => Workout.isWorkout(i))
   }
 
-  static isArrayOfWorkouts(workouts) {
-    return (
-      Array.isArray(workouts) && workouts.every((i) => Workout.isWorkout(i))
-    )
+  static isWorkoutArrayWithData(items) {
+    return Workout.isWorkoutArray(items) && items.length > 0
   }
 
   getPreviousRecordCreatedAt() {

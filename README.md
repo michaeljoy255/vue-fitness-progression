@@ -7,18 +7,37 @@
 - **Add Tests:**
 
   - Static class methods
-  - Certian class public methods
-  - Class construction with good/bad values
   - Util functions
+  - Store file tests
 
-- **Local Storage:**
+```javascript
+// limit-validators.spec.js
+DATA, LIMIT=10  | isWithinTypeLimit()
+------------------------------------
+null            |   false
+0               |   true
+9               |   true
+10              |   false
+NaN             |   false
 
-  - Have a storage version constant
-  - Append the constant to Local Storage access
+// various class files
+DATA       | isTypeArray()  | isTypeArrayWithData()
+---------------------------------------------------
+null       |    false       |     false
+[]         |    true        |     false
+[Type]     |    true        |     true
+['X']      |    false       |     false
+['X', Type]|    false       |     false
 
-    ```javascript
-    localstorage.setItem(`exercises:${localStorageAdapterVersion}`, exercises)
-    ```
+DATA        | isType()
+----------------------
+null        | false
+Type        | true
+'X'         | false
+
+```
+
+- Need to clean up store actions as they relate to the UI components
 
 `Dashboard Defaults Card`
 
@@ -43,10 +62,12 @@
 - Use try..catch at component level to provide useful errors for users
 - Use Luxon for dates and times
 - Add custom Error classes
-- Tests for classes, utils, and services (attempt components later)
 - Date and timer components / functions?
 - DashboardSummaryCard
 - Vetur path/dir aliasing with jsconfig.json and Webpack
+- Validation of bad values in class constructors at some point?
+- Implement manifest.json and images for PWA (ref ZtM videos on subject)
+- Create validator functions for LIMIT constants
 
 ## Customize configuration
 

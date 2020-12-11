@@ -11,10 +11,18 @@ export default class ExerciseRecord extends _Record {
     return record instanceof ExerciseRecord
   }
 
-  static isArrayOfExerciseRecords(records) {
+  static isExerciseRecordArray(records) {
     return (
       Array.isArray(records) &&
       records.every((i) => ExerciseRecord.isExerciseRecord(i))
     )
+  }
+
+  static isExerciseRecordArrayWithData(items) {
+    return ExerciseRecord.isExerciseRecordArray(items) && items.length > 0
+  }
+
+  static findByExerciseId(items, id) {
+    return items.find((i) => i.exerciseId === id)
   }
 }

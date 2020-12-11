@@ -25,10 +25,16 @@ export default class Exercise extends _Descriptors {
     return Array.isArray(items) && items.every((i) => Exercise.isExercise(i))
   }
 
-  static isArrayOfExercises(exercises) {
-    return (
-      Array.isArray(exercises) && exercises.every((i) => Exercise.isExercise(i))
-    )
+  static isExerciseArrayWithData(items) {
+    return Exercise.isExerciseArray(items) && items.length > 0
+  }
+
+  static findByCategory(items, category) {
+    return items.find((i) => i.category === category)
+  }
+
+  static findByEquipment(items, equipment) {
+    return items.find((i) => i.equipment === equipment)
   }
 
   getPreviousRecordCreatedAt() {

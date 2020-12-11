@@ -4,4 +4,8 @@ export default class _Id {
   constructor({ id = uuid() } = {}) {
     this.id = id
   }
+
+  static findById(items, id) {
+    return items.find((i) => i.id === id)
+  }
 }

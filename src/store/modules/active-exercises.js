@@ -16,8 +16,8 @@ const initDefaultState = () => {
 export const state = () => initDefaultState()
 
 export const mutations = {
-  SET_ACTIVE_EXERCISES(state, container) {
-    state.activeExercises = container
+  SET_ACTIVE_EXERCISES(state, records) {
+    state.activeExercises = records
   },
   CLEAR_STATE(state) {
     Object.assign(state, initDefaultState())
@@ -51,21 +51,8 @@ export const actions = {
 export const getters = {
   isReady(state) {
     return (
-      ExerciseRecord.isArrayOfExerciseRecords(state.activeExercises) &&
+      ExerciseRecord.isExerciseRecordArray(state.activeExercises) &&
       state.activeExercises.length > 0
     )
   },
 }
-
-// findByDate(date) {
-//   return null
-// }
-// findNewest() {
-//   return null
-// }
-// findOldest() {
-//   return null
-// }
-// findBetweenDates(date1, date2) {
-//   return null
-// }
