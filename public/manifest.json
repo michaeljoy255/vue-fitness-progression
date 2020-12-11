@@ -31,7 +31,5 @@
       "src": "icons/android-icon-192x192.png",
       "sizes": "192x192"
     }
-  ],
-  "orientation": "any",
-  "start_url": "/"
+  ]
 }
