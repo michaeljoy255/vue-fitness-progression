@@ -1,15 +1,11 @@
 # vue-fitness-progression
 
-https://michaeljoy255.github.io/vue-fitness-progression/
+<https://michaeljoy255.github.io/vue-fitness-progression/>
 
 ---
 
 ## Core Tasks for MVP
 
-- **Add Tests**
-  - Utils
-  - Store files
-- **Examine store actions as they relate to UI before continuing**
 - **Active Workout View**
   - Save option (button)
     - Related store actions
@@ -18,6 +14,9 @@ https://michaeljoy255.github.io/vue-fitness-progression/
     - Display inputs for each exercise (large task using ExerciseInput)
     - Save active records on each button click on view (maybe?)
     - Display previous exercise performance near inputs
+- **Add Tests**
+  - Utils
+  - Store files
 
 ## Additional Tasks
 
@@ -28,7 +27,6 @@ https://michaeljoy255.github.io/vue-fitness-progression/
 - DashboardSummaryCard
 - Vetur path/dir aliasing with jsconfig.json and Webpack
 - Validation of bad values in class constructors at some point?
-- Work on PWA again (setup PWA package, server worker, proper icons and colors)
 
 ## Customize configuration
 

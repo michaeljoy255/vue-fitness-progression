@@ -3,9 +3,11 @@
   "short_name": "Fit LP",
   "description": "Fitness Linear Progression helps you reach your fitness goals one step at a time.",
   "catagories": ["fitness", "health", "lifestyle", "sports"],
-  "background_color": "black",
-  "theme_color": "blue",
+  "background_color": "#317EFB",
+  "theme_color": "#317EFB",
   "display": "standalone",
+  "start_url": "/vue-fitness-progression",
+  "orientation": "any",
   "icons": [
     {
       "src": "icons/android-icon-36x36.png",
