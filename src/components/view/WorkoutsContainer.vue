@@ -1,9 +1,9 @@
 <script>
-import DashboardWorkoutCard from '../components/DashboardWorkoutCard.vue'
+import WorkoutCard from './WorkoutCard.vue'
 
 export default {
   components: {
-    DashboardWorkoutCard,
+    WorkoutCard,
   },
 
   computed: {
@@ -16,7 +16,7 @@ export default {
 
 <template>
   <v-row>
-    <DashboardWorkoutCard
+    <WorkoutCard
       v-for="workout in workouts"
       :key="workout.id"
       :workout="workout"

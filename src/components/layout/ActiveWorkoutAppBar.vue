@@ -1,5 +1,5 @@
 <script>
-import { VIEW } from '../constants/globals.js'
+import { VIEW } from '../../constants/globals.js'
 
 export default {
   data() {

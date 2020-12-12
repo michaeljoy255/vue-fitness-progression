@@ -22,7 +22,7 @@ const routes = [
   {
     path: '/active-workout/:id',
     name: VIEW.activeWorkout,
-    meta: { layout: LAYOUT.workout },
+    meta: { layout: LAYOUT.activeWorkout },
     component: () => import('../views/ActiveWorkout.vue'),
   },
   {

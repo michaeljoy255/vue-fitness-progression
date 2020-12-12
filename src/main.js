@@ -5,11 +5,11 @@ import store from './store/store.js'
 import vuetify from './plugins/vuetify'
 // Layouts
 import DefaultLayout from './layouts/Default.vue'
-import WorkoutLayout from './layouts/Workout.vue'
+import ActiveWorkoutLayout from './layouts/ActiveWorkout.vue'
 import { LAYOUT } from './constants/globals.js'
 
 Vue.component(LAYOUT.default, DefaultLayout)
-Vue.component(LAYOUT.workout, WorkoutLayout)
+Vue.component(LAYOUT.activeWorkout, ActiveWorkoutLayout)
 
 Vue.config.productionTip = false
 

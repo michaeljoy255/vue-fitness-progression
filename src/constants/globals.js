@@ -86,7 +86,7 @@ const layout = 'Layout'
 
 export const LAYOUT = Object.freeze({
   default: 'Default' + layout,
-  workout: 'Workout' + layout,
+  activeWorkout: 'ActiveWorkout' + layout,
 })
 
 const view = 'View'
