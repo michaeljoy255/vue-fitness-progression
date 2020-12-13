@@ -6,6 +6,7 @@
 
 ## Core Tasks for MVP
 
+- Add a cancel or remove button to the resume workout card
 - **Active Workout View**
   - Finalize Finish Workout logic
   - Display exercises (UI heavy)
