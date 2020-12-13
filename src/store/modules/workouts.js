@@ -1,9 +1,8 @@
 import Workout from '../../models/Workout.js'
 import { getDefaultWorkouts } from '../../utils/store/defaults.js'
 import {
-  saveWorkoutsToLocalStorage,
-  fetchWorkoutsFromLocalStorage,
-  deleteWorkoutsFromLocalStorage,
+  setLocalStorage,
+  getLocalStorage,
 } from '../../utils/store/local-storage.js'
 
 export const namespaced = true
@@ -62,4 +61,22 @@ export const getters = {
   findNameById: (state) => (id) => {
     return Workout.findById(state.workouts, id).name
   },
+}
+
+/*
+PRIVATE FUNCTIONS
+*/
+
+function saveWorkoutsToLocalStorage(workouts) {
+  setLocalStorage('workouts', workouts)
+}
+
+function fetchWorkoutsFromLocalStorage() {
+  const data = getLocalStorage('workouts')
+  if (data) return data.map((i) => new Workout(i))
+  return []
+}
+
+function deleteWorkoutsFromLocalStorage() {
+  localStorage.removeItem('workouts')
 }

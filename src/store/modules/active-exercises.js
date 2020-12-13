@@ -1,8 +1,7 @@
 import ExerciseRecord from '../../models/ExerciseRecord.js'
 import {
-  saveActiveExercisesToLocalStorage,
-  fetchActiveExercisesFromLocalStorage,
-  deleteActiveExercisesFromLocalStorage,
+  setLocalStorage,
+  getLocalStorage,
 } from '../../utils/store/local-storage.js'
 
 export const namespaced = true
@@ -56,4 +55,22 @@ export const getters = {
   isReady(state) {
     return ExerciseRecord.isExerciseRecordArrayWithData(state.activeExercises)
   },
+}
+
+/*
+PRIVATE FUNCTIONS
+*/
+
+function saveActiveExercisesToLocalStorage(activeExercises) {
+  setLocalStorage('activeExercises', activeExercises)
+}
+
+function fetchActiveExercisesFromLocalStorage() {
+  const data = getLocalStorage('activeExercises')
+  if (data) return data.map((i) => new ExerciseRecord(i))
+  return []
+}
+
+function deleteActiveExercisesFromLocalStorage() {
+  localStorage.removeItem('activeExercises')
 }

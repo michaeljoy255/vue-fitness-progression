@@ -1,8 +1,14 @@
 import _Descriptors from './_Descriptors.js'
 
 export default class Workout extends _Descriptors {
-  constructor({ id, name, description, previousRecord, exercises = [] } = {}) {
-    super({ id, name, description, previousRecord })
+  constructor({
+    id,
+    name,
+    description,
+    previousRecordId,
+    exercises = [],
+  } = {}) {
+    super({ id, name, description, previousRecordId })
     this.exercises = exercises
   }
 
@@ -16,13 +22,5 @@ export default class Workout extends _Descriptors {
 
   static isWorkoutArrayWithData(items) {
     return Workout.isWorkoutArray(items) && items.length > 0
-  }
-
-  getPreviousRecordCreatedAt() {
-    if (this.previousRecord && this.previousRecord.createdAt) {
-      return new Date(this.previousRecord.createdAt).toDateString()
-    } else {
-      return 'No previous record found'
-    }
   }
 }

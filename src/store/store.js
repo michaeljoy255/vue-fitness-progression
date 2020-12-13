@@ -14,8 +14,14 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     async initApp({ dispatch }) {
-      await dispatch('exercises/fetch') // Don't think I get to fetch this yet...
-      await dispatch('workouts/fetch')
+      await Promise.all([
+        dispatch('exercises/fetch'),
+        dispatch('workouts/fetch'),
+        dispatch('activeExercises/fetch'),
+        dispatch('activeWorkout/fetch'),
+        dispatch('exerciseRecords/fetch'),
+        dispatch('workoutRecords/fetch'),
+      ])
     },
   },
   getters: {},

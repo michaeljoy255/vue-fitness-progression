@@ -1,8 +1,7 @@
 import WorkoutRecord from '../../models/WorkoutRecord.js'
 import {
-  saveActiveWorkoutToLocalStorage,
-  fetchActiveWorkoutFromLocalStorage,
-  deleteActiveWorkoutFromLocalStorage,
+  setLocalStorage,
+  getLocalStorage,
 } from '../../utils/store/local-storage.js'
 
 export const namespaced = true
@@ -54,4 +53,22 @@ export const getters = {
   isReady(state) {
     return WorkoutRecord.isWorkoutRecord(state.activeWorkout)
   },
+}
+
+/*
+PRIVATE FUNCTIONS
+*/
+
+function saveActiveWorkoutToLocalStorage(activeWorkout) {
+  setLocalStorage('activeWorkout', activeWorkout)
+}
+
+function fetchActiveWorkoutFromLocalStorage() {
+  const data = getLocalStorage('activeWorkout')
+  if (data) return new WorkoutRecord(data)
+  return null
+}
+
+function deleteActiveWorkoutFromLocalStorage() {
+  localStorage.removeItem('activeWorkout')
 }

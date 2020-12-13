@@ -6,12 +6,12 @@ export default class Exercise extends _Descriptors {
     id,
     name,
     description,
-    previousRecord,
+    previousRecordId,
     category = CATEGORY.misc,
     equipment = EQUIPMENT.none,
     inputs = [],
   } = {}) {
-    super({ id, name, description, previousRecord })
+    super({ id, name, description, previousRecordId })
     this.category = category
     this.equipment = equipment
     this.inputs = inputs
@@ -35,20 +35,5 @@ export default class Exercise extends _Descriptors {
 
   static findByEquipment(items, equipment) {
     return items.find((i) => i.equipment === equipment)
-  }
-
-  getPreviousRecordCreatedAt() {
-    if (this.previousRecord && this.previousRecord.createdAt) {
-      return new Date(this.previousRecord.createdAt).toDateString()
-    } else {
-      return 'No previous record found'
-    }
-  }
-
-  longName() {
-    if (this.equipment && this.equipment !== EQUIPMENT.none) {
-      return `${this.name}, ${this.equipment}`
-    }
-    return this.name
   }
 }

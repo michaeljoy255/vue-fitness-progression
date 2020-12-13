@@ -7,9 +7,7 @@
 ## Core Tasks for MVP
 
 - **Active Workout View**
-  - Save option (button)
-    - Related store actions
-    - Related UI updates
+  - Finalize Finish Workout logic
   - Display exercises (UI heavy)
     - Display inputs for each exercise (large task using ExerciseInput)
     - Save active records on each button click on view (maybe?)

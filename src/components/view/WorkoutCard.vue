@@ -41,7 +41,7 @@ export default {
       <v-card-title>{{ workout.name }}</v-card-title>
 
       <v-card-subtitle>
-        {{ workout.getPreviousRecordCreatedAt() }}
+        Previous record createdAt goes here...
       </v-card-subtitle>
 
       <v-card-actions>

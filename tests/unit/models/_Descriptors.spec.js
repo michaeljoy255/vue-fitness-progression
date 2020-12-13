@@ -8,16 +8,15 @@ describe('_Descriptors.js', () => {
       expect(typeof obj.id).toBe('string')
       expect(obj.name).toEqual('')
       expect(obj.description).toEqual('')
-      expect(obj.previousRecord).toBeNull()
+      expect(obj.previousRecordId).toBeNull()
     })
 
     it('creates object with correct values', () => {
-      class MockRecord {}
       const values = {
         id: 'ABC123',
         name: 'Test Name',
         description: 'Test description text.',
-        previousRecord: new MockRecord(),
+        previousRecordId: 'XYZ123',
       }
       const obj = new _Descriptors(values)
       expect(obj).toBeInstanceOf(_Descriptors)

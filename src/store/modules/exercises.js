@@ -1,9 +1,8 @@
 import Exercise from '../../models/Exercise.js'
 import { getDefaultExercises } from '../../utils/store/defaults.js'
 import {
-  saveExercisesToLocalStorage,
-  fetchExercisesFromLocalStorage,
-  deleteExercisesFromLocalStorage,
+  setLocalStorage,
+  getLocalStorage,
 } from '../../utils/store/local-storage.js'
 
 export const namespaced = true
@@ -54,4 +53,22 @@ export const getters = {
   isReady(state) {
     return Exercise.isExerciseArrayWithData(state.exercises)
   },
+}
+
+/*
+PRIVATE FUNCTIONS
+*/
+
+function saveExercisesToLocalStorage(exercises) {
+  setLocalStorage('exercises', exercises)
+}
+
+function fetchExercisesFromLocalStorage() {
+  const data = getLocalStorage('exercises')
+  if (data) return data.map((i) => new Exercise(i))
+  return []
+}
+
+function deleteExercisesFromLocalStorage() {
+  localStorage.removeItem('exercises')
 }
