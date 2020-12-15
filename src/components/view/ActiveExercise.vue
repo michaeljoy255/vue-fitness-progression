@@ -1,5 +1,12 @@
 <script>
-export default {}
+export default {
+  // props: {
+  //   exercise: {
+  //     type: Object,
+  //     required: true,
+  //   },
+  // },
+}
 </script>
 
 <template>
@@ -8,7 +15,7 @@ export default {}
       <v-card-title>Exercise Name, Equipment - Category</v-card-title>
 
       <v-card-subtitle>
-        Exercise Content
+        Exercise Inputs
       </v-card-subtitle>
 
       <v-card-actions>

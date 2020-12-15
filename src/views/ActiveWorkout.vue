@@ -24,7 +24,7 @@ export default {
 
 <template>
   <v-container>
-    <ActiveExercise />
+    <!-- <ActiveExercise v-for=""/> -->
     <ActiveExercise />
     <ActiveExercise />
     <ActiveExercise />

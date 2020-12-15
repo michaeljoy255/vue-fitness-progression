@@ -29,7 +29,7 @@ export default {
       })
 
       this.$store.dispatch('activeWorkout/create', this.workout.id)
-      this.$store.dispatch('activeExercises/create', this.workout.exercises)
+      this.$store.dispatch('activeExercises/create', this.workout.exerciseIds)
     },
   },
 }

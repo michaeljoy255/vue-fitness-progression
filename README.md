@@ -6,16 +6,24 @@
 
 ## Core Tasks for MVP
 
-- Add a cancel or remove button to the resume workout card
-- **Active Workout View**
-  - Finalize Finish Workout logic
-  - Display exercises (UI heavy)
-    - Display inputs for each exercise (large task using ExerciseInput)
-    - Save active records on each button click on view (maybe?)
-    - Display previous exercise performance near inputs
-- **Add Tests**
-  - Utils
-  - Store files
+1. Build for loop that renders each ActiveExercise in ActiveWorkout
+
+   - Pass the exerciseId as a prop into each ActiveExercise
+   - Use the exerciseId to find the exercise information inside ActiveExercise
+
+1. Display ActiveExercise information and inputs
+
+   - Exercise Name, Equipment, Category
+   - Exercise Inputs (heavy lifting here)
+
+1. Save to the state and LS during every input blur most likely
+
+1. Display previous exercise performance by each input
+
+1. Add additional tests
+
+   - Utils
+   - Store files
 
 ## Additional Tasks
 

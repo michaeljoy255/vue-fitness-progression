@@ -9,17 +9,16 @@ describe('Workout.js', () => {
       expect(obj.name).toEqual('')
       expect(obj.description).toEqual('')
       expect(obj.previousRecordId).toBeNull()
-      expect(obj.exercises).toEqual([])
+      expect(obj.exerciseIds).toEqual([])
     })
 
     it('creates object with correct values', () => {
-      class MockExercise {}
       const values = {
         id: 'ABC123',
         name: 'Test Name',
         description: 'Test description text.',
         previousRecordId: 'XYZ123',
-        exercises: [new MockExercise(), new MockExercise()],
+        exerciseIds: ['QWE123', 'MNB123'],
       }
       const obj = new Workout(values)
       expect(obj).toBeInstanceOf(Workout)

@@ -17,10 +17,10 @@ export function getDefaultExercises() {
   return defaultExercises
 }
 
-function getExerciseByNameAndEquipment(name, equipment) {
+function getExerciseIdByNameAndEquipment(name, equipment) {
   return defaultExercises.find(
     (i) => i.name === name && i.equipment === equipment
-  )
+  ).id
 }
 
 function initWorkouts() {
@@ -28,87 +28,99 @@ function initWorkouts() {
     new Workout({
       name: 'Chest #1',
       description: 'Chest focused workout version #1.',
-      exercises: [
-        getExerciseByNameAndEquipment('Warm-up', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Bench Press', EQUIPMENT.barbell),
-        getExerciseByNameAndEquipment('Incline Bench Press', EQUIPMENT.barbell),
-        getExerciseByNameAndEquipment('Decline Bench Press', EQUIPMENT.barbell),
-        getExerciseByNameAndEquipment('Cool-down', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Stretching', EQUIPMENT.none),
+      exerciseIds: [
+        getExerciseIdByNameAndEquipment('Warm-up', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Bench Press', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment(
+          'Incline Bench Press',
+          EQUIPMENT.barbell
+        ),
+        getExerciseIdByNameAndEquipment(
+          'Decline Bench Press',
+          EQUIPMENT.barbell
+        ),
+        getExerciseIdByNameAndEquipment('Cool-down', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Stretching', EQUIPMENT.none),
       ],
     }),
     new Workout({
       name: 'Back #1',
       description: 'Back focused workout version #1.',
-      exercises: [
-        getExerciseByNameAndEquipment('Warm-up', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Bent Over Rows', EQUIPMENT.barbell),
-        getExerciseByNameAndEquipment('Stiff Leg Deadlift', EQUIPMENT.barbell),
-        getExerciseByNameAndEquipment(
+      exerciseIds: [
+        getExerciseIdByNameAndEquipment('Warm-up', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Bent Over Rows', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment(
+          'Stiff Leg Deadlift',
+          EQUIPMENT.barbell
+        ),
+        getExerciseIdByNameAndEquipment(
           'Bent Over Back Flyes',
           EQUIPMENT.dumbbell
         ),
-        getExerciseByNameAndEquipment('Cool-down', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Stretching', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Cool-down', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Stretching', EQUIPMENT.none),
       ],
     }),
     new Workout({
       name: 'Legs #1',
       description: 'Legs focused workout version #1.',
-      exercises: [
-        getExerciseByNameAndEquipment('Warm-up', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Leg Curls', EQUIPMENT.weightMachine),
-        getExerciseByNameAndEquipment(
+      exerciseIds: [
+        getExerciseIdByNameAndEquipment('Warm-up', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Leg Curls', EQUIPMENT.weightMachine),
+        getExerciseIdByNameAndEquipment(
           'Leg Extensions',
           EQUIPMENT.weightMachine
         ),
-        getExerciseByNameAndEquipment('Squats', EQUIPMENT.barbell),
-        getExerciseByNameAndEquipment('Cool-down', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Stretching', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Squats', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment('Cool-down', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Stretching', EQUIPMENT.none),
       ],
     }),
     new Workout({
       name: 'Arms and Shoulders #1',
       description: 'Arms and Shoulders focused workout version #1.',
-      exercises: [
-        getExerciseByNameAndEquipment('Warm-up', EQUIPMENT.none),
-        getExerciseByNameAndEquipment(
+      exerciseIds: [
+        getExerciseIdByNameAndEquipment('Warm-up', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment(
           'Underhand Bicep Curls',
           EQUIPMENT.dumbbell
         ),
-        getExerciseByNameAndEquipment(
+        getExerciseIdByNameAndEquipment(
           'Tricep Pulldowns',
           EQUIPMENT.cableMachine
         ),
-        getExerciseByNameAndEquipment('Front Arm Raises', EQUIPMENT.dumbbell),
-        getExerciseByNameAndEquipment('Side Arm Raises', EQUIPMENT.dumbbell),
-        getExerciseByNameAndEquipment(
+        getExerciseIdByNameAndEquipment('Front Arm Raises', EQUIPMENT.dumbbell),
+        getExerciseIdByNameAndEquipment('Side Arm Raises', EQUIPMENT.dumbbell),
+        getExerciseIdByNameAndEquipment(
           'Diagonal Arm Raises',
           EQUIPMENT.dumbbell
         ),
-        getExerciseByNameAndEquipment('Shrugs', EQUIPMENT.barbell),
-        getExerciseByNameAndEquipment('Cool-down', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Stretching', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Shrugs', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment('Cool-down', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Stretching', EQUIPMENT.none),
       ],
     }),
     new Workout({
       name: 'Core #1',
       description: 'Core focused workout version #1.',
-      exercises: [
-        getExerciseByNameAndEquipment('Warm-up', EQUIPMENT.none),
-        getExerciseByNameAndEquipment(
+      exerciseIds: [
+        getExerciseIdByNameAndEquipment('Warm-up', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment(
           'Abdominal Crunch',
           EQUIPMENT.cableMachine
         ),
-        getExerciseByNameAndEquipment('Russian Twist', EQUIPMENT.dumbbell),
-        getExerciseByNameAndEquipment(
+        getExerciseIdByNameAndEquipment('Russian Twist', EQUIPMENT.dumbbell),
+        getExerciseIdByNameAndEquipment(
           'Alternating Torso Twist',
           EQUIPMENT.cableMachine
         ),
-        getExerciseByNameAndEquipment('Oblique Side Bends', EQUIPMENT.dumbbell),
-        getExerciseByNameAndEquipment("Farmer's Walk", EQUIPMENT.dumbbell),
-        getExerciseByNameAndEquipment('Cool-down', EQUIPMENT.none),
-        getExerciseByNameAndEquipment('Stretching', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment(
+          'Oblique Side Bends',
+          EQUIPMENT.dumbbell
+        ),
+        getExerciseIdByNameAndEquipment("Farmer's Walk", EQUIPMENT.dumbbell),
+        getExerciseIdByNameAndEquipment('Cool-down', EQUIPMENT.none),
+        getExerciseIdByNameAndEquipment('Stretching', EQUIPMENT.none),
       ],
     }),
   ]

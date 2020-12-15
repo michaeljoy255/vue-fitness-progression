@@ -23,6 +23,13 @@ export default {
         params: { id: this.activeWorkoutId },
       })
     },
+
+    cancelWorkout() {
+      if (confirm('Cancel this active workout?')) {
+        this.$store.dispatch('activeWorkout/delete')
+        this.$store.dispatch('activeExercises/delete')
+      }
+    },
   },
 }
 </script>
@@ -36,9 +43,13 @@ export default {
         {{ new Date(activeWorkoutCreatedAt).toDateString() }}
       </v-card-subtitle>
 
+      <v-btn icon absolute top right @click="cancelWorkout()">X</v-btn>
+
       <v-card-actions>
         <v-container>
-          <v-btn color="success" @click="resumeWorkout()">Resume Workout</v-btn>
+          <v-btn color="success" @click="resumeWorkout()">
+            Resume Workout
+          </v-btn>
         </v-container>
       </v-card-actions>
     </v-card>

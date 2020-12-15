@@ -12,18 +12,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {},
   mutations: {},
-  actions: {
-    async initApp({ dispatch }) {
-      await Promise.all([
-        dispatch('exercises/fetch'),
-        dispatch('workouts/fetch'),
-        dispatch('activeExercises/fetch'),
-        dispatch('activeWorkout/fetch'),
-        dispatch('exerciseRecords/fetch'),
-        dispatch('workoutRecords/fetch'),
-      ])
-    },
-  },
+  actions: {},
   getters: {},
   modules: {
     exercises,

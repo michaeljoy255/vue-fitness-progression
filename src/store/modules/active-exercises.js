@@ -24,8 +24,8 @@ export const mutations = {
 }
 
 export const actions = {
-  async create({ commit }, workoutExercises) {
-    const exercises = workoutExercises.map(
+  async create({ commit }, workoutExerciseIds) {
+    const exercises = workoutExerciseIds.map(
       (i) => new ExerciseRecord({ exerciseId: i.id })
     )
     saveActiveExercisesToLocalStorage(exercises)

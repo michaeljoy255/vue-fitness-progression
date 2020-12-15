@@ -6,10 +6,10 @@ export default class Workout extends _Descriptors {
     name,
     description,
     previousRecordId,
-    exercises = [],
+    exerciseIds = [],
   } = {}) {
     super({ id, name, description, previousRecordId })
-    this.exercises = exercises
+    this.exerciseIds = exerciseIds
   }
 
   static isWorkout(workout) {
