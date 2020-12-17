@@ -6,10 +6,7 @@
 
 ## Core Tasks for MVP
 
-1. Build for loop that renders each ActiveExercise in ActiveWorkout
-
-   - Pass the exerciseId as a prop into each ActiveExercise
-   - Use the exerciseId to find the exercise information inside ActiveExercise
+1. ActiveWorkout - Use workout id from route to find workout and get exerciseIds
 
 1. Display ActiveExercise information and inputs
 

@@ -1,18 +1,18 @@
 <script>
 export default {
-  // props: {
-  //   exercise: {
-  //     type: Object,
-  //     required: true,
-  //   },
-  // },
+  props: {
+    exerciseId: {
+      type: String,
+      required: true,
+    },
+  },
 }
 </script>
 
 <template>
   <v-col class="col-12">
     <v-card>
-      <v-card-title>Exercise Name, Equipment - Category</v-card-title>
+      <v-card-title>ExerciseId: {{ exerciseId }}</v-card-title>
 
       <v-card-subtitle>
         Exercise Inputs

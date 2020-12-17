@@ -9,6 +9,13 @@ export default {
     ActiveExercise,
   },
 
+  computed: {
+    exerciseIds() {
+      // @TODO: Must use route workout id to locate workout recrod and get exerciseIds
+      return ''
+    },
+  },
+
   methods: {
     finishWorkout() {
       if (confirm('Finish and save this workout?')) {
@@ -24,11 +31,11 @@ export default {
 
 <template>
   <v-container>
-    <!-- <ActiveExercise v-for=""/> -->
+    <ActiveExercise v-for="id of exerciseIds" :key="id" />
+    <!-- <ActiveExercise />
     <ActiveExercise />
     <ActiveExercise />
-    <ActiveExercise />
-    <ActiveExercise />
+    <ActiveExercise /> -->
 
     <v-btn class="ml-3" color="success" @click="finishWorkout()">
       Finish Workout
