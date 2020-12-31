@@ -1,7 +1,7 @@
 import _Id from '../../../src/models/_Id.js'
 
 describe('_Id.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new _Id()
       expect(obj).toBeInstanceOf(_Id)
@@ -22,7 +22,7 @@ describe('_Id.js', () => {
     const obj3 = new _Id({ id: 'Testie 3' })
     const items = [obj1, obj2, obj3]
 
-    describe('findById method', () => {
+    describe('findById', () => {
       it('throws an error with invalid inputs', () => {
         expect(() => _Id.findById(null, 'Test')).toThrow()
       })

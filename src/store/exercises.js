@@ -1,9 +1,9 @@
-import Exercise from '../../models/Exercise.js'
-import { getDefaultExercises } from '../../utils/store/defaults.js'
+import Exercise from '../models/Exercise.js'
+import { getDefaultExercises } from '../utils/store/defaults.js'
 import {
   setLocalStorage,
   getLocalStorage,
-} from '../../utils/store/local-storage.js'
+} from '../utils/store/local-storage.js'
 
 export const namespaced = true
 

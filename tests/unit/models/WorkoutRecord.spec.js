@@ -1,7 +1,7 @@
 import WorkoutRecord from '../../../src/models/WorkoutRecord.js'
 
 describe('WorkoutRecord.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new WorkoutRecord()
       expect(obj).toBeInstanceOf(WorkoutRecord)
@@ -32,7 +32,7 @@ describe('WorkoutRecord.js', () => {
     const obj3 = new WorkoutRecord({ workoutId: 'QWE123' })
     const items = [obj1, obj2, obj3]
 
-    describe('isWorkoutRecord method', () => {
+    describe('isWorkoutRecord', () => {
       it('returns false with incorrect instances', () => {
         expect(WorkoutRecord.isWorkoutRecord(null)).toBe(false)
         expect(WorkoutRecord.isWorkoutRecord(123)).toBe(false)
@@ -44,7 +44,7 @@ describe('WorkoutRecord.js', () => {
       })
     })
 
-    describe('isWorkoutRecordArray method', () => {
+    describe('isWorkoutRecordArray', () => {
       it('returns false if not an array or contains incorrect instances', () => {
         expect(WorkoutRecord.isWorkoutRecordArray(null)).toBe(false)
         expect(WorkoutRecord.isWorkoutRecordArray(new WorkoutRecord())).toBe(
@@ -64,7 +64,7 @@ describe('WorkoutRecord.js', () => {
       })
     })
 
-    describe('isWorkoutRecordArrayWithData method', () => {
+    describe('isWorkoutRecordArrayWithData', () => {
       it('returns false if not an array containing at least one correct instance', () => {
         expect(WorkoutRecord.isWorkoutRecordArrayWithData([])).toBe(false)
         expect(
@@ -79,7 +79,7 @@ describe('WorkoutRecord.js', () => {
       })
     })
 
-    describe('findByWorkoutId method', () => {
+    describe('findByWorkoutId', () => {
       it('throws an error with invalid inputs', () => {
         expect(() => WorkoutRecord.findByWorkoutId(null, 'ABC123')).toThrow()
       })

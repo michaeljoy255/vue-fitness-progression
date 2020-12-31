@@ -1,7 +1,7 @@
 import ExerciseSet from '../../../src/models/ExerciseSet.js'
 
 describe('ExerciseSet.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new ExerciseSet()
       expect(obj).toBeInstanceOf(ExerciseSet)
@@ -25,7 +25,7 @@ describe('ExerciseSet.js', () => {
   })
 
   describe('static methods', () => {
-    describe('isExerciseSet method', () => {
+    describe('isExerciseSet', () => {
       it('returns false with incorrect instances', () => {
         expect(ExerciseSet.isExerciseSet(null)).toBe(false)
         expect(ExerciseSet.isExerciseSet(123)).toBe(false)
@@ -37,7 +37,7 @@ describe('ExerciseSet.js', () => {
       })
     })
 
-    describe('isExerciseSetArray method', () => {
+    describe('isExerciseSetArray', () => {
       it('returns false if not an array or contains incorrect instances', () => {
         expect(ExerciseSet.isExerciseSetArray(null)).toBe(false)
         expect(ExerciseSet.isExerciseSetArray(new ExerciseSet())).toBe(false)
@@ -53,7 +53,7 @@ describe('ExerciseSet.js', () => {
       })
     })
 
-    describe('isExerciseSetArrayWithData method', () => {
+    describe('isExerciseSetArrayWithData', () => {
       it('returns false if not an array containing at least one correct instance', () => {
         expect(ExerciseSet.isExerciseSetArrayWithData([])).toBe(false)
         expect(

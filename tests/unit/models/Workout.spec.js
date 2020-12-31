@@ -1,7 +1,7 @@
 import Workout from '../../../src/models/Workout.js'
 
 describe('Workout.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new Workout()
       expect(obj).toBeInstanceOf(Workout)
@@ -27,7 +27,7 @@ describe('Workout.js', () => {
   })
 
   describe('static methods', () => {
-    describe('isWorkout method', () => {
+    describe('isWorkout', () => {
       it('returns false with incorrect instances', () => {
         expect(Workout.isWorkout(null)).toBe(false)
         expect(Workout.isWorkout(123)).toBe(false)
@@ -39,7 +39,7 @@ describe('Workout.js', () => {
       })
     })
 
-    describe('isWorkoutArray method', () => {
+    describe('isWorkoutArray', () => {
       it('returns false if not an array or contains incorrect instances', () => {
         expect(Workout.isWorkoutArray(null)).toBe(false)
         expect(Workout.isWorkoutArray(new Workout())).toBe(false)
@@ -53,7 +53,7 @@ describe('Workout.js', () => {
       })
     })
 
-    describe('isWorkoutArrayWithData method', () => {
+    describe('isWorkoutArrayWithData', () => {
       it('returns false if not an array containing at least one correct instance', () => {
         expect(Workout.isWorkoutArrayWithData([])).toBe(false)
         expect(Workout.isWorkoutArrayWithData(['X', new Workout()])).toBe(false)

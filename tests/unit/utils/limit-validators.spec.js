@@ -1,7 +1,7 @@
 import * as utils from '../../../src/utils/limit-validators.js'
 
 describe('limit-validators.js', () => {
-  describe('isWithinStoredExercisesLimit function', () => {
+  describe('isWithinStoredExercisesLimit', () => {
     it('returns false with invalid inputs', () => {
       expect(utils.isWithinStoredExercisesLimit(null)).toEqual(false)
       expect(utils.isWithinStoredExercisesLimit('X')).toEqual(false)
@@ -18,7 +18,7 @@ describe('limit-validators.js', () => {
     })
   })
 
-  describe('isWithinStoredWorkoutsLimit function', () => {
+  describe('isWithinStoredWorkoutsLimit', () => {
     it('returns false with invalid inputs', () => {
       expect(utils.isWithinStoredWorkoutsLimit(null)).toEqual(false)
       expect(utils.isWithinStoredWorkoutsLimit('X')).toEqual(false)
@@ -35,7 +35,7 @@ describe('limit-validators.js', () => {
     })
   })
 
-  describe('isWithinWorkoutExercisesLimit function', () => {
+  describe('isWithinWorkoutExercisesLimit', () => {
     it('returns false with invalid inputs', () => {
       expect(utils.isWithinWorkoutExercisesLimit(null)).toEqual(false)
       expect(utils.isWithinWorkoutExercisesLimit('X')).toEqual(false)
@@ -52,7 +52,7 @@ describe('limit-validators.js', () => {
     })
   })
 
-  describe('isWithinExerciseSetsLimit function', () => {
+  describe('isWithinExerciseSetsLimit', () => {
     it('returns false with invalid inputs', () => {
       expect(utils.isWithinExerciseSetsLimit(null)).toEqual(false)
       expect(utils.isWithinExerciseSetsLimit('X')).toEqual(false)
@@ -69,7 +69,7 @@ describe('limit-validators.js', () => {
     })
   })
 
-  describe('isWithinNameLimit function', () => {
+  describe('isWithinNameLimit', () => {
     it('returns false with invalid inputs', () => {
       expect(utils.isWithinNameLimit(null)).toEqual(false)
       expect(utils.isWithinNameLimit('X')).toEqual(false)
@@ -86,7 +86,7 @@ describe('limit-validators.js', () => {
     })
   })
 
-  describe('isWithinDescriptionLimit function', () => {
+  describe('isWithinDescriptionLimit', () => {
     it('returns false with invalid inputs', () => {
       expect(utils.isWithinDescriptionLimit(null)).toEqual(false)
       expect(utils.isWithinDescriptionLimit('X')).toEqual(false)
@@ -103,7 +103,7 @@ describe('limit-validators.js', () => {
     })
   })
 
-  describe('isWithinNoteLimit function', () => {
+  describe('isWithinNoteLimit', () => {
     it('returns false with invalid inputs', () => {
       expect(utils.isWithinNoteLimit(null)).toEqual(false)
       expect(utils.isWithinNoteLimit('X')).toEqual(false)

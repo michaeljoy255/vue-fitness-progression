@@ -1,7 +1,7 @@
 import ExerciseInput from '../../../src/models/ExerciseInput.js'
 
 describe('ExerciseInput.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new ExerciseInput()
       expect(obj).toBeInstanceOf(ExerciseInput)
@@ -21,7 +21,7 @@ describe('ExerciseInput.js', () => {
   })
 
   describe('static methods', () => {
-    describe('isExerciseInput method', () => {
+    describe('isExerciseInput', () => {
       it('returns false with incorrect instances', () => {
         expect(ExerciseInput.isExerciseInput(null)).toBe(false)
         expect(ExerciseInput.isExerciseInput(123)).toBe(false)
@@ -33,7 +33,7 @@ describe('ExerciseInput.js', () => {
       })
     })
 
-    describe('isExerciseInputArray method', () => {
+    describe('isExerciseInputArray', () => {
       it('returns false if not an array or contains incorrect instances', () => {
         expect(ExerciseInput.isExerciseInputArray(null)).toBe(false)
         expect(ExerciseInput.isExerciseInputArray(new ExerciseInput())).toBe(
@@ -53,7 +53,7 @@ describe('ExerciseInput.js', () => {
       })
     })
 
-    describe('isExerciseInputArrayWithData method', () => {
+    describe('isExerciseInputArrayWithData', () => {
       it('returns false if not an array containing at least one correct instance', () => {
         expect(ExerciseInput.isExerciseInputArrayWithData([])).toBe(false)
         expect(

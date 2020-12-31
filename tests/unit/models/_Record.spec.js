@@ -1,7 +1,7 @@
 import _Record from '../../../src/models/_Record.js'
 
 describe('_Record.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new _Record()
       expect(obj).toBeInstanceOf(_Record)
@@ -29,25 +29,25 @@ describe('_Record.js', () => {
       })
     })
 
-    describe('findByNewest method', () => {
+    describe('findByNewest', () => {
       it.skip('findByNewest', () => {
         expect(true).toBe(true) // WIP
       })
     })
 
-    describe('findByOldest method', () => {
+    describe('findByOldest', () => {
       it.skip('findByOldest', () => {
         expect(true).toBe(true) // WIP
       })
     })
 
-    describe('findBetweenDates method', () => {
+    describe('findBetweenDates', () => {
       it.skip('findBetweenDates', () => {
         expect(true).toBe(true) // WIP
       })
     })
 
-    describe('filterByNoteKeyword method', () => {
+    describe('filterByNoteKeyword', () => {
       it.skip('filterByNoteKeyword', () => {
         expect(true).toBe(true) // WIP
       })

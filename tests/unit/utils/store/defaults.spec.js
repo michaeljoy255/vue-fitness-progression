@@ -1,7 +1,7 @@
 import * as utils from '../../../../src/utils/store/defaults.js'
 
 describe('defaults.js', () => {
-  describe('getDefaultExercises function', () => {
+  describe('getDefaultExercises', () => {
     it('returns the default exercises in an array', () => {
       const defaultExercises = utils.getDefaultExercises()
       expect(Array.isArray(defaultExercises)).toBe(true)
@@ -9,7 +9,7 @@ describe('defaults.js', () => {
     })
   })
 
-  describe('getDefaultWorkouts function', () => {
+  describe('getDefaultWorkouts', () => {
     it('returns the default workouts in an array', () => {
       const defaultWorkouts = utils.getDefaultWorkouts()
       expect(Array.isArray(defaultWorkouts)).toBe(true)

@@ -1,7 +1,7 @@
 import _Descriptors from '../../../src/models/_Descriptors.js'
 
 describe('_Descriptors.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new _Descriptors()
       expect(obj).toBeInstanceOf(_Descriptors)
@@ -39,7 +39,7 @@ describe('_Descriptors.js', () => {
     })
     const items = [obj1, obj2, obj3]
 
-    describe('findByName method', () => {
+    describe('findByName', () => {
       it('throws an error with invalid inputs', () => {
         expect(() => _Descriptors.findByName(null, 'Test')).toThrow()
       })
@@ -55,7 +55,7 @@ describe('_Descriptors.js', () => {
       })
     })
 
-    describe('filterByDescriptionKeyword method', () => {
+    describe('filterByDescriptionKeyword', () => {
       it('throws an error with invalid inputs', () => {
         expect(() =>
           _Descriptors.filterByDescriptionKeyword(null, 'Test')

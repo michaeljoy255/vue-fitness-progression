@@ -1,7 +1,7 @@
 import ExerciseRecord from '../../../src/models/ExerciseRecord.js'
 
 describe('ExerciseRecord.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new ExerciseRecord()
       expect(obj).toBeInstanceOf(ExerciseRecord)
@@ -33,7 +33,7 @@ describe('ExerciseRecord.js', () => {
     const obj3 = new ExerciseRecord({ exerciseId: 'QWE123' })
     const items = [obj1, obj2, obj3]
 
-    describe('isExerciseRecord method', () => {
+    describe('isExerciseRecord', () => {
       it('returns false with incorrect instances', () => {
         expect(ExerciseRecord.isExerciseRecord(null)).toBe(false)
         expect(ExerciseRecord.isExerciseRecord(123)).toBe(false)
@@ -45,7 +45,7 @@ describe('ExerciseRecord.js', () => {
       })
     })
 
-    describe('isExerciseRecordArray method', () => {
+    describe('isExerciseRecordArray', () => {
       it('returns false if not an array or contains incorrect instances', () => {
         expect(ExerciseRecord.isExerciseRecordArray(null)).toBe(false)
         expect(ExerciseRecord.isExerciseRecordArray(new ExerciseRecord())).toBe(
@@ -65,7 +65,7 @@ describe('ExerciseRecord.js', () => {
       })
     })
 
-    describe('isExerciseRecordArrayWithData method', () => {
+    describe('isExerciseRecordArrayWithData', () => {
       it('returns false if not an array containing at least one correct instance', () => {
         expect(ExerciseRecord.isExerciseRecordArrayWithData([])).toBe(false)
         expect(
@@ -83,7 +83,7 @@ describe('ExerciseRecord.js', () => {
       })
     })
 
-    describe('findByExerciseId method', () => {
+    describe('findByExerciseId', () => {
       it('throws an error with invalid inputs', () => {
         expect(() => ExerciseRecord.findByExerciseId(null, 'ABC123')).toThrow()
       })

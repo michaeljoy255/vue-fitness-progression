@@ -1,7 +1,7 @@
 import Exercise from '../../../src/models/Exercise.js'
 
 describe('Exercise.js', () => {
-  describe('constructor function', () => {
+  describe('constructor', () => {
     it('creates object with correct defaults', () => {
       const obj = new Exercise()
       expect(obj).toBeInstanceOf(Exercise)
@@ -46,7 +46,7 @@ describe('Exercise.js', () => {
     })
     const items = [obj1, obj2, obj3]
 
-    describe('isExercise method', () => {
+    describe('isExercise', () => {
       it('returns false with incorrect instances', () => {
         expect(Exercise.isExercise(null)).toBe(false)
         expect(Exercise.isExercise(123)).toBe(false)
@@ -58,7 +58,7 @@ describe('Exercise.js', () => {
       })
     })
 
-    describe('isExerciseArray method', () => {
+    describe('isExerciseArray', () => {
       it('returns false if not an array or contains incorrect instances', () => {
         expect(Exercise.isExerciseArray(null)).toBe(false)
         expect(Exercise.isExerciseArray(new Exercise())).toBe(false)
@@ -72,7 +72,7 @@ describe('Exercise.js', () => {
       })
     })
 
-    describe('isExerciseArrayWithData method', () => {
+    describe('isExerciseArrayWithData', () => {
       it('returns false if not an array containing at least one correct instance', () => {
         expect(Exercise.isExerciseArrayWithData([])).toBe(false)
         expect(Exercise.isExerciseArrayWithData(['X', new Exercise()])).toBe(
@@ -85,7 +85,7 @@ describe('Exercise.js', () => {
       })
     })
 
-    describe('findByCategory method', () => {
+    describe('findByCategory', () => {
       it('throws an error with invalid inputs', () => {
         expect(() => Exercise.findByCategory(null, 'Chest')).toThrow()
       })
@@ -101,7 +101,7 @@ describe('Exercise.js', () => {
       })
     })
 
-    describe('findByEquipment method', () => {
+    describe('findByEquipment', () => {
       it('throws an error with invalid inputs', () => {
         expect(() => Exercise.findByEquipment(null, 'Barbell')).toThrow()
       })

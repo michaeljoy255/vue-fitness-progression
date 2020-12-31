@@ -1,8 +1,8 @@
-import WorkoutRecord from '../../models/WorkoutRecord.js'
+import WorkoutRecord from '../models/WorkoutRecord.js'
 import {
   setLocalStorage,
   getLocalStorage,
-} from '../../utils/store/local-storage.js'
+} from '../utils/store/local-storage.js'
 
 export const namespaced = true
 
