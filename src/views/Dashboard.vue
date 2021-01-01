@@ -12,13 +12,10 @@ export default {
   },
 
   async created() {
-    const activeWorkoutInState = this.$store.getters[
-      'activeWorkoutRecord/isReady'
-    ]
+    const otherWorkout = this.$store.getters['activeWorkoutRecords/isReady']
 
-    if (!activeWorkoutInState) {
-      await this.$store.dispatch('activeWorkoutRecord/fetch')
-      await this.$store.dispatch('activeExerciseRecords/fetch')
+    if (!otherWorkout) {
+      await this.$store.dispatch('fetchActiveWorkout')
     }
   },
 

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1609525554053" clover="3.2.0">
+  <project timestamp="1609525554053" name="All files">
+    <metrics statements="73" coveredstatements="66" conditionals="49" coveredconditionals="40" methods="31" coveredmethods="25" elements="153" coveredelements="131" complexity="0" loc="73" ncloc="73" packages="4" files="14" classes="14"/>
+    <package name="constants">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="globals.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\constants\globals.js">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="78" count="4" type="stmt"/>
+        <line num="85" count="4" type="stmt"/>
+        <line num="94" count="4" type="stmt"/>
+        <line num="96" count="4" type="stmt"/>
+        <line num="101" count="4" type="stmt"/>
+        <line num="103" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="models">
+      <metrics statements="26" coveredstatements="26" conditionals="29" coveredconditionals="29" methods="9" coveredmethods="9"/>
+      <file name="Exercise.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\Exercise.js">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="14" count="77" type="stmt"/>
+        <line num="15" count="77" type="stmt"/>
+        <line num="16" count="77" type="stmt"/>
+        <line num="17" count="77" type="stmt"/>
+      </file>
+      <file name="ExerciseInput.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\ExerciseInput.js">
+        <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="5" count="186" type="stmt"/>
+        <line num="6" count="186" type="stmt"/>
+      </file>
+      <file name="ExerciseRecord.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\ExerciseRecord.js">
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+      <file name="ExerciseSet.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\ExerciseSet.js">
+        <metrics statements="4" coveredstatements="4" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+      <file name="Workout.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\Workout.js">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+      </file>
+      <file name="WorkoutRecord.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\WorkoutRecord.js">
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+      <file name="_Activity.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\_Activity.js">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="10" count="86" type="stmt"/>
+        <line num="11" count="86" type="stmt"/>
+        <line num="12" count="86" type="stmt"/>
+        <line num="13" count="86" type="stmt"/>
+      </file>
+      <file name="_Entity.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\_Entity.js">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="5" count="94" type="stmt"/>
+      </file>
+      <file name="_Record.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\models\_Record.js">
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="21" coveredstatements="17" conditionals="12" coveredconditionals="6" methods="14" coveredmethods="10"/>
+      <file name="common.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\utils\common.js">
+        <metrics statements="14" coveredstatements="10" conditionals="12" coveredconditionals="6" methods="7" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="limit-validators.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\utils\limit-validators.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="24" count="6" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils.store">
+      <metrics statements="12" coveredstatements="9" conditionals="8" coveredconditionals="5" methods="8" coveredmethods="6"/>
+      <file name="defaults.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\utils\store\defaults.js">
+        <metrics statements="9" coveredstatements="9" conditionals="8" coveredconditionals="5" methods="6" coveredmethods="6"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="35" type="stmt"/>
+        <line num="23" count="1026" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+      </file>
+      <file name="local-storage.js" path="F:\Kodia\GitHub\vue-fitness-progression\src\utils\store\local-storage.js">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

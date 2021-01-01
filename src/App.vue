@@ -3,14 +3,7 @@ import { LAYOUT } from './constants/globals'
 
 export default {
   async created() {
-    await Promise.all([
-      this.$store.dispatch('exercises/fetch'),
-      this.$store.dispatch('workouts/fetch'),
-      this.$store.dispatch('activeExerciseRecords/fetch'),
-      this.$store.dispatch('activeWorkoutRecord/fetch'),
-      this.$store.dispatch('historyExerciseRecords/fetch'),
-      this.$store.dispatch('historyWorkoutRecords/fetch'),
-    ])
+    await this.$store.dispatch('initAppState')
   },
 
   computed: {

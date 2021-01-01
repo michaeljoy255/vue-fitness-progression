@@ -2,15 +2,11 @@
 export default {
   methods: {
     async loadDefaults() {
-      await this.$store.dispatch('exercises/useDefaults')
-      await this.$store.dispatch('workouts/useDefaults')
+      await this.$store.dispatch('loadDefaults')
     },
 
-    async clearApp() {
-      await this.$store.dispatch('exercises/delete')
-      await this.$store.dispatch('workouts/delete')
-      await this.$store.dispatch('activeExerciseRecords/delete')
-      await this.$store.dispatch('activeWorkoutRecord/delete')
+    async clearAppData() {
+      await this.$store.dispatch('clearAppData')
     },
   },
 }
@@ -27,7 +23,7 @@ export default {
             Set Defaults
           </v-btn>
 
-          <v-btn color="error mr-3" @click="clearApp()">
+          <v-btn color="error mr-3" @click="clearAppData()">
             Clear App
           </v-btn>
         </v-container>

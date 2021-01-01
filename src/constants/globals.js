@@ -88,7 +88,7 @@ export const ENTITY = Object.freeze({
   historyExerciseRecords: 'historyExerciseRecords',
   historyWorkoutRecords: 'historyWorkoutRecords',
   activeExerciseRecords: 'activeExerciseRecords',
-  activeWorkoutRecord: 'activeWorkoutRecord',
+  activeWorkoutRecords: 'activeWorkoutRecords',
 })
 
 const layout = 'Layout'

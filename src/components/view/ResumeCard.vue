@@ -4,11 +4,11 @@ import { VIEW } from '../../constants/globals.js'
 export default {
   computed: {
     activeWorkoutId() {
-      return this.$store.getters['activeWorkoutRecord/getState'].workoutId
+      return this.$store.getters['activeWorkoutRecords/getState'][0].workoutId
     },
 
     activeWorkoutCreatedAt() {
-      return this.$store.getters['activeWorkoutRecord/getState'].createdAt
+      return this.$store.getters['activeWorkoutRecords/getState'][0].createdAt
     },
 
     workout() {
@@ -18,16 +18,12 @@ export default {
 
   methods: {
     resumeWorkout() {
-      this.$router.push({
-        name: VIEW.activeWorkout,
-        params: { id: this.activeWorkoutId },
-      })
+      this.$router.push({ name: VIEW.activeWorkout })
     },
 
-    cancelWorkout() {
+    async cancelWorkout() {
       if (confirm('Cancel this active workout?')) {
-        this.$store.dispatch('activeExerciseRecords/delete')
-        this.$store.dispatch('activeWorkoutRecord/delete')
+        await this.$store.dispatch('clearActiveWorkout')
       }
     },
   },

@@ -20,7 +20,7 @@ const routes = [
     component: () => import('../views/Dashboard.vue'),
   },
   {
-    path: '/active-workout/:id',
+    path: '/active-workout',
     name: VIEW.activeWorkout,
     meta: { layout: LAYOUT.activeWorkout },
     component: () => import('../views/ActiveWorkout.vue'),

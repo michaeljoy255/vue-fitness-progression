@@ -6,8 +6,6 @@
 
 ## Core Tasks for MVP
 
-1. store functions being accessed must not cause error if state is null or missing
-
 1. ActiveWorkout - Use workout id to find workout and get exerciseIds
 
 1. Display ActiveExercise information and inputs
@@ -40,7 +38,7 @@
 - workouts
 - historyExerciseRecords
 - historyWorkoutRecords
-- activeWorkoutRecord
+- activeWorkoutRecords
 - activeExerciseRecords
 
 ## App Store (Vuex, Redux, etc.)

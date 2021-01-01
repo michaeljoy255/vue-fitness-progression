@@ -2,8 +2,7 @@
 export default {
   methods: {
     async loadDefaults() {
-      await this.$store.dispatch('exercises/useDefaults')
-      await this.$store.dispatch('workouts/useDefaults')
+      await this.$store.dispatch('loadDefaults')
     },
   },
 }

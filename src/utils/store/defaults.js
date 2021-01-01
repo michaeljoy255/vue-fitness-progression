@@ -7,13 +7,13 @@ import { CATEGORY, EQUIPMENT, INPUT } from '../../constants/globals.js'
 let defaultWorkouts
 let defaultExercises
 
-export function getDefaultWorkouts() {
+export function createDefaultWorkouts() {
   if (!isArrayWithData(defaultExercises)) initExercises() // required for workouts
   if (!isArrayWithData(defaultWorkouts)) initWorkouts()
   return defaultWorkouts
 }
 
-export function getDefaultExercises() {
+export function createDefaultExercises() {
   if (!isArrayWithData(defaultExercises)) initExercises()
   return defaultExercises
 }

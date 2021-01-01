@@ -16,24 +16,4 @@ export default class Exercise extends _Activity {
     this.equipment = equipment
     this.inputs = inputs
   }
-
-  static isExercise(exercise) {
-    return exercise instanceof Exercise
-  }
-
-  static isExerciseArray(items) {
-    return Array.isArray(items) && items.every((i) => Exercise.isExercise(i))
-  }
-
-  static isExerciseArrayWithData(items) {
-    return Exercise.isExerciseArray(items) && items.length > 0
-  }
-
-  static findByCategory(items, category) {
-    return items.find((i) => i.category === category)
-  }
-
-  static findByEquipment(items, equipment) {
-    return items.find((i) => i.equipment === equipment)
-  }
 }
