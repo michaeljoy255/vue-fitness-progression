@@ -6,7 +6,24 @@
 
 ## Core Tasks for MVP
 
-1. ActiveWorkout - Use workout id from route to find workout and get exerciseIds
+**`Doing a final merge to main before adding a test branch for new ideas`**
+
+1. Using currying to make generic store functions
+
+   - Include Factory classes to return concept types and defaults
+
+1. Renaming store modules to match new concept types
+
+   - `exercises.js`
+   - `workouts.js`
+   - `active-exercise-records.js`
+   - `active-workout-record.js`
+   - `history-exercise-records.js`
+   - `history-workout-records.js`
+
+1. Using the store modules for most of the concept functions (like findById)???
+
+1. ActiveWorkout - Use workout id to find workout and get exerciseIds
 
 1. Display ActiveExercise information and inputs
 

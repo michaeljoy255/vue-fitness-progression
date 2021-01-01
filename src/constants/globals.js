@@ -76,10 +76,19 @@ export const ICON = Object.freeze({
 })
 
 export const ADAPTER = Object.freeze({
-  sessionStorage: 'Session Storage',
-  localStorage: 'Local Storage',
-  indexedDB: 'Indexed DB',
+  sessionStorage: 'SessionStorage',
+  localStorage: 'LocalStorage',
+  indexedDB: 'IndexedDB',
   firebase: 'Firebase',
+})
+
+export const CONCEPT = Object.freeze({
+  exercises: 'exercises',
+  workouts: 'workouts',
+  historyExerciseRecords: 'historyExerciseRecords',
+  historyWorkoutRecords: 'historyWorkoutRecords',
+  activeExerciseRecords: 'activeExerciseRecords',
+  activeWorkoutRecord: 'activeWorkoutRecord',
 })
 
 const layout = 'Layout'
