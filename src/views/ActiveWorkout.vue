@@ -10,15 +10,8 @@ export default {
   },
 
   computed: {
-    exercises() {
-      const workoutId = this.$store.getters['activeWorkoutRecords/getState'][0]
-        .workoutId
-      const exerciseIds = this.$store.getters['workouts/findById'](workoutId)
-        .exerciseIds
-      const exercises = this.$store.getters['exercises/filterByIds'](
-        exerciseIds
-      )
-      return exercises
+    activeExercises() {
+      return this.$store.getters['getActiveExercises']
     },
   },
 
@@ -27,7 +20,7 @@ export default {
       if (confirm('Finish and save this workout?')) {
         this.$router.push({ name: VIEW.dashboard })
         // @todo - Save active records into history records
-        await this.$store.dispatch('clearActiveWorkout')
+        await this.$store.dispatch('clearActiveRecords')
       }
     },
   },
@@ -37,7 +30,7 @@ export default {
 <template>
   <v-container>
     <ActiveExercise
-      v-for="exercise of exercises"
+      v-for="exercise of activeExercises"
       :key="exercise.id"
       :exercise="exercise"
     />

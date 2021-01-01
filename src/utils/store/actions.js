@@ -16,31 +16,7 @@ export const combinedStoreActions = () => {
         dispatch(`${ENTITY.historyWorkoutRecords}/fetch`),
       ])
     },
-    async loadDefaults({ dispatch }) {
-      await Promise.all([
-        dispatch(`${ENTITY.exercises}/useDefaults`),
-        dispatch(`${ENTITY.workouts}/useDefaults`),
-      ])
-    },
-    async fetchActiveWorkout({ dispatch }) {
-      await Promise.all([
-        dispatch(`${ENTITY.activeExerciseRecords}/fetch`),
-        dispatch(`${ENTITY.activeWorkoutRecords}/fetch`),
-      ])
-    },
-    async createActiveWorkout({ dispatch }, payload) {
-      await Promise.all([
-        dispatch(`${ENTITY.activeExerciseRecords}/create`, payload.exerciseIds),
-        dispatch(`${ENTITY.activeWorkoutRecords}/create`, payload.workoutId),
-      ])
-    },
-    async clearActiveWorkout({ dispatch }) {
-      await Promise.all([
-        dispatch(`${ENTITY.activeExerciseRecords}/delete`),
-        dispatch(`${ENTITY.activeWorkoutRecords}/delete`),
-      ])
-    },
-    async clearAppData({ dispatch }) {
+    async clearStateAndStorage({ dispatch }) {
       await Promise.all([
         dispatch(`${ENTITY.exercises}/delete`),
         dispatch(`${ENTITY.workouts}/delete`),
@@ -48,6 +24,30 @@ export const combinedStoreActions = () => {
         dispatch(`${ENTITY.activeWorkoutRecords}/delete`),
         dispatch(`${ENTITY.historyExerciseRecords}/delete`),
         dispatch(`${ENTITY.historyWorkoutRecords}/delete`),
+      ])
+    },
+    async loadDefaults({ dispatch }) {
+      await Promise.all([
+        dispatch(`${ENTITY.exercises}/useDefaults`),
+        dispatch(`${ENTITY.workouts}/useDefaults`),
+      ])
+    },
+    async fetchActiveRecords({ dispatch }) {
+      await Promise.all([
+        dispatch(`${ENTITY.activeExerciseRecords}/fetch`),
+        dispatch(`${ENTITY.activeWorkoutRecords}/fetch`),
+      ])
+    },
+    async createActiveRecords({ dispatch }, payload) {
+      await Promise.all([
+        dispatch(`${ENTITY.activeExerciseRecords}/create`, payload.exerciseIds),
+        dispatch(`${ENTITY.activeWorkoutRecords}/create`, payload.workoutId),
+      ])
+    },
+    async clearActiveRecords({ dispatch }) {
+      await Promise.all([
+        dispatch(`${ENTITY.activeExerciseRecords}/delete`),
+        dispatch(`${ENTITY.activeWorkoutRecords}/delete`),
       ])
     },
   }

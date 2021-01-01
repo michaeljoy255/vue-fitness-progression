@@ -3,13 +3,8 @@ import { VIEW } from '../../constants/globals.js'
 
 export default {
   computed: {
-    workoutName() {
-      const activeWorkoutRecord = this.$store.getters[
-        'activeWorkoutRecords/getState'
-      ][0]
-      const workoutId = activeWorkoutRecord.workoutId
-      const originWorkout = this.$store.getters['workouts/findById'](workoutId)
-      return originWorkout.name
+    activeWorkoutName() {
+      return this.$store.getters['getActiveWorkout'].name
     },
   },
 
@@ -25,7 +20,7 @@ export default {
 
 <template>
   <v-app-bar app color="secondary">
-    <v-toolbar-title>{{ workoutName }}</v-toolbar-title>
+    <v-toolbar-title>{{ activeWorkoutName }}</v-toolbar-title>
 
     <v-spacer />
 

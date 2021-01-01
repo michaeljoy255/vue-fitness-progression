@@ -3,16 +3,12 @@ import { VIEW } from '../../constants/globals.js'
 
 export default {
   computed: {
-    activeWorkoutId() {
-      return this.$store.getters['activeWorkoutRecords/getState'][0].workoutId
+    activeWorkoutRecord() {
+      return this.$store.getters['getActiveWorkoutRecord']
     },
 
-    activeWorkoutCreatedAt() {
-      return this.$store.getters['activeWorkoutRecords/getState'][0].createdAt
-    },
-
-    workout() {
-      return this.$store.getters['workouts/findById'](this.activeWorkoutId)
+    activeWorkout() {
+      return this.$store.getters['getActiveWorkout']
     },
   },
 
@@ -23,7 +19,7 @@ export default {
 
     async cancelWorkout() {
       if (confirm('Cancel this active workout?')) {
-        await this.$store.dispatch('clearActiveWorkout')
+        await this.$store.dispatch('clearActiveRecords')
       }
     },
   },
@@ -33,10 +29,10 @@ export default {
 <template>
   <v-col class="col-12">
     <v-card>
-      <v-card-title>{{ workout.name }}</v-card-title>
+      <v-card-title>{{ activeWorkout.name }}</v-card-title>
 
       <v-card-subtitle>
-        {{ new Date(activeWorkoutCreatedAt).toDateString() }}
+        {{ new Date(activeWorkoutRecord.createdAt).toDateString() }}
       </v-card-subtitle>
 
       <v-btn icon absolute top right @click="cancelWorkout()">X</v-btn>

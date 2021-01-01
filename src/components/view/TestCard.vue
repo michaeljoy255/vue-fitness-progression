@@ -5,8 +5,8 @@ export default {
       await this.$store.dispatch('loadDefaults')
     },
 
-    async clearAppData() {
-      await this.$store.dispatch('clearAppData')
+    async clearStateAndStorage() {
+      await this.$store.dispatch('clearStateAndStorage')
     },
   },
 }
@@ -23,7 +23,7 @@ export default {
             Set Defaults
           </v-btn>
 
-          <v-btn color="error mr-3" @click="clearAppData()">
+          <v-btn color="error mr-3" @click="clearStateAndStorage()">
             Clear App
           </v-btn>
         </v-container>

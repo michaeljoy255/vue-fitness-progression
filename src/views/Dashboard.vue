@@ -15,7 +15,7 @@ export default {
     const otherWorkout = this.$store.getters['activeWorkoutRecords/isReady']
 
     if (!otherWorkout) {
-      await this.$store.dispatch('fetchActiveWorkout')
+      await this.$store.dispatch('fetchActiveRecords')
     }
   },
 

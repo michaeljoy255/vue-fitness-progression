@@ -1,3 +1,30 @@
+import { ENTITY } from '../../constants/globals.js'
+
+export const combinedStoreGetters = () => {
+  return {
+    getActiveExercises: (state, getters) => {
+      const activeWorkoutRecord =
+        getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
+      const workout = getters['workouts/findById'](
+        activeWorkoutRecord.workoutId
+      )
+      const exercises = getters['exercises/filterByIds'](workout.exerciseIds)
+      return exercises
+    },
+    getActiveWorkout: (state, getters) => {
+      const activeWorkoutRecord =
+        getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
+      const workout = getters[`${ENTITY.workouts}/findById`](
+        activeWorkoutRecord.workoutId
+      )
+      return workout
+    },
+    getActiveWorkoutRecord: (state, getters) => {
+      return getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
+    },
+  }
+}
+
 export const entityGetters = (entity) => {
   return {
     getState: (state) => state[entity],
