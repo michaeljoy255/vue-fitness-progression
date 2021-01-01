@@ -1,14 +1,14 @@
 export const entityGetters = (entity) => {
   return {
     getState: (state) => state[entity],
-    isReady: (state) =>
-      !!(
+    isReady: (state) => {
+      return !!(
         state[entity] !== null &&
         state[entity] !== undefined &&
         state[entity] !== []
-      ),
+      )
+    },
     findById: (state) => (id) => {
-      if (!state[entity]) return null
       return state[entity].find((i) => i.id === id)
     },
   }
@@ -16,11 +16,19 @@ export const entityGetters = (entity) => {
 
 export const activityGetters = (entity) => {
   return {
-    findByName: (state) => (name) => state[entity].find((i) => i.name === name),
-    filterByDescriptionKeyword: (state) => (keyword) =>
-      state[entity].filter((i) =>
-        i.description.toLowerCase().includes(keyword.toLowerCase())
-      ),
+    findByName: (state) => (name) => {
+      return state[entity].find((i) => i.name === name)
+    },
+    filterByDescriptionKeyword: (state) => (keyword) => {
+      return state[entity].filter((i) => {
+        return i.description.toLowerCase().includes(keyword.toLowerCase())
+      })
+    },
+    filterByIds: (state) => (ids) => {
+      return ids.map((id) => {
+        return state[entity].find((i) => i.id === id)
+      })
+    },
   }
 }
 
@@ -41,23 +49,26 @@ export const recordGetters = (entity) => {
       console.log(date1, date2)
       return state[entity]
     },
-    filterByNoteKeyword: (state) => (keyword) =>
-      state[entity].filter((i) =>
-        i.note.toLowerCase().includes(keyword.toLowerCase())
-      ),
+    filterByNoteKeyword: (state) => (keyword) => {
+      return state[entity].filter((i) => {
+        return i.note.toLowerCase().includes(keyword.toLowerCase())
+      })
+    },
   }
 }
 
 export const historyExerciseGetters = (entity) => {
   return {
-    findByExerciseId: (state) => (id) =>
-      state[entity].find((i) => i.exerciseId === id),
+    findByExerciseId: (state) => (id) => {
+      return state[entity].find((i) => i.exerciseId === id)
+    },
   }
 }
 
 export const historyWorkoutGetters = (entity) => {
   return {
-    findByWorkoutId: (state) => (id) =>
-      state[entity].find((i) => i.workoutId === id),
+    findByWorkoutId: (state) => (id) => {
+      return state[entity].find((i) => i.workoutId === id)
+    },
   }
 }

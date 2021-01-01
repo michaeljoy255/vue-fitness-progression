@@ -10,8 +10,15 @@ export default {
   },
 
   computed: {
-    exerciseIds() {
-      return ''
+    exercises() {
+      const workoutId = this.$store.getters['activeWorkoutRecords/getState'][0]
+        .workoutId
+      const exerciseIds = this.$store.getters['workouts/findById'](workoutId)
+        .exerciseIds
+      const exercises = this.$store.getters['exercises/filterByIds'](
+        exerciseIds
+      )
+      return exercises
     },
   },
 
@@ -29,7 +36,11 @@ export default {
 
 <template>
   <v-container>
-    <ActiveExercise v-for="id of exerciseIds" :key="id" />
+    <ActiveExercise
+      v-for="exercise of exercises"
+      :key="exercise.id"
+      :exercise="exercise"
+    />
 
     <v-btn class="ml-3" color="success" @click="finishWorkout()">
       Finish Workout

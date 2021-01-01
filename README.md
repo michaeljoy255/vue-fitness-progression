@@ -6,12 +6,9 @@
 
 ## Core Tasks for MVP
 
-1. ActiveWorkout - Use workout id to find workout and get exerciseIds
+1. Display ActiveExercise inputs
 
-1. Display ActiveExercise information and inputs
-
-   - Exercise Name, Equipment, Category
-   - Exercise Inputs (heavy lifting here)
+   - Plan how you will get each input type to show up and work
 
 1. Save to the state and LS during every input blur most likely
 

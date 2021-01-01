@@ -1,8 +1,8 @@
 <script>
 export default {
   props: {
-    exerciseId: {
-      type: String,
+    exercise: {
+      type: Object,
       required: true,
     },
   },
@@ -12,17 +12,23 @@ export default {
 <template>
   <v-col class="col-12">
     <v-card>
-      <v-card-title>ExerciseId: {{ exerciseId }}</v-card-title>
+      <v-card-title>
+        {{ exercise.name }}, {{ exercise.equipment }}
+        <v-spacer />
+        <span class="body-2 text--disabled">
+          {{ exercise.category.toUpperCase() }}
+        </span>
+      </v-card-title>
 
-      <v-card-subtitle>
-        Exercise Inputs
-      </v-card-subtitle>
+      <v-card-subtitle>{{ exercise.description }}</v-card-subtitle>
+
+      <v-card-text>{{ exercise.inputs }}</v-card-text>
 
       <v-card-actions>
         <v-container>
-          <div>
-            Exercise actions (add/remove set?)
-          </div>
+          <v-btn color="primary">
+            Exercise Inputs (WIP)
+          </v-btn>
         </v-container>
       </v-card-actions>
     </v-card>

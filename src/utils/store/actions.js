@@ -94,7 +94,7 @@ export const activeRecordActions = (entity) => {
 }
 
 function createEntityRecords(entity, ids) {
-  if (!Array.isArray(ids)) ids = [ids] // Must be an array even if only 1 element
+  if (!Array.isArray(ids)) ids = [ids] // Must be an array, even if only 1 element
 
   switch (entity) {
     case ENTITY.activeExerciseRecords:
