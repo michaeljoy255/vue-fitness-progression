@@ -4,11 +4,11 @@
 
 - ExerciseInput
 - ExerciseSet
-- \_Id
+- \_Entity
   - \_Record
     - WorkoutRecord
     - ExerciseRecord
-  - \_Descriptors
+  - \_Activity
     - Exercise
     - Workout
 

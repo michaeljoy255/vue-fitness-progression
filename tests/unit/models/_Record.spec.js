@@ -21,36 +21,4 @@ describe('_Record.js', () => {
       expect(obj).toMatchObject(values)
     })
   })
-
-  describe('static methods', () => {
-    describe('findByDate method', () => {
-      it.skip('findByDate', () => {
-        expect(true).toBe(true) // WIP
-      })
-    })
-
-    describe('findByNewest', () => {
-      it.skip('findByNewest', () => {
-        expect(true).toBe(true) // WIP
-      })
-    })
-
-    describe('findByOldest', () => {
-      it.skip('findByOldest', () => {
-        expect(true).toBe(true) // WIP
-      })
-    })
-
-    describe('findBetweenDates', () => {
-      it.skip('findBetweenDates', () => {
-        expect(true).toBe(true) // WIP
-      })
-    })
-
-    describe('filterByNoteKeyword', () => {
-      it.skip('filterByNoteKeyword', () => {
-        expect(true).toBe(true) // WIP
-      })
-    })
-  })
 })

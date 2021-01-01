@@ -1,9 +1,9 @@
-import _Id from '../_Id.js'
+import _Entity from '../_Entity.js'
 
 /**
  *
  */
-export default class User extends _Id {
+export default class User extends _Entity {
   constructor({
     id = null,
     email = null,

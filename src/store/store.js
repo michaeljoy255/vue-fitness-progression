@@ -2,24 +2,27 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as exercises from './exercises.js'
 import * as workouts from './workouts.js'
-import * as activeExercises from './active-exercises.js'
-import * as activeWorkout from './active-workout.js'
-import * as exerciseRecords from './exercise-records.js'
-import * as workoutRecords from './workout-records.js'
+import * as activeExerciseRecords from './active-exercise-records.js'
+import * as activeWorkoutRecords from './active-workout-records.js'
+import * as historyExerciseRecords from './history-exercise-records.js'
+import * as historyWorkoutRecords from './history-workout-records.js'
+import { combinedStoreActions } from '../utils/store/actions.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {},
   mutations: {},
-  actions: {},
+  actions: {
+    ...combinedStoreActions(),
+  },
   getters: {},
   modules: {
     exercises,
     workouts,
-    activeExercises,
-    activeWorkout,
-    exerciseRecords,
-    workoutRecords,
+    activeExerciseRecords,
+    activeWorkoutRecords,
+    historyExerciseRecords,
+    historyWorkoutRecords,
   },
 })

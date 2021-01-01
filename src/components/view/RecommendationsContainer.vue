@@ -16,7 +16,7 @@ export default {
     },
 
     renderResumeCard() {
-      return this.$store.getters['activeWorkout/isReady']
+      return this.$store.getters['activeWorkoutRecords/isReady']
     },
   },
 }

@@ -11,9 +11,9 @@ export default {
 
   methods: {
     beginWorkout() {
-      const activeWorkoutInState = this.$store.getters['activeWorkout/isReady']
+      const otherWorkout = this.$store.getters['activeWorkoutRecords/isReady']
 
-      if (!activeWorkoutInState) {
+      if (!otherWorkout) {
         this.routeToActiveWorkout()
       } else {
         if (confirm('Replace in progress workout?')) {
@@ -22,14 +22,13 @@ export default {
       }
     },
 
-    routeToActiveWorkout() {
-      this.$router.push({
-        name: VIEW.activeWorkout,
-        params: { id: this.workout.id },
-      })
-
-      this.$store.dispatch('activeWorkout/create', this.workout.id)
-      this.$store.dispatch('activeExercises/create', this.workout.exerciseIds)
+    async routeToActiveWorkout() {
+      const payload = {
+        workoutId: this.workout.id,
+        exerciseIds: this.workout.exerciseIds,
+      }
+      this.$router.push({ name: VIEW.activeWorkout })
+      await this.$store.dispatch('createActiveWorkout', payload)
     },
   },
 }

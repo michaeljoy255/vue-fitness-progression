@@ -1,19 +1,20 @@
 import Workout from '../../models/Workout.js'
 import Exercise from '../../models/Exercise.js'
 import ExerciseInput from '../../models/ExerciseInput.js'
+import { isArrayWithData } from '../common.js'
 import { CATEGORY, EQUIPMENT, INPUT } from '../../constants/globals.js'
 
 let defaultWorkouts
 let defaultExercises
 
-export function getDefaultWorkouts() {
-  if (!Exercise.isExerciseArray(defaultExercises)) initExercises() // required for workouts
-  if (!Workout.isWorkoutArray(defaultWorkouts)) initWorkouts()
+export function createDefaultWorkouts() {
+  if (!isArrayWithData(defaultExercises)) initExercises() // required for workouts
+  if (!isArrayWithData(defaultWorkouts)) initWorkouts()
   return defaultWorkouts
 }
 
-export function getDefaultExercises() {
-  if (!Exercise.isExerciseArray(defaultExercises)) initExercises()
+export function createDefaultExercises() {
+  if (!isArrayWithData(defaultExercises)) initExercises()
   return defaultExercises
 }
 

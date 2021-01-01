@@ -6,23 +6,6 @@
 
 ## Core Tasks for MVP
 
-**`Doing a final merge to main before adding a test branch for new ideas`**
-
-1. Using currying to make generic store functions
-
-   - Include Factory classes to return concept types and defaults
-
-1. Renaming store modules to match new concept types
-
-   - `exercises.js`
-   - `workouts.js`
-   - `active-exercise-records.js`
-   - `active-workout-record.js`
-   - `history-exercise-records.js`
-   - `history-workout-records.js`
-
-1. Using the store modules for most of the concept functions (like findById)???
-
 1. ActiveWorkout - Use workout id to find workout and get exerciseIds
 
 1. Display ActiveExercise information and inputs
@@ -48,6 +31,20 @@
 - DashboardSummaryCard
 - Vetur path/dir aliasing with jsconfig.json and Webpack
 - Validation of bad values in class constructors at some point?
+
+## Database (Firebase, IndexedDB, Local Storage, etc.)
+
+- exercises
+- workouts
+- historyExerciseRecords
+- historyWorkoutRecords
+- activeWorkoutRecords
+- activeExerciseRecords
+
+## App Store (Vuex, Redux, etc.)
+
+- Combination of Database and Active Data
+- Only load data into store as needed
 
 ## Customize configuration
 

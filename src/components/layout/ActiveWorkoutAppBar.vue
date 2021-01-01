@@ -2,15 +2,14 @@
 import { VIEW } from '../../constants/globals.js'
 
 export default {
-  data() {
-    return {
-      workoutId: this.$route.params.id,
-    }
-  },
-
   computed: {
     workoutName() {
-      return this.$store.getters['workouts/findNameById'](this.workoutId)
+      const activeWorkoutRecord = this.$store.getters[
+        'activeWorkoutRecords/getState'
+      ][0]
+      const workoutId = activeWorkoutRecord.workoutId
+      const originWorkout = this.$store.getters['workouts/findById'](workoutId)
+      return originWorkout.name
     },
   },
 
