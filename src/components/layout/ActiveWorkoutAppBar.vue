@@ -10,7 +10,7 @@ export default {
 
   computed: {
     workoutName() {
-      return this.$store.getters['workouts/findNameById'](this.workoutId)
+      return this.$store.getters['workouts/findById'](this.workoutId).name
     },
   },
 

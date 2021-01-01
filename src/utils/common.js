@@ -1,3 +1,7 @@
+export const isArrayWithData = (items) => {
+  return !!(Array.isArray(items) && items.length > 0)
+}
+
 export const isUndef = (value) => {
   return value === undefined || value === null
 }

@@ -1,7 +1,7 @@
-import _Descriptors from './_Descriptors.js'
+import _Activity from './_Activity.js'
 import { CATEGORY, EQUIPMENT } from '../constants/globals.js'
 
-export default class Exercise extends _Descriptors {
+export default class Exercise extends _Activity {
   constructor({
     id,
     name,

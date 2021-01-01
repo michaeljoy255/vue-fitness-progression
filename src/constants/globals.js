@@ -82,7 +82,7 @@ export const ADAPTER = Object.freeze({
   firebase: 'Firebase',
 })
 
-export const CONCEPT = Object.freeze({
+export const ENTITY = Object.freeze({
   exercises: 'exercises',
   workouts: 'workouts',
   historyExerciseRecords: 'historyExerciseRecords',

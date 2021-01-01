@@ -1,6 +1,6 @@
-import _Id from './_Id.js'
+import _Entity from './_Entity.js'
 
-export default class _Record extends _Id {
+export default class _Record extends _Entity {
   constructor({ id, createdAt = new Date(), note = '' } = {}) {
     super({ id })
     this.createdAt = createdAt

@@ -1,10 +1,10 @@
-import _Descriptors from '../../../src/models/_Descriptors.js'
+import _Activity from '../../../src/models/_Activity.js'
 
-describe('_Descriptors.js', () => {
+describe('_Activity.js', () => {
   describe('constructor', () => {
     it('creates object with correct defaults', () => {
-      const obj = new _Descriptors()
-      expect(obj).toBeInstanceOf(_Descriptors)
+      const obj = new _Activity()
+      expect(obj).toBeInstanceOf(_Activity)
       expect(typeof obj.id).toBe('string')
       expect(obj.name).toEqual('')
       expect(obj.description).toEqual('')
@@ -18,22 +18,22 @@ describe('_Descriptors.js', () => {
         description: 'Test description text.',
         previousRecordId: 'XYZ123',
       }
-      const obj = new _Descriptors(values)
-      expect(obj).toBeInstanceOf(_Descriptors)
+      const obj = new _Activity(values)
+      expect(obj).toBeInstanceOf(_Activity)
       expect(obj).toMatchObject(values)
     })
   })
 
   describe('static methods', () => {
-    const obj1 = new _Descriptors({
+    const obj1 = new _Activity({
       name: 'Test 1',
       description: 'Test 1 description here.',
     })
-    const obj2 = new _Descriptors({
+    const obj2 = new _Activity({
       name: 'Testing 2',
       description: 'Testing 2 description here.',
     })
-    const obj3 = new _Descriptors({
+    const obj3 = new _Activity({
       name: 'Testie 3',
       description: 'Testie 3 description here.',
     })
@@ -41,40 +41,38 @@ describe('_Descriptors.js', () => {
 
     describe('findByName', () => {
       it('throws an error with invalid inputs', () => {
-        expect(() => _Descriptors.findByName(null, 'Test')).toThrow()
+        expect(() => _Activity.findByName(null, 'Test')).toThrow()
       })
 
       it('returns undefined if no match is found', () => {
-        expect(_Descriptors.findByName(items, null)).toBeUndefined()
-        expect(_Descriptors.findByName(items, 123)).toBeUndefined()
-        expect(_Descriptors.findByName(items, 'X')).toBeUndefined()
+        expect(_Activity.findByName(items, null)).toBeUndefined()
+        expect(_Activity.findByName(items, 123)).toBeUndefined()
+        expect(_Activity.findByName(items, 'X')).toBeUndefined()
       })
 
       it('returns first match found', () => {
-        expect(_Descriptors.findByName(items, 'Testing 2')).toMatchObject(obj2)
+        expect(_Activity.findByName(items, 'Testing 2')).toMatchObject(obj2)
       })
     })
 
     describe('filterByDescriptionKeyword', () => {
       it('throws an error with invalid inputs', () => {
         expect(() =>
-          _Descriptors.filterByDescriptionKeyword(null, 'Test')
+          _Activity.filterByDescriptionKeyword(null, 'Test')
         ).toThrow()
         expect(() =>
-          _Descriptors.filterByDescriptionKeyword(items, null)
+          _Activity.filterByDescriptionKeyword(items, null)
         ).toThrow()
-        expect(() =>
-          _Descriptors.filterByDescriptionKeyword(items, 123)
-        ).toThrow()
+        expect(() => _Activity.filterByDescriptionKeyword(items, 123)).toThrow()
       })
 
       it('returns empty array if no matches are found', () => {
-        const results = _Descriptors.filterByDescriptionKeyword(items, 'XYZ')
+        const results = _Activity.filterByDescriptionKeyword(items, 'XYZ')
         expect(results).toEqual([])
       })
 
       it('returns array of matches', () => {
-        const results = _Descriptors.filterByDescriptionKeyword(items, 'Testi')
+        const results = _Activity.filterByDescriptionKeyword(items, 'Testi')
         expect(Array.isArray(results)).toBe(true)
         expect(results.length).toEqual(2)
       })

@@ -11,7 +11,9 @@ export default {
 
   methods: {
     beginWorkout() {
-      const activeWorkoutInState = this.$store.getters['activeWorkout/isReady']
+      const activeWorkoutInState = this.$store.getters[
+        'activeWorkoutRecord/isReady'
+      ]
 
       if (!activeWorkoutInState) {
         this.routeToActiveWorkout()
@@ -28,8 +30,11 @@ export default {
         params: { id: this.workout.id },
       })
 
-      this.$store.dispatch('activeWorkout/create', this.workout.id)
-      this.$store.dispatch('activeExercises/create', this.workout.exerciseIds)
+      this.$store.dispatch('activeWorkoutRecord/create', this.workout.id)
+      this.$store.dispatch(
+        'activeExerciseRecords/create',
+        this.workout.exerciseIds
+      )
     },
   },
 }

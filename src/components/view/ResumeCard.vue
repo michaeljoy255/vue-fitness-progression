@@ -4,11 +4,11 @@ import { VIEW } from '../../constants/globals.js'
 export default {
   computed: {
     activeWorkoutId() {
-      return this.$store.state.activeWorkout.activeWorkout.workoutId
+      return this.$store.getters['activeWorkoutRecord/getState'].workoutId
     },
 
     activeWorkoutCreatedAt() {
-      return this.$store.state.activeWorkout.activeWorkout.createdAt
+      return this.$store.getters['activeWorkoutRecord/getState'].createdAt
     },
 
     workout() {
@@ -26,8 +26,8 @@ export default {
 
     cancelWorkout() {
       if (confirm('Cancel this active workout?')) {
-        this.$store.dispatch('activeWorkout/delete')
-        this.$store.dispatch('activeExercises/delete')
+        this.$store.dispatch('activeExerciseRecords/delete')
+        this.$store.dispatch('activeWorkoutRecord/delete')
       }
     },
   },

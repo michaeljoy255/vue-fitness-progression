@@ -21,8 +21,8 @@ export default {
       if (confirm('Finish and save this workout?')) {
         this.$router.push({ name: VIEW.dashboard })
         // Need to save active records into record stores...
-        this.$store.dispatch('activeWorkout/delete')
-        this.$store.dispatch('activeExercises/delete')
+        this.$store.dispatch('activeWorkoutRecord/delete')
+        this.$store.dispatch('activeExerciseRecords/delete')
       }
     },
   },
