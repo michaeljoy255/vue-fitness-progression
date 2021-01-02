@@ -1,6 +1,6 @@
 export default class ExerciseInput {
-  constructor({ input = null, hint = '' } = {}) {
-    this.input = input
+  constructor({ name = null, hint = '' } = {}) {
+    this.name = name
     this.hint = hint
   }
 }

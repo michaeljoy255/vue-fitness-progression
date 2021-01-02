@@ -5,13 +5,13 @@ describe('ExerciseInput.js', () => {
     it('creates object with correct defaults', () => {
       const obj = new ExerciseInput()
       expect(obj).toBeInstanceOf(ExerciseInput)
-      expect(obj.input).toBeNull()
+      expect(obj.name).toBeNull()
       expect(obj.hint).toEqual('')
     })
 
     it('creates object with correct values', () => {
       const values = {
-        input: 'Sets',
+        name: 'Sets',
         hint: '10-20',
       }
       const obj = new ExerciseInput(values)

@@ -9,7 +9,7 @@ export default class Exercise extends _Activity {
     previousRecordId,
     category = CATEGORY.misc,
     equipment = EQUIPMENT.none,
-    inputs = [],
+    inputs = [], // Make empty object instead?
   } = {}) {
     super({ id, name, description, previousRecordId })
     this.category = category

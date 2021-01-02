@@ -8,7 +8,7 @@
 
 1. Work on Active Exercise inputs (display and function)
 
-   - `multipleSets` (only show set buttons if this input exists)
+   - `sets` (only show set buttons if this input exists)
    - `weight`
    - `reps`
    - `duration`

@@ -32,7 +32,7 @@ export const EQUIPMENT = Object.freeze({
 })
 
 export const INPUT = Object.freeze({
-  multipleSets: 'Multiple Sets',
+  sets: 'Sets',
   weight: 'Weight',
   reps: 'Reps',
   duration: 'Duration',
@@ -66,7 +66,6 @@ export const LIMIT = Object.freeze({
 })
 
 export const ICON = Object.freeze({
-  none: '',
   weight: 'fitness_center',
   reps: 'replay',
   duration: 'history',
