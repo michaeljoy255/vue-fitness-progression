@@ -14,14 +14,11 @@
    - `duration`
    - `distance`
 
+1. Only have the ActiveRecord get saved when you click Finish Workout for now
+
 1. Save to the state and LS during every input blur most likely
 
 1. Display previous exercise performance by each input
-
-1. Add additional tests
-
-   - Utils
-   - Store files
 
 ## Additional Tasks
 
@@ -47,6 +44,59 @@
 - Combination of Database and Active Data
 - Only load data into store as needed
 
-## Customize configuration
+## Class Relationship Lists
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- ExerciseInput
+- ExerciseSet
+- \_Entity
+  - \_Record
+    - WorkoutRecord
+    - ExerciseRecord
+  - \_Activity
+    - Exercise
+    - Workout
+
+## Components that may be needed
+
+- Response (for storage, promises, and more?)
+- Storage Adapters (classes?)
+- Timer
+- WorkoutTimer
+- StaticTime
+- WorkoutSummary
+
+## Unimplemented
+
+- Distance
+- Height
+- Weight
+- Exporter
+- ExporterSummary
+- Importer
+- MeasurementRecord
+
+## Exporter Output
+
+```javascript
+{
+  exporterSummary: {
+    appVersion: Number,
+    exporterVersion: Number,
+    createdAt: Date,
+    totalCategories: Number,
+    totalEquipment: Number,
+    totalWorkouts: Number,
+    totalWorkoutRecords: Number,
+    totalExercises: Number,
+    totalExerciseRecords: Number,
+    totalMeasurementRecords: Number,
+  },
+  categories: [],
+  equipment: [],
+  workouts: [],
+  workoutRecords: [],
+  exercises: [],
+  exerciseRecords: [],
+  measurementRecords: [],
+}
+```
