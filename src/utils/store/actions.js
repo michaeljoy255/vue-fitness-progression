@@ -44,7 +44,7 @@ export const combinedStoreActions = () => {
         dispatch(`${ENTITY.activeWorkoutRecords}/create`, payload.workoutId),
       ])
     },
-    async clearActiveRecords({ dispatch }) {
+    async deleteActiveRecords({ dispatch }) {
       await Promise.all([
         dispatch(`${ENTITY.activeExerciseRecords}/delete`),
         dispatch(`${ENTITY.activeWorkoutRecords}/delete`),

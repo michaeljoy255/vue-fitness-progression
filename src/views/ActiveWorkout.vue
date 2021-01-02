@@ -20,7 +20,7 @@ export default {
       if (confirm('Finish and save this workout?')) {
         this.$router.push({ name: VIEW.dashboard })
         // @todo - Save active records into history records
-        await this.$store.dispatch('clearActiveRecords')
+        await this.$store.dispatch('deleteActiveRecords')
       }
     },
   },
