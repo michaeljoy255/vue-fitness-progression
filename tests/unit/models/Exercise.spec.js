@@ -11,11 +11,17 @@ describe('Exercise.js', () => {
       expect(obj.previousRecordId).toBeNull()
       expect(obj.category).toEqual('Miscellaneous')
       expect(obj.equipment).toEqual('None')
-      expect(obj.inputs).toEqual([])
+      expect(obj.inputs).toEqual({
+        hasDistance: false,
+        hasDuration: false,
+        hasReps: false,
+        hasSets: false,
+        hasWeight: false,
+      })
     })
 
     it('creates object with correct values', () => {
-      class MockExerciseInput {}
+      class MockExerciseInputs {}
       const values = {
         id: 'ABC123',
         name: 'Test Name',
@@ -23,7 +29,7 @@ describe('Exercise.js', () => {
         previousRecordId: 'XYZ123',
         category: 'Cardio',
         equipment: 'Barbell',
-        inputs: [new MockExerciseInput(), new MockExerciseInput()],
+        inputs: new MockExerciseInputs(),
       }
       const obj = new Exercise(values)
       expect(obj).toBeInstanceOf(Exercise)
