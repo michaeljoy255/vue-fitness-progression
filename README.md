@@ -6,9 +6,13 @@
 
 ## Core Tasks for MVP
 
-1. Display ActiveExercise inputs
+1. Work on ActiveExercise inputs (display and function)
 
-   - Plan how you will get each input type to show up and work
+   - `multipleSets` (only show set buttons if this input exists)
+   - `weight`
+   - `reps`
+   - `duration`
+   - `distance`
 
 1. Save to the state and LS during every input blur most likely
 

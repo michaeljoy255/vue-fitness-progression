@@ -136,7 +136,7 @@ function initExercises() {
       category: CATEGORY.compound,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hint: '1-2' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hint: '1-2' }),
         new ExerciseInput({ input: INPUT.weight, hint: '30+' }),
         new ExerciseInput({ input: INPUT.duration, hint: '1+' }),
       ],
@@ -148,7 +148,7 @@ function initExercises() {
       category: CATEGORY.compound,
       equipment: EQUIPMENT.plate,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hint: '1-2' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hint: '1-2' }),
         new ExerciseInput({ input: INPUT.weight, hint: '30+' }),
         new ExerciseInput({ input: INPUT.duration, hint: '1+' }),
       ],
@@ -159,14 +159,14 @@ function initExercises() {
         'Warm up your body using any combination of cardio exercises.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ input: INPUT.confirmation, hint: null })],
+      inputs: [new ExerciseInput({ input: INPUT.duration, hint: '5-10' })],
     }),
     new Exercise({
       name: 'Cool-down',
       description: 'Cool down your body by doing some light cardio exercises.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ input: INPUT.confirmation, hint: null })],
+      inputs: [new ExerciseInput({ input: INPUT.duration, hint: '5-10' })],
     }),
     new Exercise({
       name: 'Jumping Jacks',
@@ -266,7 +266,7 @@ function initExercises() {
         'Spend a few minutes stretching muscles you have or plan to use.',
       category: CATEGORY.misc,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ input: INPUT.confirmation, hint: null })],
+      inputs: [new ExerciseInput({ input: INPUT.duration, hint: '5-10' })],
     }),
     new Exercise({
       name: 'Bench Press',
@@ -274,7 +274,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hint: '100+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -285,7 +285,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hint: '20+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -297,7 +297,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hint: '40+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -308,7 +308,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hint: '15+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -320,7 +320,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hint: '100+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -331,7 +331,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hint: '20+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -343,7 +343,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hint: '15+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -355,7 +355,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '10-20' }),
       ],
     }),
@@ -366,7 +366,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '15-25' }),
       ],
     }),
@@ -377,7 +377,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '15-25' }),
       ],
     }),
@@ -388,7 +388,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '15-25' }),
       ],
     }),
@@ -399,7 +399,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '10-20' }),
       ],
     }),
@@ -410,7 +410,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '2-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '2-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '12+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -422,7 +422,7 @@ function initExercises() {
       category: CATEGORY.chest,
       equipment: EQUIPMENT.cableMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '2-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '2-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '12+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -433,7 +433,7 @@ function initExercises() {
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '45+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -444,7 +444,7 @@ function initExercises() {
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '20+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -455,7 +455,7 @@ function initExercises() {
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '2-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '2-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '5+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -466,7 +466,7 @@ function initExercises() {
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '2-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '2-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '5+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -477,7 +477,7 @@ function initExercises() {
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '2-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '2-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '5+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -489,7 +489,7 @@ function initExercises() {
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '100+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -501,7 +501,7 @@ function initExercises() {
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '30+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -512,7 +512,7 @@ function initExercises() {
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '10+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -523,7 +523,7 @@ function initExercises() {
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.cableMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '20+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -534,7 +534,7 @@ function initExercises() {
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.cableMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '15+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -546,7 +546,7 @@ function initExercises() {
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '15+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -557,7 +557,7 @@ function initExercises() {
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '15+' }),
       ],
     }),
@@ -568,7 +568,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '2-4' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '2-4' }),
         new ExerciseInput({ input: INPUT.weight, hints: '12+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -580,7 +580,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '65+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -592,7 +592,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '20+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -604,7 +604,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '100+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -616,7 +616,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '30+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -628,7 +628,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '100+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -640,7 +640,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '30+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -651,7 +651,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.pullupBar,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '0' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -662,7 +662,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.pullupBar,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '0' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -673,7 +673,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.pullupBar,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '0' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -684,7 +684,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.cableMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '15+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -696,7 +696,7 @@ function initExercises() {
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '45+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -707,7 +707,7 @@ function initExercises() {
       category: CATEGORY.biceps,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '10+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -718,7 +718,7 @@ function initExercises() {
       category: CATEGORY.biceps,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '15+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -729,7 +729,7 @@ function initExercises() {
       category: CATEGORY.biceps,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '15+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -741,7 +741,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '100+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -752,7 +752,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '25+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -763,7 +763,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '50-100' }),
       ],
     }),
@@ -773,7 +773,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.weightMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '25+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -784,7 +784,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.weightMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '25+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -796,7 +796,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.cableMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '25+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -808,7 +808,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '25+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -820,7 +820,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.barbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '45+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '5-8' }),
       ],
@@ -832,7 +832,7 @@ function initExercises() {
       category: CATEGORY.legs,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '3-5' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '3-5' }),
         new ExerciseInput({ input: INPUT.weight, hints: '30+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '8-12' }),
       ],
@@ -851,7 +851,7 @@ function initExercises() {
       category: CATEGORY.core,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '2-4' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '2-4' }),
         new ExerciseInput({ input: INPUT.weight, hints: '30+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '20-30' }),
       ],
@@ -870,7 +870,7 @@ function initExercises() {
       category: CATEGORY.core,
       equipment: EQUIPMENT.cableMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '30+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '20-30' }),
       ],
@@ -882,7 +882,7 @@ function initExercises() {
       category: CATEGORY.core,
       equipment: EQUIPMENT.cableMachine,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '20+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '20-30' }),
       ],
@@ -894,7 +894,7 @@ function initExercises() {
       category: CATEGORY.core,
       equipment: EQUIPMENT.none,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.reps, hint: '50-100' }),
       ],
     }),
@@ -905,7 +905,7 @@ function initExercises() {
       category: CATEGORY.core,
       equipment: EQUIPMENT.dumbbell,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '10+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '25-50' }),
       ],
@@ -917,7 +917,7 @@ function initExercises() {
       category: CATEGORY.core,
       equipment: EQUIPMENT.plate,
       inputs: [
-        new ExerciseInput({ input: INPUT.sets, hints: '1-3' }),
+        new ExerciseInput({ input: INPUT.multipleSets, hints: '1-3' }),
         new ExerciseInput({ input: INPUT.weight, hints: '10+' }),
         new ExerciseInput({ input: INPUT.reps, hint: '25-50' }),
       ],

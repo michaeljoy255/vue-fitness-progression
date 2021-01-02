@@ -32,8 +32,7 @@ export const EQUIPMENT = Object.freeze({
 })
 
 export const INPUT = Object.freeze({
-  confirmation: 'Confirmation',
-  sets: 'Sets',
+  multipleSets: 'Multiple Sets',
   weight: 'Weight',
   reps: 'Reps',
   duration: 'Duration',

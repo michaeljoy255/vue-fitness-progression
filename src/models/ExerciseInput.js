@@ -1,7 +1,5 @@
-import { INPUT } from '../constants/globals.js'
-
 export default class ExerciseInput {
-  constructor({ input = INPUT.confirmation, hint = '' } = {}) {
+  constructor({ input = null, hint = '' } = {}) {
     this.input = input
     this.hint = hint
   }

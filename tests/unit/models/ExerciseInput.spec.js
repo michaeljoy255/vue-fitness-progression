@@ -5,7 +5,7 @@ describe('ExerciseInput.js', () => {
     it('creates object with correct defaults', () => {
       const obj = new ExerciseInput()
       expect(obj).toBeInstanceOf(ExerciseInput)
-      expect(obj.input).toEqual('Confirmation')
+      expect(obj.input).toBeNull()
       expect(obj.hint).toEqual('')
     })
 
