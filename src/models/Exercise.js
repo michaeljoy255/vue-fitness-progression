@@ -1,4 +1,5 @@
 import _Activity from './_Activity.js'
+import ExerciseInputs from './ExerciseInputs.js'
 import { CATEGORY, EQUIPMENT } from '../constants/globals.js'
 
 export default class Exercise extends _Activity {
@@ -9,7 +10,7 @@ export default class Exercise extends _Activity {
     previousRecordId,
     category = CATEGORY.misc,
     equipment = EQUIPMENT.none,
-    inputs = [], // Make empty object instead?
+    inputs = new ExerciseInputs(),
   } = {}) {
     super({ id, name, description, previousRecordId })
     this.category = category

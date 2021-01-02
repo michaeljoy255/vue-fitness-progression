@@ -31,12 +31,12 @@ export const EQUIPMENT = Object.freeze({
   chains: 'Chains',
 })
 
-export const INPUT = Object.freeze({
-  sets: 'Sets',
-  weight: 'Weight',
-  reps: 'Reps',
-  duration: 'Duration',
-  distance: 'Distance',
+export const ICON = Object.freeze({
+  sets: 'list',
+  weight: 'fitness_center',
+  reps: 'replay',
+  duration: 'history',
+  distance: 'place',
 })
 
 export const UNIT_PREF = Object.freeze({
@@ -63,14 +63,6 @@ export const LIMIT = Object.freeze({
   name: 50,
   description: 300,
   note: 600,
-})
-
-export const ICON = Object.freeze({
-  weight: 'fitness_center',
-  reps: 'replay',
-  duration: 'history',
-  distance: 'place',
-  sets: 'list',
 })
 
 export const ADAPTER = Object.freeze({

@@ -22,7 +22,14 @@ export default {
 
       <v-card-subtitle>{{ exercise.description }}</v-card-subtitle>
 
-      <v-card-text>{{ exercise.inputs }}</v-card-text>
+      <v-card-text>
+        <div class="font-weight-bold">---INPUTS---</div>
+        <div>Sets: {{ exercise.inputs.hasSets }}</div>
+        <div>Weight: {{ exercise.inputs.hasWeight }}</div>
+        <div>Reps: {{ exercise.inputs.hasReps }}</div>
+        <div>Duration: {{ exercise.inputs.hasDuration }}</div>
+        <div>Distance: {{ exercise.inputs.hasDistance }}</div>
+      </v-card-text>
 
       <v-card-actions>
         <v-container>

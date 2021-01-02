@@ -1,8 +1,8 @@
 import Workout from '../../models/Workout.js'
 import Exercise from '../../models/Exercise.js'
-import ExerciseInput from '../../models/ExerciseInput.js'
+import ExerciseInputs from '../../models/ExerciseInputs.js'
 import { isArrayWithData } from '../common.js'
-import { CATEGORY, EQUIPMENT, INPUT } from '../../constants/globals.js'
+import { CATEGORY, EQUIPMENT } from '../../constants/globals.js'
 
 let defaultWorkouts
 let defaultExercises
@@ -135,11 +135,16 @@ function initExercises() {
         'Brace your core. Walk with weights in each hand at your sides.',
       category: CATEGORY.compound,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hint: '1-2' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '30+' }),
-        new ExerciseInput({ name: INPUT.duration, hint: '1+' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasDuration: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hint: '1-2' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '30+' }),
+      //   new ExerciseInput({ name: INPUT.duration, hint: '1+' }),
+      // ],
     }),
     new Exercise({
       name: "Farmer's Walk",
@@ -147,11 +152,16 @@ function initExercises() {
         'Brace your core. Walk with weights in each hand at your sides.',
       category: CATEGORY.compound,
       equipment: EQUIPMENT.plate,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hint: '1-2' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '30+' }),
-        new ExerciseInput({ name: INPUT.duration, hint: '1+' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasDuration: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hint: '1-2' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '30+' }),
+      //   new ExerciseInput({ name: INPUT.duration, hint: '1+' }),
+      // ],
     }),
     new Exercise({
       name: 'Warm-up',
@@ -159,14 +169,16 @@ function initExercises() {
         'Warm up your body using any combination of cardio exercises.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
+      inputs: new ExerciseInputs({ hasDuration: true }),
+      // hints: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
     }),
     new Exercise({
       name: 'Cool-down',
       description: 'Cool down your body by doing some light cardio exercises.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
+      inputs: new ExerciseInputs({ hasDuration: true }),
+      // hints: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
     }),
     new Exercise({
       name: 'Jumping Jacks',
@@ -174,7 +186,11 @@ function initExercises() {
         'Alternate jumping your legs wide to narrow and arms wide then back to your side.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
     }),
     new Exercise({
       name: 'Mountain Climbers',
@@ -182,14 +198,22 @@ function initExercises() {
         'Alternate bringing your knees close to your chin while in plank position.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
     }),
     new Exercise({
       name: 'High Knees',
       description: 'Alternate bringing your knees up quickly while standing.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
     }),
     new Exercise({
       name: 'Burpees',
@@ -197,7 +221,11 @@ function initExercises() {
         'Starting from plank, do a push-up, jump your legs forward, then jump with high knees, and return to plank position.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '10-20' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '10-20' })],
     }),
     new Exercise({
       name: 'High Arms Alternating Knees',
@@ -205,7 +233,11 @@ function initExercises() {
         'With arms in the air, alternate one knee up to your waist as you crunch down with your arms.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '50-100' })],
     }),
     new Exercise({
       name: 'High Arms Alternating Knees',
@@ -213,52 +245,81 @@ function initExercises() {
         'With arms in the air, alternate one knee up to your waist as you crunch down with your arms.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.reps, hint: '50-100' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '5+' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasWeight: true,
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.reps, hint: '50-100' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '5+' }),
+      // ],
     }),
     new Exercise({
       name: 'Treadmill',
       description: 'Walking, jogging, running, or sprints.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.cardioMachine,
-      inputs: [new ExerciseInput({ name: INPUT.duration, hint: '20-60' })],
+      inputs: new ExerciseInputs({
+        hasDuration: true,
+        hasDistance: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.duration, hint: '20-60' })],
     }),
     new Exercise({
       name: 'Elliptical',
       description: 'Standard elliptical machine.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.cardioMachine,
-      inputs: [new ExerciseInput({ name: INPUT.duration, hint: '20-60' })],
+      inputs: new ExerciseInputs({
+        hasDuration: true,
+        hasDistance: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.duration, hint: '20-60' })],
     }),
     new Exercise({
       name: 'Stair Stepper',
       description: 'Standard stair stepper machine.',
       category: CATEGORY.cardio,
       equipment: EQUIPMENT.cardioMachine,
-      inputs: [new ExerciseInput({ name: INPUT.duration, hint: '20-60' })],
+      inputs: new ExerciseInputs({
+        hasDuration: true,
+        hasDistance: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.duration, hint: '20-60' })],
     }),
     new Exercise({
       name: 'Straight Lunges',
       description: 'Standing or walking straight lunges.',
       category: CATEGORY.misc,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
     }),
     new Exercise({
       name: 'Straight Lunges',
       description: 'Standing or walking straight lunges with weights.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
     }),
     new Exercise({
       name: 'Side Lunges',
       description: 'Standing alternating side lunges.',
       category: CATEGORY.misc,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
     }),
     new Exercise({
       name: 'Stretching',
@@ -266,29 +327,42 @@ function initExercises() {
         'Spend a few minutes stretching muscles you have or plan to use.',
       category: CATEGORY.misc,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
+      inputs: new ExerciseInputs({
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
     }),
     new Exercise({
       name: 'Bench Press',
       description: 'Brace your core. Push weight from chest to above neck.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '100+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '100+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Chest Press',
       description: 'Push weight from chest to above neck.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '20+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '20+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Incline Bench Press',
@@ -296,22 +370,32 @@ function initExercises() {
         'Brace your core. Push weight above chest while at an incline.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '40+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '40+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Incline Chest Press',
       description: 'Push weight above chest while at an incline.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '15+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '15+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Decline Bench Press',
@@ -319,22 +403,32 @@ function initExercises() {
         'Brace your core. Push weight above chest while at a decline.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '100+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '100+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Decline Chest Press',
       description: 'Push weight above chest while at a decline.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '20+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '20+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Bench Chest Flyes',
@@ -342,11 +436,16 @@ function initExercises() {
         'Start with arms wide and slightly lower than chest and push up and touch weights together high above chest.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hint: '15+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hint: '15+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Diamond Push-ups',
@@ -354,10 +453,14 @@ function initExercises() {
         'Place hands next to eachother under chest while in plank position and push up.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '10-20' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '10-20' }),
+      // ],
     }),
     new Exercise({
       name: 'Military Push-ups',
@@ -365,10 +468,14 @@ function initExercises() {
         'Place hands under shoulders while in plank position and push up keeping the elbows next to your body.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '15-25' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '15-25' }),
+      // ],
     }),
     new Exercise({
       name: 'Standard Push-ups',
@@ -376,10 +483,14 @@ function initExercises() {
         'Place hands slightly outside of shoulders while in plank position and push up.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '15-25' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '15-25' }),
+      // ],
     }),
     new Exercise({
       name: 'Wide Push-ups',
@@ -387,10 +498,14 @@ function initExercises() {
         'Place hands wide outside of shoulders while in plank position and push up.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '15-25' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '15-25' }),
+      // ],
     }),
     new Exercise({
       name: 'Pike Push-ups',
@@ -398,10 +513,14 @@ function initExercises() {
         'Push up and down with the arms while in downward dog position.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '10-20' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '10-20' }),
+      // ],
     }),
     new Exercise({
       name: 'Laying Overhead Straight Arms',
@@ -409,11 +528,16 @@ function initExercises() {
         'Extend weight behind head and bring back above head in arc motion while laying upper back on a bench.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '12+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '12+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Chest Side Pulls',
@@ -421,66 +545,96 @@ function initExercises() {
         'Stand and pull weight to stomach while keeping elbow locked to your side.',
       category: CATEGORY.chest,
       equipment: EQUIPMENT.cableMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '12+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '12+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Overhead Press',
       description: 'Press weight above head while seated or standing.',
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '45+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '45+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Overhead Press',
       description: 'Press weight above head while seated or standing.',
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Diagonal Arm Raises',
       description: 'Raise straight arms up at an angle from your body.',
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '5+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '5+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Side Arm Raises',
       description: 'Raise straight arms up from the sides of your body.',
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '5+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '5+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Front Arm Raises',
       description: 'Raise straight arms up in front of your body.',
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '5+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '2-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '5+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Shrugs',
@@ -488,11 +642,16 @@ function initExercises() {
         'Brace your core. Lift with your shoulders while standing with arms extended.',
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Shrugs',
@@ -500,44 +659,64 @@ function initExercises() {
         'Lift with your shoulders while standing with arms extended.',
       category: CATEGORY.shoulders,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Tricep Kickbacks',
       description: 'Bend at waist while standing and extend arms backward.',
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Tricep Pulldowns',
       description: 'Pull cables directly down and hold briefly while standing.',
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.cableMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Tricep Overhead Extentions',
       description: 'Face away from cable machine and pull weight overhead.',
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.cableMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Laying Tricep Extension',
@@ -545,21 +724,31 @@ function initExercises() {
         'Hold weight above head while laying down and bend elbows to lower weight behind head.',
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Dips',
-      description: 'Hold body up by arms and lower yourself down and back up.',
+      description:
+        'Hold body up by arms on an elavated surface and lower yourself down and back up.',
       category: CATEGORY.triceps,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '15+' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '15+' }),
+      // ],
     }),
     new Exercise({
       name: 'Bent Over Back Flyes',
@@ -567,11 +756,16 @@ function initExercises() {
         'Lean over with arms hanging down and pull arms up and slightly wider while bringing your shoulder blades together.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '2-4' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '12+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '2-4' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '12+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Bent Over Rows',
@@ -579,11 +773,16 @@ function initExercises() {
         'Bend over with chest above weight and arms fully extended. Pull weight up to bottom of ribcage.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '65+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '65+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Bent Over Rows',
@@ -591,11 +790,16 @@ function initExercises() {
         'Bend over with chest above weight and arms fully extended. Pull weight up to bottom of ribcage.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Stiff Leg Deadlift',
@@ -603,11 +807,16 @@ function initExercises() {
         'Brace your core. Stand slightly away from weight and lift with your back while keeping your legs nearly straight.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Stiff Leg Deadlift',
@@ -615,11 +824,16 @@ function initExercises() {
         'Lift with your back while keeping your legs nearly straight and the weights in front of your legs.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Deadlift',
@@ -627,11 +841,16 @@ function initExercises() {
         'Brace your core. Stand slightly away from weight and lift while keeping your knees behind your toes.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Deadlift',
@@ -639,55 +858,80 @@ function initExercises() {
         'With weights in front of you lift while keeping your knees behind your toes.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Wide Overhand Pull-ups',
       description: 'Wide overhand grip. Get your chin above the bar.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.pullupBar,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '0' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '0' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Chin-ups',
       description: 'Close underhand grip. Get your chin above the bar.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.pullupBar,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '0' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '0' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Hammer Grip Pull-ups',
       description: 'Close hammer grip. Get your chin above the bar.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.pullupBar,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '0' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '0' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Face Pulls',
       description: 'Pull directly towards your face.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.cableMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'T-Rows',
@@ -695,44 +939,64 @@ function initExercises() {
         'Brace your core. Lift with weight in front of you with your arms and elbows higher than it. Bring the weight up to your neck.',
       category: CATEGORY.back,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '45+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '45+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Overhand Bicep Curls',
       description: 'Bicep curl with overhand grip.',
       category: CATEGORY.biceps,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Underhand Bicep Curls',
       description: 'Standard bicep curl.',
       category: CATEGORY.biceps,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Hammer Bicep Curls',
       description: 'Bicep curl with hammer grip.',
       category: CATEGORY.biceps,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '15+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Squats',
@@ -740,54 +1004,78 @@ function initExercises() {
         'Brace your core. Hold weight on your upper back and squat down.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '100+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Squats',
       description: 'Hold weights on your sides or shoulders and squat down.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Air Squats',
       description: 'Quick air squats.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '50-100' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '50-100' }),
+      // ],
     }),
     new Exercise({
       name: 'Leg Curls',
       description: 'Lay stomach down on bench and curl legs up.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.weightMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Leg Extensions',
       description: 'Lay back down on bench and extend legs out. ',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.weightMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Calf Raises',
@@ -795,11 +1083,16 @@ function initExercises() {
         'Hold the weight and pull as you lift onto the balls of your feet and back down again.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.cableMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Calf Raises',
@@ -807,11 +1100,16 @@ function initExercises() {
         'Hold a weight at your side or on your shoudler and lift onto the balls of your feet and back down again.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '25+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Hip Thrusters',
@@ -819,11 +1117,16 @@ function initExercises() {
         'Brace your core. Prop your upper back on a bench while holding the weight at your waist. Thrust upward to tabletop position.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.barbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '45+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '45+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '5-8' }),
+      // ],
     }),
     new Exercise({
       name: 'Hip Thrusters',
@@ -831,18 +1134,24 @@ function initExercises() {
         'Prop your upper back on a bench while holding the weight at your waist. Thrust upward to tabletop position.',
       category: CATEGORY.legs,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
     }),
     new Exercise({
       name: 'Plank',
       description: 'Standard plank position.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.duration, hints: '1+' })],
+      inputs: new ExerciseInputs({ hasDuration: true }),
+      // hints: [new ExerciseInput({ name: INPUT.duration, hints: '1+' })],
     }),
     new Exercise({
       name: 'Oblique Side Bends',
@@ -850,18 +1159,27 @@ function initExercises() {
         'Hold weight at your side with arms extended. Lean down and back up with the weight.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '2-4' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '20-30' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '2-4' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '20-30' }),
+      // ],
     }),
     new Exercise({
       name: 'Abdominal Crunch',
       description: 'Standard ab crunch while laying down.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.none,
-      inputs: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
+      inputs: new ExerciseInputs({
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [new ExerciseInput({ name: INPUT.reps, hint: '25-50' })],
     }),
     new Exercise({
       name: 'Abdominal Crunch',
@@ -869,11 +1187,16 @@ function initExercises() {
         'Kneel facing away from machine and crunch to pull the weight.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.cableMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '20-30' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '20-30' }),
+      // ],
     }),
     new Exercise({
       name: 'Alternating Torso Twist',
@@ -881,11 +1204,16 @@ function initExercises() {
         'Hold cable handle with both hands and twist away from machine like you are swinging a baseball bat.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.cableMachine,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '20-30' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '20+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '20-30' }),
+      // ],
     }),
     new Exercise({
       name: 'Russian Twist',
@@ -893,10 +1221,15 @@ function initExercises() {
         'Sit with feet off the ground while you twist and tap the ground on each side of you.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.none,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '50-100' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasReps: true,
+        hasDuration: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '50-100' }),
+      // ],
     }),
     new Exercise({
       name: 'Russian Twist',
@@ -904,11 +1237,16 @@ function initExercises() {
         'Sit with feet off the ground while you twist and tap the ground with the weight on each side of you.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.dumbbell,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '25-50' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '25-50' }),
+      // ],
     }),
     new Exercise({
       name: 'Russian Twist',
@@ -916,11 +1254,16 @@ function initExercises() {
         'Sit with feet off the ground while you twist and tap the ground with the weight on each side of you.',
       category: CATEGORY.core,
       equipment: EQUIPMENT.plate,
-      inputs: [
-        new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
-        new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
-        new ExerciseInput({ name: INPUT.reps, hint: '25-50' }),
-      ],
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '10+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '25-50' }),
+      // ],
     }),
   ]
 }
