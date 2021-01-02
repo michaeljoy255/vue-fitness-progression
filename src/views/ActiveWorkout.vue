@@ -1,6 +1,6 @@
 <script>
 import { VIEW } from '../constants/globals'
-import ActiveExerciseCard from '../components/view/ActiveExercise.vue'
+import ActiveExerciseCard from '../components/view/ActiveExerciseCard.vue'
 
 export default {
   name: VIEW.activeWorkout,

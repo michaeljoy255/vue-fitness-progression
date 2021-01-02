@@ -3,6 +3,9 @@ import { LAYOUT } from './constants/globals'
 
 export default {
   async created() {
+    await this.$store.dispatch('testing/displayMessage')
+    await this.$store.dispatch('testing/setMessage', 'Nailed it!')
+    await this.$store.dispatch('testing/displayMessage')
     await this.$store.dispatch('initAppState')
   },
 

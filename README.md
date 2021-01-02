@@ -6,7 +6,7 @@
 
 ## Core Tasks for MVP
 
-1. Work on ActiveExercise inputs (display and function)
+1. Work on Active Exercise inputs (display and function)
 
    - `multipleSets` (only show set buttons if this input exists)
    - `weight`
@@ -14,11 +14,13 @@
    - `duration`
    - `distance`
 
-1. Only have the ActiveRecord get saved when you click Finish Workout for now
+1. Only have the Active Records get saved when you click Finish Workout for now
 
-1. Save to the state and LS during every input blur most likely
+   - Feature: Save to the state and LS during every input blur most likely
 
 1. Display previous exercise performance by each input
+
+   - Functions (utils, store) to get previous record by id for an exercise
 
 ## Additional Tasks
 
@@ -34,8 +36,8 @@
 
 - exercises
 - workouts
-- historyExerciseRecords
-- historyWorkoutRecords
+- exerciseRecords
+- workoutRecords
 - activeWorkoutRecords
 - activeExerciseRecords
 

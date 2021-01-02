@@ -59,6 +59,28 @@ export const activityGetters = (entity) => {
   }
 }
 
+export const exerciseGetters = (entity) => {
+  return {
+    filterByCategory: (state) => (category) => {
+      return state[entity].filter((i) => i.category === category)
+    },
+
+    filterByEquipment: (state) => (equipment) => {
+      return state[entity].filter((i) => i.equipment === equipment)
+    },
+    // @todo - WIP
+    getInputTypeUnit() {
+      switch (this.input) {
+        case 'Sets':
+          // do correct icon and unit
+          return null
+        default:
+          return null
+      }
+    },
+  }
+}
+
 export const recordGetters = (entity) => {
   return {
     // @todo - WIP
@@ -84,7 +106,7 @@ export const recordGetters = (entity) => {
   }
 }
 
-export const historyExerciseGetters = (entity) => {
+export const exerciseRecordGetters = (entity) => {
   return {
     findByExerciseId: (state) => (id) => {
       return state[entity].find((i) => i.exerciseId === id)
@@ -92,7 +114,7 @@ export const historyExerciseGetters = (entity) => {
   }
 }
 
-export const historyWorkoutGetters = (entity) => {
+export const workoutRecordGetters = (entity) => {
   return {
     findByWorkoutId: (state) => (id) => {
       return state[entity].find((i) => i.workoutId === id)

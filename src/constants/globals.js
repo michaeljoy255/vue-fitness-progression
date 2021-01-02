@@ -84,8 +84,8 @@ export const ADAPTER = Object.freeze({
 export const ENTITY = Object.freeze({
   exercises: 'exercises',
   workouts: 'workouts',
-  historyExerciseRecords: 'historyExerciseRecords',
-  historyWorkoutRecords: 'historyWorkoutRecords',
+  exerciseRecords: 'exerciseRecords',
+  workoutRecords: 'workoutRecords',
   activeExerciseRecords: 'activeExerciseRecords',
   activeWorkoutRecords: 'activeWorkoutRecords',
 })

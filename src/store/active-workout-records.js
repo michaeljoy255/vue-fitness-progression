@@ -5,21 +5,23 @@ import { ENTITY } from '../constants/globals.js'
 
 export const namespaced = true
 
+const entity = ENTITY.activeWorkoutRecords // Entity type for curried functions
+
 const defaultState = () => {
-  return { [ENTITY.activeWorkoutRecords]: null }
+  return { [entity]: null }
 }
 
 export const state = defaultState()
 
 export const mutations = {
-  ...entityMutations(defaultState(), ENTITY.activeWorkoutRecords),
+  ...entityMutations(defaultState(), entity),
 }
 
 export const actions = {
-  ...entityActions(ENTITY.activeWorkoutRecords),
-  ...activeRecordActions(ENTITY.activeWorkoutRecords),
+  ...entityActions(entity),
+  ...activeRecordActions(entity),
 }
 
 export const getters = {
-  ...entityGetters(ENTITY.activeWorkoutRecords),
+  ...entityGetters(entity),
 }

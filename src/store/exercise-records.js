@@ -1,11 +1,15 @@
 import { entityMutations } from '../utils/store/mutations.js'
-import { entityActions } from '../utils/store/actions.js'
-import { entityGetters, activityGetters } from '../utils/store/getters.js'
+import { entityActions, recordActions } from '../utils/store/actions.js'
+import {
+  entityGetters,
+  recordGetters,
+  exerciseRecordGetters,
+} from '../utils/store/getters.js'
 import { ENTITY } from '../constants/globals.js'
 
 export const namespaced = true
 
-const entity = ENTITY.workouts // Entity type for curried functions
+const entity = ENTITY.exerciseRecords // Entity type for curried functions
 
 const defaultState = () => {
   return { [entity]: null }
@@ -19,9 +23,11 @@ export const mutations = {
 
 export const actions = {
   ...entityActions(entity),
+  ...recordActions(entity),
 }
 
 export const getters = {
   ...entityGetters(entity),
-  ...activityGetters(entity),
+  ...recordGetters(entity),
+  ...exerciseRecordGetters(entity),
 }

@@ -10,20 +10,20 @@ export const combinedStoreActions = () => {
       await Promise.all([
         dispatch(`${ENTITY.exercises}/fetch`),
         dispatch(`${ENTITY.workouts}/fetch`),
+        dispatch(`${ENTITY.exerciseRecords}/fetch`),
+        dispatch(`${ENTITY.workoutRecords}/fetch`),
         dispatch(`${ENTITY.activeExerciseRecords}/fetch`),
         dispatch(`${ENTITY.activeWorkoutRecords}/fetch`),
-        dispatch(`${ENTITY.historyExerciseRecords}/fetch`),
-        dispatch(`${ENTITY.historyWorkoutRecords}/fetch`),
       ])
     },
     async clearStateAndStorage({ dispatch }) {
       await Promise.all([
         dispatch(`${ENTITY.exercises}/delete`),
         dispatch(`${ENTITY.workouts}/delete`),
+        dispatch(`${ENTITY.exerciseRecords}/delete`),
+        dispatch(`${ENTITY.workoutRecords}/delete`),
         dispatch(`${ENTITY.activeExerciseRecords}/delete`),
         dispatch(`${ENTITY.activeWorkoutRecords}/delete`),
-        dispatch(`${ENTITY.historyExerciseRecords}/delete`),
-        dispatch(`${ENTITY.historyWorkoutRecords}/delete`),
       ])
     },
     async loadDefaults({ dispatch }) {
@@ -83,6 +83,16 @@ function createDefaultsForEntity(entity) {
   }
 }
 
+export const recordActions = (entity) => {
+  return {
+    async add({ state, commit }, newRecords) {
+      const combinedRecords = [...state[entity], ...newRecords]
+      commit('SET', combinedRecords)
+      setLocalStorage(entity, state[entity])
+    },
+  }
+}
+
 export const activeRecordActions = (entity) => {
   return {
     async create({ state, commit }, ids) {
@@ -98,22 +108,12 @@ function createEntityRecords(entity, ids) {
 
   switch (entity) {
     case ENTITY.activeExerciseRecords:
-    case ENTITY.historyExerciseRecords:
+    case ENTITY.exerciseRecords:
       return ids.map((id) => new ExerciseRecord({ exerciseId: id }))
     case ENTITY.activeWorkoutRecords:
-    case ENTITY.historyWorkoutRecords:
+    case ENTITY.workoutRecords:
       return ids.map((id) => new WorkoutRecord({ workoutId: id }))
     default:
       return null
-  }
-}
-
-export const historyRecordActions = (entity) => {
-  return {
-    async add({ state, commit }, newRecords) {
-      const combinedRecords = [...state[entity], ...newRecords]
-      commit('SET', combinedRecords)
-      setLocalStorage(entity, state[entity])
-    },
   }
 }
