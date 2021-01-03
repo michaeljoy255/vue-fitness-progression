@@ -6,13 +6,9 @@
 
 ## Core Tasks for MVP
 
-1. Work on Active Exercise inputs (display and function)
+1. Need sub components for parts of Active Exercise Card
 
-   - `sets` (only show set buttons if this input exists)
-   - `weight`
-   - `reps`
-   - `duration`
-   - `distance`
+   - Need to consider the design a bit as well
 
 1. Only have the Active Records get saved when you click Finish Workout for now
 

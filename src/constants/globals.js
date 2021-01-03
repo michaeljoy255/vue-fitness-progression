@@ -16,7 +16,6 @@ export const CATEGORY = Object.freeze({
 })
 
 export const EQUIPMENT = Object.freeze({
-  none: 'None',
   barbell: 'Barbell',
   dumbbell: 'Dumbbell',
   kettlebell: 'Kettlebell',
