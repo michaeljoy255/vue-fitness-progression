@@ -6,12 +6,9 @@
 
 ## Core Tasks for MVP
 
-1. Need sub components for parts of Active Exercise Card
-
-   - Need to consider the design a bit as well
-
 1. Only have the Active Records get saved when you click Finish Workout for now
 
+   - Design the saving to Active Records part first
    - Feature: Save to the state and LS during every input blur most likely
 
 1. Display previous exercise performance by each input

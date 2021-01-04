@@ -20,6 +20,19 @@ export default {
       panelLength: 1,
     }
   },
+
+  methods: {
+    addSet() {
+      if (this.panelLength < 10) {
+        this.panelLength++
+      }
+    },
+    removeSet() {
+      if (this.panelLength > 1) {
+        this.panelLength--
+      }
+    },
+  },
 }
 </script>
 
@@ -37,16 +50,22 @@ export default {
         <v-expansion-panel v-for="(item, i) in this.panelLength" :key="i">
           <v-expansion-panel-header> Set {{ i + 1 }} </v-expansion-panel-header>
           <v-expansion-panel-content>
-            <ActiveExerciseCardPanelContent :inputs="exercise.inputs" />
+            <ActiveExerciseCardPanelContent :set="i" :exercise="exercise" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
 
       <v-card-actions>
-        <v-btn @click="panelLength++" color="success">
+        <v-btn @click="addSet()" color="success" :disabled="panelLength >= 10">
           <span>Add Set</span>
         </v-btn>
-        <v-btn fab small @click="panelLength--" color="error">
+        <v-btn
+          fab
+          small
+          @click="removeSet()"
+          color="error"
+          :disabled="panelLength <= 1"
+        >
           <v-icon>remove</v-icon>
         </v-btn>
       </v-card-actions>
