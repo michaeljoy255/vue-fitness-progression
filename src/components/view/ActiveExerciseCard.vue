@@ -48,7 +48,9 @@ export default {
 
       <v-expansion-panels dense tile accordion active-class="secondary">
         <v-expansion-panel v-for="(item, i) in this.panelLength" :key="i">
-          <v-expansion-panel-header> Set {{ i + 1 }} </v-expansion-panel-header>
+          <v-expansion-panel-header class="font-weight-bold">
+            Set {{ i + 1 }}
+          </v-expansion-panel-header>
           <v-expansion-panel-content>
             <ActiveExerciseCardPanelContent :set="i" :exercise="exercise" />
           </v-expansion-panel-content>

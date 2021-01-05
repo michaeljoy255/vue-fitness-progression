@@ -13,25 +13,22 @@ export default {
 
   data() {
     return {
-      weight: 0,
-      reps: 0,
-      duration: 0,
-      distance: 0,
+      weight: null,
+      reps: null,
+      duration: null,
+      distance: null,
     }
   },
 
-  watch: {
-    weight(newVal) {
-      console.log(`Weight (Set ${this.set + 1}): ${newVal}`)
-    },
-    reps(newVal) {
-      console.log(`Reps (Set ${this.set + 1}): ${newVal}`)
-    },
-    duration(newVal) {
-      console.log(`Duration (Set ${this.set + 1}): ${newVal}`)
-    },
-    distance(newVal) {
-      console.log(`Distance (Set ${this.set + 1}): ${newVal}`)
+  methods: {
+    saveChanges() {
+      console.log('--------------------')
+      console.log(`Exercise ${this.exercise.name} - SET ${this.set + 1}`)
+      // need a check for invalid input (replace with a 0 or null?)
+      console.log(`Weight ${this.weight}`)
+      console.log(`Reps ${this.reps}`)
+      console.log(`Duration ${this.duration}`)
+      console.log(`Distance ${this.distance}`)
     },
   },
 }
@@ -42,9 +39,10 @@ export default {
     <v-col v-if="exercise.inputs.hasWeight" class="col-6 col-sm-3">
       <v-text-field
         v-model="weight"
+        @blur="saveChanges()"
         type="number"
         min="0"
-        max="1000"
+        max="9999"
         label="Weight"
         dense
         outlined
@@ -54,9 +52,10 @@ export default {
     <v-col v-if="exercise.inputs.hasReps" class="col-6 col-sm-3">
       <v-text-field
         v-model="reps"
+        @blur="saveChanges()"
         type="number"
         min="0"
-        max="1000"
+        max="9999"
         label="Reps"
         dense
         outlined
@@ -66,9 +65,10 @@ export default {
     <v-col v-if="exercise.inputs.hasDuration" class="col-6 col-sm-3">
       <v-text-field
         v-model="duration"
+        @blur="saveChanges()"
         type="number"
         min="0"
-        max="1000"
+        max="9999"
         label="Duration"
         dense
         outlined
@@ -78,9 +78,10 @@ export default {
     <v-col v-if="exercise.inputs.hasDistance" class="col-6 col-sm-3">
       <v-text-field
         v-model="distance"
+        @blur="saveChanges()"
         type="number"
         min="0"
-        max="1000"
+        max="9999"
         label="Distance"
         dense
         outlined
