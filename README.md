@@ -6,10 +6,7 @@
 
 ## Core Tasks for MVP
 
-1. Only have the Active Records get saved when you click Finish Workout for now
-
-   - Design the saving to Active Records part first
-   - Feature: Save to the state and LS during every input blur most likely
+1. Save Active Exercise Records to Local Storage when you click Finish Workout
 
 1. Display previous exercise performance by each input
 

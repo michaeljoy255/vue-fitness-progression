@@ -117,3 +117,16 @@ function createEntityRecords(entity, ids) {
       return null
   }
 }
+
+export const activeExerciseRecordActions = (entity) => {
+  return {
+    async update({ state, commit }, payload) {
+      const recordIndex = state[entity].findIndex(
+        (r) => r.exerciseId === payload.id
+      )
+      const stateToUpdate = state[entity]
+      stateToUpdate[recordIndex].sets[payload.set] = payload.data
+      commit('SET', stateToUpdate)
+    },
+  }
+}

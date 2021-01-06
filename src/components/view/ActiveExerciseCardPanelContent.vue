@@ -22,13 +22,17 @@ export default {
 
   methods: {
     saveChanges() {
-      console.log('--------------------')
-      console.log(`Exercise ${this.exercise.name} - SET ${this.set + 1}`)
-      // need a check for invalid input (replace with a 0 or null?)
-      console.log(`Weight ${this.weight}`)
-      console.log(`Reps ${this.reps}`)
-      console.log(`Duration ${this.duration}`)
-      console.log(`Distance ${this.distance}`)
+      const payload = {
+        id: this.exercise.id,
+        set: this.set,
+        data: {
+          weight: this.weight,
+          reps: this.reps,
+          duration: this.duration,
+          distance: this.distance,
+        },
+      }
+      this.$store.dispatch('activeExerciseRecords/update', payload)
     },
   },
 }
