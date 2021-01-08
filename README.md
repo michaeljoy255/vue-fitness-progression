@@ -6,7 +6,13 @@
 
 ## Core Tasks for MVP
 
-1. Save Active Exercise Records to Local Storage when you click Finish Workout
+1. Load ActiveExerciseRecords data into exercise inputs when you resume
+
+1. Save ActiveExerciseRecords to ExerciseRecords in LS when you finish workout
+
+1. Save ActiveWorkoutRecord to WorkoutRecrods in LS when you finish workout
+
+1. Display date you last did a workout on Dashboard
 
 1. Display previous exercise performance by each input
 
@@ -14,6 +20,7 @@
 
 ## Additional Tasks
 
+- Stop using expansion panels for active exercises
 - Use try..catch at component level to provide useful errors for users
 - Use Luxon for dates and times
 - Add custom Error classes

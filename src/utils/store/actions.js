@@ -127,6 +127,7 @@ export const activeExerciseRecordActions = (entity) => {
       const stateToUpdate = state[entity]
       stateToUpdate[recordIndex].sets[payload.set] = payload.data
       commit('SET', stateToUpdate)
+      setLocalStorage(entity, state[entity])
     },
   }
 }

@@ -39,9 +39,9 @@ export default {
     <v-card>
       <v-card-title>{{ workout.name }}</v-card-title>
 
-      <v-card-subtitle>
+      <!-- <v-card-subtitle>
         Previous record createdAt goes here...
-      </v-card-subtitle>
+      </v-card-subtitle> -->
 
       <v-card-actions>
         <v-container>
