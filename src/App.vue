@@ -3,7 +3,7 @@ import { LAYOUT } from './constants/globals'
 
 export default {
   async created() {
-    await this.$store.dispatch('initAppState')
+    await this.$store.dispatch('initApp')
   },
 
   computed: {

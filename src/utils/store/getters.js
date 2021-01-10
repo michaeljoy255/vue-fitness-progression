@@ -29,7 +29,7 @@ export const entityGetters = (entity) => {
   return {
     getState: (state) => state[entity],
     isReady: (state) => {
-      return !!(
+      return (
         state[entity] !== null &&
         state[entity] !== undefined &&
         state[entity] !== []

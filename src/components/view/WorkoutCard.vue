@@ -28,7 +28,7 @@ export default {
         exerciseIds: this.workout.exerciseIds,
       }
       this.$router.push({ name: VIEW.activeWorkout })
-      await this.$store.dispatch('createActiveRecords', payload)
+      await this.$store.dispatch('beginNewWorkout', payload)
     },
   },
 }

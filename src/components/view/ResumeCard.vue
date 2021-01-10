@@ -19,7 +19,7 @@ export default {
 
     async cancelWorkout() {
       if (confirm('Cancel this active workout?')) {
-        await this.$store.dispatch('deleteActiveRecords')
+        await this.$store.dispatch('cancelWorkout')
       }
     },
   },

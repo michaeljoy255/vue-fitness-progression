@@ -1,6 +1,6 @@
 <script>
 import ActiveExerciseCardHeader from './ActiveExerciseCardHeader.vue'
-import ActiveExerciseCardPanelContent from './ActiveExerciseCardPanelContent.vue'
+import ActiveExerciseCardSet from './ActiveExerciseCardSet.vue'
 
 export default {
   props: {
@@ -12,24 +12,25 @@ export default {
 
   components: {
     ActiveExerciseCardHeader,
-    ActiveExerciseCardPanelContent,
+    ActiveExerciseCardSet,
   },
 
   data() {
     return {
-      panelLength: 1,
+      setLimit: 1,
     }
   },
 
   methods: {
     addSet() {
-      if (this.panelLength < 10) {
-        this.panelLength++
+      if (this.setLimit < 10) {
+        this.setLimit++
       }
     },
+
     removeSet() {
-      if (this.panelLength > 1) {
-        this.panelLength--
+      if (this.setLimit > 1) {
+        this.setLimit--
       }
     },
   },
@@ -46,19 +47,17 @@ export default {
         :description="exercise.description"
       />
 
-      <v-expansion-panels dense tile accordion active-class="secondary">
-        <v-expansion-panel v-for="(item, i) in this.panelLength" :key="i">
-          <v-expansion-panel-header class="font-weight-bold">
-            Set {{ i + 1 }}
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <ActiveExerciseCardPanelContent :set="i" :exercise="exercise" />
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
+      <v-card-text>
+        <div v-for="(item, i) in this.setLimit" :key="i">
+          <v-chip v-if="exercise.inputs.hasSets" x-small class="mb-1">
+            SET {{ i + 1 }}
+          </v-chip>
+          <ActiveExerciseCardSet :set="i" :exercise="exercise" />
+        </div>
+      </v-card-text>
 
-      <v-card-actions>
-        <v-btn @click="addSet()" color="success" :disabled="panelLength >= 10">
+      <v-card-actions v-if="exercise.inputs.hasSets">
+        <v-btn @click="addSet()" color="success" :disabled="setLimit >= 10">
           <span>Add Set</span>
         </v-btn>
         <v-btn
@@ -66,7 +65,8 @@ export default {
           small
           @click="removeSet()"
           color="error"
-          :disabled="panelLength <= 1"
+          :depressed="setLimit <= 1"
+          :disabled="setLimit <= 1"
         >
           <v-icon>remove</v-icon>
         </v-btn>

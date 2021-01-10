@@ -1,8 +1,8 @@
 <script>
 export default {
   methods: {
-    async loadDefaults() {
-      await this.$store.dispatch('loadDefaults')
+    async useDefaults() {
+      await this.$store.dispatch('useDefaults')
     },
   },
 }
@@ -19,7 +19,7 @@ export default {
 
       <v-card-actions>
         <v-container>
-          <v-btn color="success" @click="loadDefaults()">Use Defaults</v-btn>
+          <v-btn color="success" @click="useDefaults()">Use Defaults</v-btn>
         </v-container>
       </v-card-actions>
     </v-card>

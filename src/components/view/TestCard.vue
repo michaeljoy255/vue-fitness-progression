@@ -1,12 +1,16 @@
 <script>
 export default {
   methods: {
-    async loadDefaults() {
-      await this.$store.dispatch('loadDefaults')
+    async useDefaults() {
+      if (confirm('Load default exercises and workouts?')) {
+        await this.$store.dispatch('useDefaults')
+      }
     },
 
-    async clearStateAndStorage() {
-      await this.$store.dispatch('clearStateAndStorage')
+    async clearApp() {
+      if (confirm('Clear all app data?')) {
+        await this.$store.dispatch('clearApp')
+      }
     },
   },
 }
@@ -19,11 +23,11 @@ export default {
 
       <v-card-actions>
         <v-container>
-          <v-btn color="success mr-3" @click="loadDefaults()">
+          <v-btn color="success mr-3" @click="useDefaults()">
             Set Defaults
           </v-btn>
 
-          <v-btn color="error mr-3" @click="clearStateAndStorage()">
+          <v-btn color="error mr-3" @click="clearApp()">
             Clear App
           </v-btn>
         </v-container>
