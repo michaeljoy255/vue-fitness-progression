@@ -3,7 +3,6 @@ import {
   databaseActions,
   entityActions,
   activeRecordActions,
-  activeExerciseRecordActions,
 } from '../utils/store/actions.js'
 import { entityGetters } from '../utils/store/getters.js'
 import { ENTITY } from '../constants/globals.js'
@@ -17,10 +16,9 @@ export const mutations = {
   ...entityMutations(defaultState(), entity),
 }
 export const actions = {
-  ...databaseActions(entity),
+  ...databaseActions(defaultState(), entity),
   ...entityActions(entity),
   ...activeRecordActions(entity),
-  ...activeExerciseRecordActions(entity),
 }
 export const getters = {
   ...entityGetters(entity),

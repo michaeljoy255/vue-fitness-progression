@@ -9,11 +9,19 @@ export default {
     },
   },
 
+  computed: {
+    workoutName() {
+      const workoutName = this.workout.name
+      if (workoutName) return workoutName
+      return null
+    },
+  },
+
   methods: {
     beginWorkout() {
-      const otherWorkout = this.$store.getters['activeWorkoutRecords/isReady']
+      const inProgressWorkout = this.$store.getters['getActiveWorkoutName']
 
-      if (!otherWorkout) {
+      if (!inProgressWorkout) {
         this.routeToActiveWorkout()
       } else {
         if (confirm('Replace in progress workout?')) {
@@ -27,6 +35,7 @@ export default {
         workoutId: this.workout.id,
         exerciseIds: this.workout.exerciseIds,
       }
+
       this.$router.push({ name: VIEW.activeWorkout })
       await this.$store.dispatch('beginNewWorkout', payload)
     },
@@ -37,7 +46,7 @@ export default {
 <template>
   <v-col class="col-12 col-sm-6 col-md-4 col-xl-3">
     <v-card>
-      <v-card-title>{{ workout.name }}</v-card-title>
+      <v-card-title>{{ workoutName }}</v-card-title>
 
       <!-- <v-card-subtitle>
         Previous record createdAt goes here...

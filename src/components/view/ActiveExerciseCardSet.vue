@@ -54,6 +54,7 @@ export default {
 
   methods: {
     saveChanges() {
+      console.log('save this:', this.exercise)
       const payload = {
         id: this.exercise.id,
         set: this.set,

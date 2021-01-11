@@ -1,12 +1,11 @@
 import ExerciseRecord from '../../models/ExerciseRecord.js'
 import WorkoutRecord from '../../models/WorkoutRecord.js'
 import { ENTITY } from '../../constants/globals.js'
-import { setLocalStorage, getLocalStorage } from './local-storage.js'
+import { LocalStorage } from './database.js'
 import { createDefaultExercises, createDefaultWorkouts } from './defaults.js'
-import { LocalStorage } from '../database.js'
 
 /**
- * Combined Store Actions - Should represent combined action the app or user is taking
+ * Combined Store Actions - Core actions app can take
  */
 export const combinedStoreActions = () => {
   return {
@@ -91,7 +90,27 @@ export const combinedStoreActions = () => {
     /**
      * @todo Saving workout data
      */
-    async finishWorkout({ dispatch }) {
+    async finishWorkout({ dispatch, getters }) {
+      const activeExerciseRecords = getters['activeExerciseRecords/getState']
+      const activeWorkoutRecords = getters['activeWorkoutRecords/getState']
+
+      /**
+       * @todo need to set the workout duration before this
+       */
+      await Promise.all([
+        dispatch(
+          `${ENTITY.exerciseRecords}/insertPayloadToState`,
+          activeExerciseRecords
+        ),
+        dispatch(
+          `${ENTITY.workoutRecords}/insertPayloadToState`,
+          activeWorkoutRecords
+        ),
+      ])
+      await Promise.all([
+        dispatch(`${ENTITY.exerciseRecords}/saveStateToDatabase`),
+        dispatch(`${ENTITY.workoutRecords}/saveStateToDatabase`),
+      ])
       await Promise.all([
         dispatch(`${ENTITY.activeExerciseRecords}/clearDatabase`),
         dispatch(`${ENTITY.activeWorkoutRecords}/clearDatabase`),
@@ -110,13 +129,13 @@ export const combinedStoreActions = () => {
 export const databaseActions = (defaultState, entity) => {
   return {
     async initDatabase() {
-      LocalStorage.init(entity, defaultState)
+      LocalStorage.init(entity, defaultState[entity])
     },
     async saveStateToDatabase({ state }) {
       LocalStorage.overwrite(entity, state[entity])
     },
     async clearDatabase() {
-      LocalStorage.clear(entity, defaultState)
+      LocalStorage.clear(entity, defaultState[entity])
     },
     async setStateWithDatabase({ commit }) {
       commit('SET', LocalStorage.get(entity))
@@ -192,24 +211,5 @@ function createEntityRecords(entity, ids) {
       return ids.map((id) => new WorkoutRecord({ workoutId: id }))
     default:
       return null
-  }
-}
-
-/**
- * Active Exercise Record Actions
- */
-export const activeExerciseRecordActions = (entity) => {
-  return {
-    async update({ state, commit }, payload) {
-      const stateToUpdate = state[entity]
-
-      const recordIndex = state[entity].findIndex(
-        (r) => r.exerciseId === payload.id
-      )
-
-      stateToUpdate[recordIndex].sets[payload.set] = payload.data
-      commit('SET', stateToUpdate)
-      setLocalStorage(entity, state[entity])
-    },
   }
 }

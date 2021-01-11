@@ -12,7 +12,9 @@ export default {
   },
 
   async created() {
-    const otherWorkout = this.$store.getters['activeWorkoutRecords/isReady']
+    const otherWorkout = this.$store.getters[
+      'activeWorkoutRecords/isStateReady'
+    ]
 
     if (!otherWorkout) {
       await this.$store.dispatch('existingActiveWorkout')
@@ -21,7 +23,7 @@ export default {
 
   computed: {
     renderWorkouts() {
-      return this.$store.getters['workouts/isReady']
+      return this.$store.getters['workouts/isStateReady']
     },
   },
 }

@@ -3,12 +3,12 @@ import { VIEW } from '../../constants/globals.js'
 
 export default {
   computed: {
-    activeWorkoutRecord() {
-      return this.$store.getters['getActiveWorkoutRecord']
+    activeWorkoutName() {
+      return this.$store.getters['getActiveWorkoutName']
     },
 
-    activeWorkout() {
-      return this.$store.getters['getActiveWorkout']
+    activeWorkoutRecordCreatedAt() {
+      return this.$store.getters['getActiveWorkoutRecordCreatedAt']
     },
   },
 
@@ -29,10 +29,10 @@ export default {
 <template>
   <v-col class="col-12">
     <v-card>
-      <v-card-title>{{ activeWorkout.name }}</v-card-title>
+      <v-card-title>{{ activeWorkoutName }}</v-card-title>
 
       <v-card-subtitle>
-        {{ new Date(activeWorkoutRecord.createdAt).toDateString() }}
+        {{ new Date(activeWorkoutRecordCreatedAt).toDateString() }}
       </v-card-subtitle>
 
       <v-btn icon absolute top right @click="cancelWorkout()">X</v-btn>

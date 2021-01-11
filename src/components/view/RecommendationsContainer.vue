@@ -12,11 +12,11 @@ export default {
 
   computed: {
     renderDefaultsCard() {
-      return !this.$store.getters['workouts/isReady']
+      return !this.$store.getters['workouts/isStateReady']
     },
 
     renderResumeCard() {
-      return this.$store.getters['activeWorkoutRecords/isReady']
+      return this.$store.getters['activeWorkoutRecords/isStateReady']
     },
   },
 }

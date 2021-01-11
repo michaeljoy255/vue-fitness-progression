@@ -16,7 +16,7 @@ export const mutations = {
   ...entityMutations(defaultState(), entity),
 }
 export const actions = {
-  ...databaseActions(entity),
+  ...databaseActions(defaultState(), entity),
   ...entityActions(entity),
   ...activeRecordActions(entity),
 }

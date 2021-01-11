@@ -6,6 +6,10 @@
 
 ## Core Tasks for MVP
 
+1. Refactor ActiveWorkout.vue+
+
+   - Pass through the Active Exercise Records, NOT the Exercise
+
 1. Save Active Records to History Records when you finish workout
 
    - May have to change current hint code

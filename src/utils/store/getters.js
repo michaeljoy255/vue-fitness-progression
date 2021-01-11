@@ -1,26 +1,56 @@
 import { ENTITY } from '../../constants/globals.js'
 
+/**
+ * Combined Getters - Common consolidated getters for the app
+ */
 export const combinedStoreGetters = () => {
   return {
-    getActiveExercises: (state, getters) => {
+    getActiveExercises: (_, getters) => {
       const activeWorkoutRecord =
         getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
-      const workout = getters['workouts/findById'](
-        activeWorkoutRecord.workoutId
-      )
-      const exercises = getters['exercises/filterByIds'](workout.exerciseIds)
-      return exercises
+
+      let workoutId
+      if (activeWorkoutRecord) workoutId = activeWorkoutRecord.workoutId
+
+      let workout
+      if (workoutId) workout = getters[`${ENTITY.workouts}/findById`](workoutId)
+
+      let exerciseIds
+      if (workout) exerciseIds = workout.exerciseIds
+
+      let exercises
+      if (exerciseIds) exercises = getters['exercises/filterByIds'](exerciseIds)
+
+      if (exercises) return exercises
+      return null
     },
-    getActiveWorkout: (state, getters) => {
+
+    getActiveWorkoutName(_, getters) {
       const activeWorkoutRecord =
         getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
-      const workout = getters[`${ENTITY.workouts}/findById`](
-        activeWorkoutRecord.workoutId
-      )
-      return workout
+
+      let workoutId
+      if (activeWorkoutRecord) workoutId = activeWorkoutRecord.workoutId
+
+      let workout
+      if (workoutId) workout = getters[`${ENTITY.workouts}/findById`](workoutId)
+
+      let workoutName
+      if (workout) workoutName = workout.name
+
+      if (workoutName) return workoutName
+      return null
     },
-    getActiveWorkoutRecord: (state, getters) => {
-      return getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
+
+    getActiveWorkoutRecordCreatedAt(_, getters) {
+      const activeWorkoutRecord =
+        getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
+
+      let createdAt
+      if (activeWorkoutRecord) createdAt = activeWorkoutRecord.createdAt
+
+      if (createdAt) return createdAt
+      return null
     },
   }
 }
@@ -28,96 +58,24 @@ export const combinedStoreGetters = () => {
 export const entityGetters = (entity) => {
   return {
     getState: (state) => state[entity],
-    isReady: (state) => {
+
+    isStateReady(state) {
       return (
         state[entity] !== null &&
         state[entity] !== undefined &&
-        state[entity] !== []
+        Array.isArray(state[entity]) &&
+        state[entity].length !== 0
       )
     },
+
     findById: (state) => (id) => {
       return state[entity].find((i) => i.id === id)
     },
-  }
-}
 
-export const activityGetters = (entity) => {
-  return {
-    findByName: (state) => (name) => {
-      return state[entity].find((i) => i.name === name)
-    },
-    filterByDescriptionKeyword: (state) => (keyword) => {
-      return state[entity].filter((i) => {
-        return i.description.toLowerCase().includes(keyword.toLowerCase())
-      })
-    },
     filterByIds: (state) => (ids) => {
       return ids.map((id) => {
         return state[entity].find((i) => i.id === id)
       })
-    },
-  }
-}
-
-export const exerciseGetters = (entity) => {
-  return {
-    filterByCategory: (state) => (category) => {
-      return state[entity].filter((i) => i.category === category)
-    },
-
-    filterByEquipment: (state) => (equipment) => {
-      return state[entity].filter((i) => i.equipment === equipment)
-    },
-    // @todo - WIP
-    getInputTypeUnit() {
-      switch (this.input) {
-        case 'Sets':
-          // do correct icon and unit
-          return null
-        default:
-          return null
-      }
-    },
-  }
-}
-
-export const recordGetters = (entity) => {
-  return {
-    // @todo - WIP
-    findNewest: (state) => state[entity],
-    // @todo - WIP
-    findByOldest: (state) => state[entity],
-    // @todo - WIP
-    filterByDay: (state) => state[entity],
-    // @todo - WIP
-    filterByMonth: (state) => state[entity],
-    // @todo - WIP
-    filterByYear: (state) => state[entity],
-    // @todo - WIP
-    filterBetweenDates: (state) => (date1, date2) => {
-      console.log(date1, date2)
-      return state[entity]
-    },
-    filterByNoteKeyword: (state) => (keyword) => {
-      return state[entity].filter((i) => {
-        return i.note.toLowerCase().includes(keyword.toLowerCase())
-      })
-    },
-  }
-}
-
-export const exerciseRecordGetters = (entity) => {
-  return {
-    findByExerciseId: (state) => (id) => {
-      return state[entity].find((i) => i.exerciseId === id)
-    },
-  }
-}
-
-export const workoutRecordGetters = (entity) => {
-  return {
-    findByWorkoutId: (state) => (id) => {
-      return state[entity].find((i) => i.workoutId === id)
     },
   }
 }

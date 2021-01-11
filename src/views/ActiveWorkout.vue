@@ -19,11 +19,6 @@ export default {
     async finishWorkout() {
       if (confirm('Finish and save this workout?')) {
         this.$router.push({ name: VIEW.dashboard })
-        const records = this.$store.getters['activeExerciseRecords/getState']
-        await this.$store.dispatch(
-          'activeExerciseRecords/saveToHistory',
-          records
-        )
         await this.$store.dispatch('finishWorkout')
       }
     },

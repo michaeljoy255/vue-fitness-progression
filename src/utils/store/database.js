@@ -2,7 +2,7 @@ export const LocalStorage = {
   init(entity, payload) {
     const existingData = getLocalStorage(entity)
     if (existingData === null || existingData === undefined) {
-      this.clearAs(entity, payload)
+      this.clear(entity, payload)
     }
   },
 
