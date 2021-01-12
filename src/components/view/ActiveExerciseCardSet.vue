@@ -1,12 +1,16 @@
 <script>
 export default {
   props: {
-    set: {
-      type: Number,
+    exerciseInputs: {
+      type: Object,
       required: true,
     },
-    exercise: {
+    exerciseRecord: {
       type: Object,
+      required: true,
+    },
+    set: {
+      type: Number,
       required: true,
     },
   },
@@ -21,20 +25,14 @@ export default {
   },
 
   mounted() {
-    this.weight = this.activeSet ? this.activeSet.weight : null
-    this.reps = this.activeSet ? this.activeSet.reps : null
-    this.duration = this.activeSet ? this.activeSet.duration : null
-    this.distance = this.activeSet ? this.activeSet.distance : null
+    const setData = this.exerciseRecord.sets[this.set]
+    this.weight = setData ? setData.weight : null
+    this.reps = setData ? setData.reps : null
+    this.duration = setData ? setData.duration : null
+    this.distance = setData ? setData.distance : null
   },
 
   computed: {
-    activeSet() {
-      const state = this.$store.getters['activeExerciseRecords/getState']
-      const record = state.find((r) => r.exerciseId === this.exercise.id)
-      const set = record.sets[this.set]
-      return set
-    },
-
     weightHint() {
       return 'none'
     },
@@ -54,18 +52,16 @@ export default {
 
   methods: {
     saveChanges() {
-      console.log('save this:', this.exercise)
-      const payload = {
-        id: this.exercise.id,
-        set: this.set,
-        data: {
-          weight: this.weight,
-          reps: this.reps,
-          duration: this.duration,
-          distance: this.distance,
-        },
+      const payload = this.exerciseRecord
+
+      payload.sets[this.set] = {
+        weight: this.weight,
+        reps: this.reps,
+        duration: this.duration,
+        distance: this.distance,
       }
-      this.$store.dispatch('activeExerciseRecords/update', payload)
+
+      this.$store.dispatch('updateActiveExerciseSet', payload)
     },
   },
 }
@@ -73,7 +69,7 @@ export default {
 
 <template>
   <v-row>
-    <v-col v-if="exercise.inputs.hasWeight" class="col-6 col-sm-3">
+    <v-col v-if="exerciseInputs.hasWeight" class="col-6 col-sm-3">
       <v-text-field
         v-model="weight"
         @blur="saveChanges()"
@@ -88,7 +84,7 @@ export default {
         persistent-hint
       />
     </v-col>
-    <v-col v-if="exercise.inputs.hasReps" class="col-6 col-sm-3">
+    <v-col v-if="exerciseInputs.hasReps" class="col-6 col-sm-3">
       <v-text-field
         v-model="reps"
         @blur="saveChanges()"
@@ -103,7 +99,7 @@ export default {
         persistent-hint
       />
     </v-col>
-    <v-col v-if="exercise.inputs.hasDuration" class="col-6 col-sm-3">
+    <v-col v-if="exerciseInputs.hasDuration" class="col-6 col-sm-3">
       <v-text-field
         v-model="duration"
         @blur="saveChanges()"
@@ -118,7 +114,7 @@ export default {
         persistent-hint
       />
     </v-col>
-    <v-col v-if="exercise.inputs.hasDistance" class="col-6 col-sm-3">
+    <v-col v-if="exerciseInputs.hasDistance" class="col-6 col-sm-3">
       <v-text-field
         v-model="distance"
         @blur="saveChanges()"

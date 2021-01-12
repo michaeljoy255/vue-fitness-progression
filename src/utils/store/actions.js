@@ -120,6 +120,10 @@ export const combinedStoreActions = () => {
         dispatch(`${ENTITY.activeWorkoutRecords}/clearState`),
       ])
     },
+    async updateActiveExerciseSet({ dispatch }, payload) {
+      await dispatch('activeExerciseRecords/putPayloadToState', payload)
+      await dispatch(`${ENTITY.activeExerciseRecords}/saveStateToDatabase`)
+    },
   }
 }
 
@@ -159,6 +163,8 @@ export const entityActions = (entity) => {
       commit('SET', combinedState)
     },
     async putPayloadToState({ state, commit }, payload) {
+      if (!Array.isArray(payload)) payload = [payload]
+
       const stateData = state[entity]
 
       payload.forEach((pl) => {

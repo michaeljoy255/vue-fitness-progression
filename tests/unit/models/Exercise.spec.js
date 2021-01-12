@@ -10,7 +10,7 @@ describe('Exercise.js', () => {
       expect(obj.description).toEqual('')
       expect(obj.previousRecordId).toBeNull()
       expect(obj.category).toEqual('Miscellaneous')
-      expect(obj.equipment).toBeNull()
+      expect(obj.equipment).toEqual('')
       expect(obj.inputs).toEqual({
         hasDistance: false,
         hasDuration: false,

@@ -10,8 +10,8 @@ export default {
   },
 
   computed: {
-    activeExercises() {
-      return this.$store.getters['getActiveExercises']
+    activeExerciseRecords() {
+      return this.$store.getters['getActiveExerciseRecords']
     },
   },
 
@@ -29,9 +29,9 @@ export default {
 <template>
   <v-container>
     <ActiveExerciseCard
-      v-for="exercise of activeExercises"
-      :key="exercise.id"
-      :exercise="exercise"
+      v-for="aeRecord of activeExerciseRecords"
+      :key="aeRecord.id"
+      :exerciseRecord="aeRecord"
     />
 
     <v-btn class="ml-3" color="success" @click="finishWorkout()">

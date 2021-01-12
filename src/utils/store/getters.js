@@ -5,7 +5,7 @@ import { ENTITY } from '../../constants/globals.js'
  */
 export const combinedStoreGetters = () => {
   return {
-    getActiveExercises: (_, getters) => {
+    getActiveExercises(_, getters) {
       const activeWorkoutRecord =
         getters[`${ENTITY.activeWorkoutRecords}/getState`][0]
 
@@ -22,6 +22,21 @@ export const combinedStoreGetters = () => {
       if (exerciseIds) exercises = getters['exercises/filterByIds'](exerciseIds)
 
       if (exercises) return exercises
+      return null
+    },
+
+    getActiveExerciseById: (_, getters) => (id) => {
+      const exercise = getters[`${ENTITY.exercises}/findById`](id)
+
+      if (exercise) return exercise
+      return null
+    },
+
+    getActiveExerciseRecords(_, getters) {
+      const activeExerciseRecords =
+        getters[`${ENTITY.activeExerciseRecords}/getState`]
+
+      if (activeExerciseRecords) return activeExerciseRecords
       return null
     },
 

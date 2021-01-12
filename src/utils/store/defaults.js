@@ -30,7 +30,7 @@ function initWorkouts() {
       name: 'Chest #1',
       description: 'Chest focused workout version #1.',
       exerciseIds: [
-        getExerciseIdByNameAndEquipment('Warm-up', null),
+        getExerciseIdByNameAndEquipment('Warm-up', ''),
         getExerciseIdByNameAndEquipment('Bench Press', EQUIPMENT.barbell),
         getExerciseIdByNameAndEquipment(
           'Incline Bench Press',
@@ -40,15 +40,15 @@ function initWorkouts() {
           'Decline Bench Press',
           EQUIPMENT.barbell
         ),
-        getExerciseIdByNameAndEquipment('Cool-down', null),
-        getExerciseIdByNameAndEquipment('Stretching', null),
+        getExerciseIdByNameAndEquipment('Cool-down', ''),
+        getExerciseIdByNameAndEquipment('Stretching', ''),
       ],
     }),
     new Workout({
       name: 'Back #1',
       description: 'Back focused workout version #1.',
       exerciseIds: [
-        getExerciseIdByNameAndEquipment('Warm-up', null),
+        getExerciseIdByNameAndEquipment('Warm-up', ''),
         getExerciseIdByNameAndEquipment('Bent Over Rows', EQUIPMENT.barbell),
         getExerciseIdByNameAndEquipment(
           'Stiff Leg Deadlift',
@@ -58,30 +58,30 @@ function initWorkouts() {
           'Bent Over Back Flyes',
           EQUIPMENT.dumbbell
         ),
-        getExerciseIdByNameAndEquipment('Cool-down', null),
-        getExerciseIdByNameAndEquipment('Stretching', null),
+        getExerciseIdByNameAndEquipment('Cool-down', ''),
+        getExerciseIdByNameAndEquipment('Stretching', ''),
       ],
     }),
     new Workout({
       name: 'Legs #1',
       description: 'Legs focused workout version #1.',
       exerciseIds: [
-        getExerciseIdByNameAndEquipment('Warm-up', null),
+        getExerciseIdByNameAndEquipment('Warm-up', ''),
         getExerciseIdByNameAndEquipment('Leg Curls', EQUIPMENT.weightMachine),
         getExerciseIdByNameAndEquipment(
           'Leg Extensions',
           EQUIPMENT.weightMachine
         ),
         getExerciseIdByNameAndEquipment('Squats', EQUIPMENT.barbell),
-        getExerciseIdByNameAndEquipment('Cool-down', null),
-        getExerciseIdByNameAndEquipment('Stretching', null),
+        getExerciseIdByNameAndEquipment('Cool-down', ''),
+        getExerciseIdByNameAndEquipment('Stretching', ''),
       ],
     }),
     new Workout({
       name: 'Arms and Shoulders #1',
       description: 'Arms and Shoulders focused workout version #1.',
       exerciseIds: [
-        getExerciseIdByNameAndEquipment('Warm-up', null),
+        getExerciseIdByNameAndEquipment('Warm-up', ''),
         getExerciseIdByNameAndEquipment(
           'Underhand Bicep Curls',
           EQUIPMENT.dumbbell
@@ -97,15 +97,15 @@ function initWorkouts() {
           EQUIPMENT.dumbbell
         ),
         getExerciseIdByNameAndEquipment('Shrugs', EQUIPMENT.barbell),
-        getExerciseIdByNameAndEquipment('Cool-down', null),
-        getExerciseIdByNameAndEquipment('Stretching', null),
+        getExerciseIdByNameAndEquipment('Cool-down', ''),
+        getExerciseIdByNameAndEquipment('Stretching', ''),
       ],
     }),
     new Workout({
       name: 'Core #1',
       description: 'Core focused workout version #1.',
       exerciseIds: [
-        getExerciseIdByNameAndEquipment('Warm-up', null),
+        getExerciseIdByNameAndEquipment('Warm-up', ''),
         getExerciseIdByNameAndEquipment(
           'Abdominal Crunch',
           EQUIPMENT.cableMachine
@@ -120,8 +120,8 @@ function initWorkouts() {
           EQUIPMENT.dumbbell
         ),
         getExerciseIdByNameAndEquipment("Farmer's Walk", EQUIPMENT.dumbbell),
-        getExerciseIdByNameAndEquipment('Cool-down', null),
-        getExerciseIdByNameAndEquipment('Stretching', null),
+        getExerciseIdByNameAndEquipment('Cool-down', ''),
+        getExerciseIdByNameAndEquipment('Stretching', ''),
       ],
     }),
   ]
@@ -168,7 +168,6 @@ function initExercises() {
       description:
         'Warm up your body using any combination of cardio exercises.',
       category: CATEGORY.cardio,
-      equipment: null,
       inputs: new ExerciseInputs({ hasDuration: true }),
       // hints: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
     }),
@@ -176,7 +175,6 @@ function initExercises() {
       name: 'Cool-down',
       description: 'Cool down your body by doing some light cardio exercises.',
       category: CATEGORY.cardio,
-      equipment: null,
       inputs: new ExerciseInputs({ hasDuration: true }),
       // hints: [new ExerciseInput({ name: INPUT.duration, hint: '5-10' })],
     }),
@@ -185,7 +183,6 @@ function initExercises() {
       description:
         'Alternate jumping your legs wide to narrow and arms wide then back to your side.',
       category: CATEGORY.cardio,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -197,7 +194,6 @@ function initExercises() {
       description:
         'Alternate bringing your knees close to your chin while in plank position.',
       category: CATEGORY.cardio,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -208,7 +204,6 @@ function initExercises() {
       name: 'High Knees',
       description: 'Alternate bringing your knees up quickly while standing.',
       category: CATEGORY.cardio,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -220,7 +215,6 @@ function initExercises() {
       description:
         'Starting from plank, do a push-up, jump your legs forward, then jump with high knees, and return to plank position.',
       category: CATEGORY.cardio,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -232,7 +226,6 @@ function initExercises() {
       description:
         'With arms in the air, alternate one knee up to your waist as you crunch down with your arms.',
       category: CATEGORY.cardio,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -292,7 +285,6 @@ function initExercises() {
       name: 'Straight Lunges',
       description: 'Standing or walking straight lunges.',
       category: CATEGORY.misc,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -314,7 +306,6 @@ function initExercises() {
       name: 'Side Lunges',
       description: 'Standing alternating side lunges.',
       category: CATEGORY.misc,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -326,7 +317,6 @@ function initExercises() {
       description:
         'Spend a few minutes stretching muscles you have or plan to use.',
       category: CATEGORY.misc,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasDuration: true,
       }),
@@ -452,7 +442,6 @@ function initExercises() {
       description:
         'Place hands next to eachother under chest while in plank position and push up.',
       category: CATEGORY.chest,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,
@@ -467,7 +456,6 @@ function initExercises() {
       description:
         'Place hands under shoulders while in plank position and push up keeping the elbows next to your body.',
       category: CATEGORY.chest,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,
@@ -482,7 +470,6 @@ function initExercises() {
       description:
         'Place hands slightly outside of shoulders while in plank position and push up.',
       category: CATEGORY.chest,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,
@@ -497,7 +484,6 @@ function initExercises() {
       description:
         'Place hands wide outside of shoulders while in plank position and push up.',
       category: CATEGORY.chest,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,
@@ -512,7 +498,6 @@ function initExercises() {
       description:
         'Push up and down with the arms while in downward dog position.',
       category: CATEGORY.chest,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,
@@ -740,7 +725,6 @@ function initExercises() {
       description:
         'Hold body up by arms on an elavated surface and lower yourself down and back up.',
       category: CATEGORY.triceps,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,
@@ -1035,7 +1019,6 @@ function initExercises() {
       name: 'Air Squats',
       description: 'Quick air squats.',
       category: CATEGORY.legs,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,
@@ -1149,7 +1132,6 @@ function initExercises() {
       name: 'Plank',
       description: 'Standard plank position.',
       category: CATEGORY.core,
-      equipment: null,
       inputs: new ExerciseInputs({ hasDuration: true }),
       // hints: [new ExerciseInput({ name: INPUT.duration, hints: '1+' })],
     }),
@@ -1174,7 +1156,6 @@ function initExercises() {
       name: 'Abdominal Crunch',
       description: 'Standard ab crunch while laying down.',
       category: CATEGORY.core,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasReps: true,
         hasDuration: true,
@@ -1220,7 +1201,6 @@ function initExercises() {
       description:
         'Sit with feet off the ground while you twist and tap the ground on each side of you.',
       category: CATEGORY.core,
-      equipment: null,
       inputs: new ExerciseInputs({
         hasSets: true,
         hasReps: true,

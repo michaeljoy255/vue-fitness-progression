@@ -9,7 +9,7 @@ export default class Exercise extends _Activity {
     description,
     previousRecordId,
     category = CATEGORY.misc,
-    equipment = null,
+    equipment = '',
     inputs = new ExerciseInputs(),
   } = {}) {
     super({ id, name, description, previousRecordId })
