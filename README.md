@@ -6,8 +6,6 @@
 
 ## Core Tasks for MVP
 
-1. Remove last record from sets if you remove the set
-
 1. Save Active Records to History Records when you finish workout
 
    - May have to change current hint code
@@ -19,6 +17,7 @@
 
 ## Additional Tasks
 
+- Setup GitHub Actions for CI
 - Use try..catch at component level to provide useful errors for users
 - Use Luxon for dates and times
 - Add custom Error classes
