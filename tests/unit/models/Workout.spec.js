@@ -8,16 +8,17 @@ describe('Workout.js', () => {
       expect(typeof obj.id).toBe('string')
       expect(obj.name).toEqual('')
       expect(obj.description).toEqual('')
-      expect(obj.previousRecordId).toBeNull()
+      expect(obj.previousRecord).toBeNull()
       expect(obj.exerciseIds).toEqual([])
     })
 
     it('creates object with correct values', () => {
+      class MockPreviousRecord {}
       const values = {
         id: 'ABC123',
         name: 'Test Name',
         description: 'Test description text.',
-        previousRecordId: 'XYZ123',
+        previousRecord: new MockPreviousRecord(),
         exerciseIds: ['QWE123', 'MNB123'],
       }
       const obj = new Workout(values)

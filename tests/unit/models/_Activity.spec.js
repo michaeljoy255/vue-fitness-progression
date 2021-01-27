@@ -8,15 +8,16 @@ describe('_Activity.js', () => {
       expect(typeof obj.id).toBe('string')
       expect(obj.name).toEqual('')
       expect(obj.description).toEqual('')
-      expect(obj.previousRecordId).toBeNull()
+      expect(obj.previousRecord).toBeNull()
     })
 
     it('creates object with correct values', () => {
+      class MockPreviousRecord {}
       const values = {
         id: 'ABC123',
         name: 'Test Name',
         description: 'Test description text.',
-        previousRecordId: 'XYZ123',
+        previousRecord: new MockPreviousRecord(),
       }
       const obj = new _Activity(values)
       expect(obj).toBeInstanceOf(_Activity)

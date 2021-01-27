@@ -5,10 +5,10 @@ export default class Workout extends _Activity {
     id,
     name,
     description,
-    previousRecordId,
+    previousRecord,
     exerciseIds = [],
   } = {}) {
-    super({ id, name, description, previousRecordId })
+    super({ id, name, description, previousRecord })
     this.exerciseIds = exerciseIds
   }
 }

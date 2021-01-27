@@ -6,14 +6,11 @@
 
 ## Core Tasks for MVP
 
-1. Save Active Records to History Records when you finish workout
-
-   - May have to change current hint code
-   - Including previousRecordId
-
-1. Load hints with History Records found with previousRecordId
+1. Load set hints from previousRecord on exercises
 
 1. Display date you last did a workout on Dashboard
+
+   - Uses previousRecord from workouts
 
 ## Additional Tasks
 

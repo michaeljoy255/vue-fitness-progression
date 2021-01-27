@@ -1,5 +1,9 @@
 import { entityMutations } from '../utils/store/mutations.js'
-import { databaseActions, entityActions } from '../utils/store/actions.js'
+import {
+  databaseActions,
+  entityActions,
+  activityActions,
+} from '../utils/store/actions.js'
 import { entityGetters } from '../utils/store/getters.js'
 import { ENTITY } from '../constants/globals.js'
 
@@ -14,6 +18,7 @@ export const mutations = {
 export const actions = {
   ...databaseActions(defaultState(), entity),
   ...entityActions(entity),
+  ...activityActions(entity),
 }
 export const getters = {
   ...entityGetters(entity),

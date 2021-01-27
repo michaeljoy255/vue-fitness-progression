@@ -35,8 +35,6 @@ export const combinedStoreActions = () => {
         dispatch(`${ENTITY.workoutRecords}/clearDatabase`),
         dispatch(`${ENTITY.activeExerciseRecords}/clearDatabase`),
         dispatch(`${ENTITY.activeWorkoutRecords}/clearDatabase`),
-      ])
-      await Promise.all([
         dispatch(`${ENTITY.exercises}/clearState`),
         dispatch(`${ENTITY.workouts}/clearState`),
         dispatch(`${ENTITY.exerciseRecords}/clearState`),
@@ -81,22 +79,37 @@ export const combinedStoreActions = () => {
       await Promise.all([
         dispatch(`${ENTITY.activeExerciseRecords}/clearDatabase`),
         dispatch(`${ENTITY.activeWorkoutRecords}/clearDatabase`),
-      ])
-      await Promise.all([
         dispatch(`${ENTITY.activeExerciseRecords}/clearState`),
         dispatch(`${ENTITY.activeWorkoutRecords}/clearState`),
       ])
     },
-    /**
-     * @todo Saving workout data
-     */
     async finishWorkout({ dispatch, getters }) {
       const activeExerciseRecords = getters['activeExerciseRecords/getState']
       const activeWorkoutRecords = getters['activeWorkoutRecords/getState']
 
-      /**
-       * @todo need to set the workout duration before this
-       */
+      // Update exercises previous records
+      for (const record of activeExerciseRecords) {
+        const payload = {
+          recordId: record.exerciseId,
+          recordData: record,
+        }
+        await dispatch(
+          `${ENTITY.exercises}/updatePreviousRecordForState`,
+          payload
+        )
+      }
+      // Update workouts previous records
+      for (const record of activeWorkoutRecords) {
+        const payload = {
+          recordId: record.workoutId,
+          recordData: record,
+        }
+        await dispatch(
+          `${ENTITY.workouts}/updatePreviousRecordForState`,
+          payload
+        )
+      }
+
       await Promise.all([
         dispatch(
           `${ENTITY.exerciseRecords}/insertPayloadToState`,
@@ -108,14 +121,14 @@ export const combinedStoreActions = () => {
         ),
       ])
       await Promise.all([
+        dispatch(`${ENTITY.exercises}/saveStateToDatabase`),
+        dispatch(`${ENTITY.workouts}/saveStateToDatabase`),
         dispatch(`${ENTITY.exerciseRecords}/saveStateToDatabase`),
         dispatch(`${ENTITY.workoutRecords}/saveStateToDatabase`),
       ])
       await Promise.all([
         dispatch(`${ENTITY.activeExerciseRecords}/clearDatabase`),
         dispatch(`${ENTITY.activeWorkoutRecords}/clearDatabase`),
-      ])
-      await Promise.all([
         dispatch(`${ENTITY.activeExerciseRecords}/clearState`),
         dispatch(`${ENTITY.activeWorkoutRecords}/clearState`),
       ])
@@ -190,6 +203,25 @@ function createDefaultsForEntity(entity) {
       return createDefaultWorkouts()
     default:
       return null
+  }
+}
+
+/**
+ * Activity Actions (Exercises and Workouts)
+ */
+export const activityActions = (entity) => {
+  return {
+    async updatePreviousRecordForState({ state, commit }, payload) {
+      const { recordId, recordData } = payload
+
+      const stateData = state[entity]
+      const index = state[entity].findIndex((i) => i.id === recordId)
+
+      if (index !== -1) {
+        stateData[index].previousRecord = recordData
+        commit('SET', stateData)
+      }
+    },
   }
 }
 

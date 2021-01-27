@@ -7,12 +7,12 @@ export default class Exercise extends _Activity {
     id,
     name,
     description,
-    previousRecordId,
+    previousRecord,
     category = CATEGORY.misc,
     equipment = '',
     inputs = new ExerciseInputs(),
   } = {}) {
-    super({ id, name, description, previousRecordId })
+    super({ id, name, description, previousRecord })
     this.category = category
     this.equipment = equipment
     this.inputs = inputs
