@@ -67,6 +67,15 @@ export const combinedStoreGetters = () => {
       if (createdAt) return createdAt
       return null
     },
+
+    getExerciseById: (_, getters) => (exerciseId) => {
+      const exercises = getters[`${ENTITY.exercises}/getState`]
+
+      const index = exercises.findIndex((i) => i.id === exerciseId)
+
+      if (index !== -1) return exercises[index]
+      return null
+    },
   }
 }
 

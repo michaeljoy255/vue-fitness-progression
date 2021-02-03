@@ -21,6 +21,7 @@ export default {
       reps: null,
       duration: null,
       distance: null,
+      previousExerciseRecord: null,
     }
   },
 
@@ -30,23 +31,26 @@ export default {
     this.reps = setData ? setData.reps : null
     this.duration = setData ? setData.duration : null
     this.distance = setData ? setData.distance : null
+    this.previousExerciseRecord = this.$store.getters['getExerciseById'](
+      this.exerciseRecord.exerciseId
+    ).previousRecord
   },
 
   computed: {
     weightHint() {
-      return 'none'
+      return this.previousExerciseRecord?.sets[this.set]?.weight
     },
 
     repsHint() {
-      return 'none'
+      return this.previousExerciseRecord?.sets[this.set]?.reps
     },
 
     durationHint() {
-      return 'none'
+      return this.previousExerciseRecord?.sets[this.set]?.duration
     },
 
     distanceHint() {
-      return 'none'
+      return this.previousExerciseRecord?.sets[this.set]?.distance
     },
   },
 

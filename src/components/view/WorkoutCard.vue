@@ -15,6 +15,13 @@ export default {
       if (workoutName) return workoutName
       return null
     },
+
+    previousCreatedAtDate() {
+      if (this.workout?.previousRecord?.createdAt) {
+        return new Date(this.workout.previousRecord.createdAt).toDateString()
+      }
+      return null
+    },
   },
 
   methods: {
@@ -48,9 +55,7 @@ export default {
     <v-card>
       <v-card-title>{{ workoutName }}</v-card-title>
 
-      <!-- <v-card-subtitle>
-        Previous record createdAt goes here...
-      </v-card-subtitle> -->
+      <v-card-subtitle>{{ previousCreatedAtDate }}</v-card-subtitle>
 
       <v-card-actions>
         <v-container>

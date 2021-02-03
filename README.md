@@ -6,14 +6,11 @@
 
 ## Core Tasks for MVP
 
-1. Load set hints from previousRecord on exercises
-
-1. Display date you last did a workout on Dashboard
-
-   - Uses previousRecord from workouts
+- MVP completed!
 
 ## Additional Tasks
 
+- Address setLimit assignment issue (redesign how it's done?)
 - Setup GitHub Actions for CI
 - Use try..catch at component level to provide useful errors for users
 - Use Luxon for dates and times
