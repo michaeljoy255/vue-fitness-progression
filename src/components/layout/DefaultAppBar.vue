@@ -10,7 +10,7 @@ export default {
 
 <template>
   <v-app-bar app dark color="secondary">
-    <v-toolbar-title>fitLP</v-toolbar-title>
+    <v-toolbar-title>Fitness LP</v-toolbar-title>
 
     <v-spacer />
 
