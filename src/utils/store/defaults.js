@@ -27,6 +27,24 @@ function getExerciseIdByNameAndEquipment(name, equipment) {
 function initWorkouts() {
   defaultWorkouts = [
     new Workout({
+      name: 'StrongLifts 5x5 - Alpha',
+      description: 'The StrongLifts 5x5 "A" workout.',
+      exerciseIds: [
+        getExerciseIdByNameAndEquipment('Squats', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment('Bench Press', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment('Bent Over Rows', EQUIPMENT.barbell),
+      ],
+    }),
+    new Workout({
+      name: 'StrongLifts 5x5 - Beta',
+      description: 'The StrongLifts 5x5 "B" workout.',
+      exerciseIds: [
+        getExerciseIdByNameAndEquipment('Squats', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment('Overhead Press', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment('Deadlift', EQUIPMENT.barbell),
+      ],
+    }),
+    new Workout({
       name: 'Chest #1',
       description: 'Chest focused workout version #1.',
       exerciseIds: [
