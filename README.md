@@ -1,6 +1,6 @@
 # vue-fitness-progression
 
-<https://michaeljoy255.github.io/vue-fitness-progression/>
+<https://michael-255.github.io/vue-fitness-progression/>
 
 ---
 
