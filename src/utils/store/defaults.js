@@ -33,6 +33,7 @@ function initWorkouts() {
         getExerciseIdByNameAndEquipment('Squats', EQUIPMENT.barbell),
         getExerciseIdByNameAndEquipment('Bench Press', EQUIPMENT.barbell),
         getExerciseIdByNameAndEquipment('Bent Over Rows', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment('Dips', ''),
       ],
     }),
     new Workout({
@@ -42,6 +43,10 @@ function initWorkouts() {
         getExerciseIdByNameAndEquipment('Squats', EQUIPMENT.barbell),
         getExerciseIdByNameAndEquipment('Overhead Press', EQUIPMENT.barbell),
         getExerciseIdByNameAndEquipment('Deadlift', EQUIPMENT.barbell),
+        getExerciseIdByNameAndEquipment(
+          'Standard Pull-ups',
+          EQUIPMENT.pullupBar
+        ),
       ],
     }),
     new Workout({
@@ -868,6 +873,22 @@ function initExercises() {
       // hints: [
       //   new ExerciseInput({ name: INPUT.sets, hints: '3-5' }),
       //   new ExerciseInput({ name: INPUT.weight, hints: '30+' }),
+      //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
+      // ],
+    }),
+    new Exercise({
+      name: 'Standard Pull-ups',
+      description: 'Shoulder width overhand grip. Get your chin above the bar.',
+      category: CATEGORY.back,
+      equipment: EQUIPMENT.pullupBar,
+      inputs: new ExerciseInputs({
+        hasSets: true,
+        hasWeight: true,
+        hasReps: true,
+      }),
+      // hints: [
+      //   new ExerciseInput({ name: INPUT.sets, hints: '1-3' }),
+      //   new ExerciseInput({ name: INPUT.weight, hints: '0' }),
       //   new ExerciseInput({ name: INPUT.reps, hint: '8-12' }),
       // ],
     }),
